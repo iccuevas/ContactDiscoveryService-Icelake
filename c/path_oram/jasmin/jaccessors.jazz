@@ -1,0 +1,33 @@
+require "accessors.jinc"
+
+export
+fn robinhood_accessor_jazz(
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
+  reg u64 vargs
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  #msf reg u64 msf;
+  block_data = block_data;
+  vargs = vargs;
+
+  msf = #init_msf();
+
+  block_data, msf = _i_robinhood_accessor(block_data, vargs, msf);
+  return block_data;
+}
+
+export
+fn get_record_accessor_jazz(
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
+  reg u64 vargs
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  #msf reg u64 msf;
+  block_data = block_data;
+  vargs = vargs;
+
+  msf = #init_msf();
+
+  block_data, msf = _i_get_record_accessor(block_data, vargs, msf);
+  return block_data;
+}

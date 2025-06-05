@@ -1,0 +1,565 @@
+require "params.jinc"
+require "util.jinc"
+
+inline
+fn record_empty(reg u64 record) -> reg u8
+{
+  reg u64 e;
+  reg u8 cond;
+  reg bool b;
+  e = (64u)[record + 0];
+  b = e == -1;
+  cond = #SETcc(b);
+  return cond;
+}
+
+inline
+fn _i_record_empty(reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data, reg u64 record)
+-> reg u8, reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  reg u64 e;
+  reg u8 cond;
+  reg bool b;
+  e = block_data[u64 record];
+  b = e == -1;
+  cond = #SETcc(b);
+  return cond, block_data;
+}
+
+inline
+fn record_empty_or_matches(reg u64 record key) -> reg u8
+{
+  reg u64 e;
+  reg u8 c0 c1;
+  reg bool b;
+  e = (64u)[record + 0];
+  b = e == -1;
+  c0 = #SETcc(b);
+  b = e == key;
+  c1 = #SETcc(b);
+  c0 |= c1;
+  return c0;
+}
+
+inline
+fn _i_record_empty_or_matches(reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data, reg u64 record key)
+-> reg u8, reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  reg u64 e;
+  reg u8 c0 c1;
+  reg bool b;
+  e = block_data[u64 record];
+  b = e == -1;
+  c0 = #SETcc(b);
+  b = e == key;
+  c1 = #SETcc(b);
+  c0 |= c1;
+  return c0, block_data;
+}
+
+inline
+fn cond_copy_record(reg u8 cond, reg u64 dest src record_size_qwords)
+{
+  reg u64 i;
+  i = 0;
+  while (i < record_size_qwords)
+  {
+    _cond_obv_cpy_u64(cond, dest, src);
+    dest = #LEA(dest + 8);
+    src = #LEA(src + 8);
+    i = #LEA(i + 1);
+  }
+}
+
+inline
+fn _i_cond_copy_record(
+  reg u8 cond,
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] dest,
+  reg u64 idx,
+  reg u64 src,
+  reg u64 record_size_qwords,
+  #msf reg u64 msf
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS], #msf reg u64
+{
+  reg u64 i j va tmp;
+  #mmx reg u64 msf_s;
+  reg bool b;
+
+  i = #set0(); idx = idx;
+  while { b = i < record_size_qwords; } (b) {
+    msf = #update_msf(b, msf);
+    msf_s = #mov_msf(msf);
+    va = (64u)[src];
+    j = #LEA(i + idx);
+    () = #spill(i, idx);
+    tmp = _ternary(cond, va, dest[u64 j]);
+    dest[u64 j] = tmp;
+    src = #LEA(src + 8);
+    () = #unspill(i, idx);
+    i = #protect(i, msf);
+    idx = #protect(idx, msf);
+    i = #LEA(i + 1);
+    msf = #mov_msf(msf_s);
+  }
+  msf = #update_msf(!b, msf);
+  return dest, msf;
+}
+
+inline
+fn _i_cond_copy_record_tomem(
+  reg u8 cond,
+  reg u64 dest,
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] src,
+  reg u64 idx,
+  reg u64 record_size_qwords,
+  #msf reg u64 msf
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS], #msf reg u64
+{
+  reg u64 i j va tmp;
+  #mmx reg u64 msf_s;
+  reg bool b;
+
+  i = #set0(); idx = idx;
+  while { b = i < record_size_qwords; } (b) {
+    msf = #update_msf(b, msf);
+    msf_s = #mov_msf(msf);
+    va = (64u)[dest];
+    j = #LEA(i + idx);
+    () = #spill(i, idx);
+    tmp = _ternary(cond, src[u64 j], va);
+    (u64)[dest] = tmp;
+    dest = #LEA(dest + 8);
+    () = #unspill(i, idx);
+    i = #protect(i, msf);
+    idx = #protect(idx, msf);
+    i = #LEA(i + 1);
+    msf = #mov_msf(msf_s);
+  }
+  msf = #update_msf(!b, msf);
+  return src, msf;
+}
+
+inline
+fn cond_swap_record(reg u8 cond, reg u64 a b record_size_qwords)
+{
+  reg u64 i;
+  i = 0;
+  while (i < record_size_qwords)
+  {
+    _cond_obv_swap_u64(cond, a, b);
+    a = #LEA(a + 8);
+    b = #LEA(b + 8);
+    i = #LEA(i + 1);
+  }
+}
+
+inline
+fn _i_cond_swap_record(
+  reg u8 cond,
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] a,
+  reg u64 idx,
+  reg u64 b,
+  reg u64 record_size_qwords,
+  #msf reg u64 msf
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS], #msf reg u64
+{
+  reg u64 i j tmp rb;
+  reg bool while_cond;
+  i = 0;
+  while { while_cond = i < record_size_qwords; } (while_cond) {
+    msf = #update_msf(while_cond, msf);
+    rb = (64u)[b];
+    j = #LEA(idx + i);
+    () = #spill(i, idx);
+    tmp = _ternary(cond, a[u64 j], rb);
+    (u64)[b] = tmp;
+    a[u64 j] = _ternary(cond, rb, a[u64 j]);
+    b = #LEA(b + 8);
+    () = #unspill(i, idx);
+    i = #protect(i, msf);
+    idx = #protect(idx, msf);
+    i = #LEA(i + 1);
+  }
+  msf = #update_msf(!while_cond, msf);
+  return a, msf;
+}
+
+/*
+typedef struct {
+  size_t record_size_qwords;
+  size_t start_index;
+
+  // set to true when all insertion, including swapped records, is complete
+  bool insert_complete;
+
+  // record that needs to be inserted. This may not be the record that was originally upserted.
+  // That record might have been swapped for another to produce a better placement.
+  u64* in_record;
+
+  // The jump from the hash of `in_record` to the slot currently being considered
+  size_t curr_jump;
+  // the hash (modulo table capacity) of `in_record` - the record that currently needs to be inserted
+  u64 curr_record_hash;
+  // the hash (modulo table capacity) that would place an item in the slot currently being considered
+  u64 curr_slot_hash;
+  // number of steps taken so far in this upsert
+  size_t trace;
+  // true if the originally upserted item was not present, i.e. it was an insert, not an update.
+  bool inserted_new_item;   
+  // The maximum offset from hash value for all items stored (including swaps) in this access.
+  size_t max_offset;
+  
+  size_t ohtable_capacity;
+
+  // constant-time mod precomputations
+  u64 capacity_ct_m_prime;
+  size_t capacity_ct_shift1;
+  size_t capacity_ct_shift2;
+} robinhood_accessor_args;
+*/
+
+param int RECORD_SIZE_QWORDS = 0;
+param int START_INDEX = 1;
+param int INSERT_COMPLETE = 2;
+param int IN_RECORD = 3;
+param int CURR_JUMP = 4;
+param int CURR_RECORD_HASH = 5;
+param int CURR_SLOT_HASH = 6;
+param int TRACE = 7;
+param int INSERTED_NEW_ITEM = 8;
+param int MAX_OFFSET = 9;
+param int OHTABLE_CAPACITY = 10;
+param int CAPACITY_CT_M_PRIME = 11;
+param int CAPACITY_CT_SHIFT1 = 12;
+param int CAPACITY_CT_SHIFT2 = 13;
+
+param int FNV_OFFSET_BASIS = 14695981039346656037;
+param int FNV_PRIME = 1099511628211;
+
+inline
+fn fnv1a64(reg u64 size data) -> reg u64
+{
+  reg u64 hash byte;
+  reg u64 i;
+
+  hash = FNV_OFFSET_BASIS;
+
+  i = 0;
+  while (i < size) {
+    byte = [data + 8 * i];
+    hash ^= byte;
+    hash *= FNV_PRIME;
+    i = #LEA(i + 1);
+  }
+  return hash;
+}
+
+// fnv1a64(8, (uint8_t *)&key);
+inline
+fn raw_hash(reg u64 key) -> reg u64
+{
+  reg u64 hash byte;
+  inline int i;
+
+  hash = FNV_OFFSET_BASIS;
+
+  for i = 0 to 8 {
+    byte = (64u)(u8)[key + i];
+    hash ^= byte;
+    hash *= FNV_PRIME;
+  }
+  return hash;
+}
+
+inline
+fn _i_raw_hash(reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data, reg u64 key)
+-> reg u64, reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  reg u64 hash byte;
+  inline int i;
+
+  hash = FNV_OFFSET_BASIS;
+
+  for i = 0 to 8 {
+    byte = (64u)block_data[u8 8 * key + i];
+    hash ^= byte;
+    hash *= FNV_PRIME;
+  }
+  return hash, block_data;
+}
+
+inline
+fn ohtable_distance_to_hash(
+  reg u64 ohtable_capacity hash target_hash
+) -> reg u64
+{
+  reg u64 c0 c1;
+  reg bool b;
+  c0 = target_hash;
+  c0 -= hash;
+  c1 = #LEA(c0 + ohtable_capacity);
+  b = target_hash < hash;
+  c0 = #CMOVcc(b, c1, c0);
+  return c0;
+}
+
+inline
+fn _i_robinhood_accessor(
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
+  reg u64 vargs,
+  #msf reg u64 msf
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS], #msf reg u64
+{
+  // standard variables
+  reg u64 records_per_block candidate_hash;
+  // auxiliar variables
+  reg u64 i tmp;
+  // pointer variables
+  reg u64 record candidate_record;
+  // boolean variables
+  reg u8 inserted search_started should_store jump_smaller
+         should_swap insert_complete cond;
+  reg bool b while_cond;
+
+  vargs = vargs;
+  () = #spill(block_data);
+  reg u64 record_size_qwords;
+  #declassify record_size_qwords = (64u)[vargs + 8 * RECORD_SIZE_QWORDS];
+  record_size_qwords = #protect(record_size_qwords, msf);
+  tmp = BLOCK_DATA_SIZE_QWORDS;
+  records_per_block = tmp / record_size_qwords;
+  inserted = #set0_8();
+  () = #spill(inserted);
+  i = #set0();
+  while { while_cond = i < records_per_block; } (while_cond) {
+    msf = #update_msf(while_cond, msf);
+    () = #spill(records_per_block);
+    #declassify record = (64u)[vargs + 8 * IN_RECORD];
+    record = #protect(record, msf);
+    reg u64 key;
+    key = (64u)[record + 0];
+    () = #spill(record);
+    candidate_record = i;
+    candidate_record *= record_size_qwords;
+    () = #spill(record_size_qwords, i, candidate_record);
+
+    tmp = (64u)[vargs + 8 * START_INDEX];
+    b = i >= tmp;
+    search_started = #SETcc(b);
+    () = #spill(search_started);
+    () = #unspill(block_data, candidate_record);
+    block_data = #protect_ptr(block_data, msf);
+    should_store, block_data = _i_record_empty_or_matches(block_data, candidate_record, key);
+    () = #spill(block_data);
+    () = #unspill(search_started);
+    should_store &= search_started;
+    tmp = (64u)[vargs + 8 * INSERT_COMPLETE];
+    insert_complete = (8u)tmp;
+    cond = insert_complete;
+    () = #spill(insert_complete);
+    cond = !cond;
+    should_store &= cond;
+    () = #spill(should_store);
+
+    reg u64 rh;
+    () = #unspill(block_data, candidate_record);
+    rh, block_data = _i_raw_hash(block_data, candidate_record);
+    () = #spill(block_data);
+    reg u64 oh_cap m_prime shift1 shift2;
+    oh_cap = (64u)[vargs + 8 * OHTABLE_CAPACITY];
+    m_prime = (64u)[vargs + 8 * CAPACITY_CT_M_PRIME];
+    shift1 = (64u)[vargs + 8 * CAPACITY_CT_SHIFT1];
+    shift2 = (64u)[vargs + 8 * CAPACITY_CT_SHIFT2];
+    candidate_hash = _ct_mod(rh, oh_cap, m_prime, shift1, shift2);
+
+    reg u64 clh;
+    clh = (64u)[vargs + 8 * CURR_SLOT_HASH];
+    reg u64 candidate_jump;
+    candidate_jump = ohtable_distance_to_hash(oh_cap, candidate_hash, clh);
+    () = #spill(candidate_jump);
+
+    // to decide if we swap we see which has the smaller jump. If it's a tie, we break it by looking at
+    // the full hash. (Candidate_hash and curr_record_hash are taken modulo the table capacity)
+    reg u64 curr_jump;
+    curr_jump = (64u)[vargs + 8 * CURR_JUMP];
+    () = #unspill(candidate_jump);
+    b = candidate_jump == curr_jump;
+    jump_smaller = #SETcc(b);
+    reg u64 rh0 rh1;
+    () = #unspill(block_data, candidate_record);
+    rh0, block_data = _i_raw_hash(block_data, candidate_record);
+    () = #spill(block_data);
+    () = #unspill(record);
+    record = #protect(record, msf);
+    rh1 = raw_hash(record);
+    () = #spill(record);
+    b = rh0 < rh1;
+    cond = #SETcc(b);
+    jump_smaller &= cond;
+    () = #unspill(candidate_jump);
+    b = candidate_jump < curr_jump;
+    cond = #SETcc(b);
+    jump_smaller |= cond;
+    
+    () = #unspill(should_store);
+    should_swap = should_store;
+    should_swap = !should_swap;
+    () = #unspill(insert_complete);
+    cond = insert_complete;
+    cond = !cond;
+    should_swap &= cond;
+    () = #unspill(search_started);
+    should_swap &= search_started;
+    should_swap &= jump_smaller;
+    () = #spill(should_swap);
+    
+    reg u8 inserted_new_item;
+    tmp = (64u)[vargs + 8 * INSERTED_NEW_ITEM];
+    inserted_new_item = (8u)tmp;
+    reg u8 record_empty;
+    () = #unspill(block_data, candidate_record);
+    block_data = #protect_ptr(block_data, msf);
+    record_empty, block_data = _i_record_empty(block_data, candidate_record);
+    () = #spill(block_data);
+    () = #unspill(should_store);
+    record_empty &= should_store;
+    () = #unspill(should_swap);
+    record_empty |= should_swap;
+    () = #unspill(inserted);
+    cond = inserted;
+    cond = !cond;
+    record_empty &= cond;
+    inserted_new_item |= record_empty;
+    tmp = (64u)inserted_new_item;
+    (u64)[vargs + 8 * INSERTED_NEW_ITEM] = tmp;
+    () = #spill(vargs);
+
+    reg u64 r;
+    () = #unspill(record);
+    record = #protect(record, msf);
+    r = record;
+    () = #spill(record);
+    () = #unspill(block_data, candidate_record, record_size_qwords, should_store);
+    block_data = #protect_ptr(block_data, msf);
+    candidate_record = #protect(candidate_record, msf);
+    record_size_qwords = #protect(record_size_qwords, msf);
+    block_data, msf = _i_cond_copy_record(should_store, block_data, candidate_record, r, record_size_qwords, msf);
+    () = #unspill(record);
+    record = #protect(record, msf);
+    r = record;
+    () = #unspill(should_swap);
+    block_data, msf = _i_cond_swap_record(should_swap, block_data, candidate_record, r, record_size_qwords, msf);
+    () = #spill(record_size_qwords, block_data);
+
+    () = #unspill(inserted, should_store);
+    inserted |= should_store;
+    inserted |= should_swap;
+    () = #spill(inserted);
+    () = #unspill(insert_complete);
+    insert_complete |= should_store;
+    tmp = (64u)insert_complete;
+    () = #unspill(vargs);
+    vargs = #protect(vargs, msf);
+    (u64)[vargs + 8 * INSERT_COMPLETE] = tmp;
+
+    reg u64 mo;
+    mo = (64u)[vargs + 8 * MAX_OFFSET];
+    b = curr_jump > mo;
+    cond = #SETcc(b);
+    cond &= should_store;
+    cond |= should_swap;
+    (u64)[vargs + 8 * MAX_OFFSET] = _ternary(cond, curr_jump, mo);
+
+    reg u64 crh;
+    crh = (64u)[vargs + 8 * CURR_RECORD_HASH];
+    (u64)[vargs + 8 * CURR_RECORD_HASH] = _ternary(should_swap, candidate_hash, crh);
+    () = #unspill(candidate_jump);
+    (u64)[vargs + 8 * CURR_JUMP] = _ternary(should_swap, candidate_jump, curr_jump);
+
+    () = #unspill(search_started);
+    tmp = (64u)search_started;
+    (u64)[vargs + 8 * CURR_SLOT_HASH] += tmp;
+    reg u64 inc;
+    inc = (64u)insert_complete;
+    inc = !inc;
+    () = #unspill(search_started);
+    tmp = (64u)search_started;
+    inc &= tmp;
+    (u64)[vargs + 8 * TRACE] += inc;
+    (u64)[vargs + 8 * CURR_JUMP] += inc;
+
+    () = #unspill(records_per_block, i);
+    i = #protect(i, msf);
+    records_per_block = #protect(records_per_block, msf);
+    i = #LEA(i + 1);
+  }
+  msf = #update_msf(!while_cond, msf);
+  return block_data, msf;
+}
+
+/*
+typedef struct {
+  size_t record_size_qwords;
+  size_t start_index;
+  bool search_complete;
+  u64* out_record;
+  u64 key;
+} get_record_accessor_args;
+*/
+
+// param int RECORD_SIZE_QWORDS = 0;
+// param int START_INDEX = 1;
+param int SEARCH_COMPLETE = 2;
+param int OUT_RECORD = 3;
+param int KEY = 4;
+
+inline
+fn _i_get_record_accessor(
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
+  reg u64 vargs,
+  #msf reg u64 msf
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS], #msf reg u64
+{
+  reg u64 records_per_block record_size_qwords;
+  reg u64 i candidate_record key out_record start_index;
+  reg u64 tmp search_complete;
+  reg u8 search_started should_copy cond;
+  reg bool while_cond b;
+  
+  vargs = vargs;
+  tmp = BLOCK_DATA_SIZE_QWORDS;
+  #declassify record_size_qwords = (64u)[vargs + 8 * RECORD_SIZE_QWORDS];
+  record_size_qwords = #protect(record_size_qwords, msf);
+  records_per_block = tmp / record_size_qwords;
+
+  i = #set0();
+  while { while_cond = i < records_per_block; } (while_cond) {
+    msf = #update_msf(while_cond, msf);
+    candidate_record = record_size_qwords;
+    candidate_record *= i;
+
+    start_index = (64u)[vargs + 8 * START_INDEX];
+    b = i >= start_index;
+    search_started = #SETcc(b);
+
+    key = (64u)[vargs + 8 * KEY];
+    should_copy, block_data = _i_record_empty_or_matches(block_data, candidate_record, key);
+    should_copy &= search_started;
+    search_complete = (64u)[vargs + 8 * SEARCH_COMPLETE];
+    cond = (8u)search_complete;
+    cond = !cond;
+    should_copy &= cond;
+
+    #declassify out_record = (64u)[vargs + 8 * OUT_RECORD];
+    out_record = #protect(out_record, msf);
+    block_data, msf = _i_cond_copy_record_tomem(should_copy, out_record, block_data, candidate_record, record_size_qwords, msf);
+
+    tmp = (64u)should_copy;
+    (u64)[vargs + 8 * SEARCH_COMPLETE] |= tmp;
+
+    i = #LEA(i + 1);
+  }
+  msf = #update_msf(!while_cond, msf);
+
+  return block_data, msf;
+}

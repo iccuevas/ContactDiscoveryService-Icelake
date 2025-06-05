@@ -1,0 +1,69 @@
+require "path_oram.jinc"
+
+export
+fn oram_get_jazz(
+  reg u64 oram,
+  #secret reg u64 block_id,
+  reg u64 out_data
+) -> reg u32
+{
+  #msf reg u64 msf;
+  reg u32 abort;
+  oram = oram;
+  block_id = block_id;
+  out_data = out_data;
+  msf = #init_msf();
+  abort = _oram_access_read(oram, block_id, out_data, msf);
+  return abort;
+}
+
+export
+fn oram_put_jazz(
+  reg u64 oram,
+  #secret reg u64 block_id,
+  reg u64 in_data
+) -> reg u32
+{
+  #msf reg u64 msf;
+  reg u32 abort;
+  oram = oram;
+  block_id = block_id;
+  in_data = in_data;
+  msf = #init_msf();
+  abort = _oram_access_write(oram, block_id, in_data, msf);
+  return abort;
+}
+
+export
+fn oram_function_access_get_jazz(
+  reg u64 oram,
+  #secret reg u64 block_id,
+  reg u64 vargs
+) -> reg u32
+{
+  #msf reg u64 msf;
+  reg u32 abort;
+  oram = oram;
+  block_id = block_id;
+  vargs = vargs;
+  msf = #init_msf();
+  abort = _oram_function_access_get(oram, block_id, vargs, msf);
+  return abort;
+}
+
+export
+fn oram_function_access_put_jazz(
+  reg u64 oram,
+  #secret reg u64 block_id,
+  reg u64 vargs
+) -> reg u32
+{
+  #msf reg u64 msf;
+  reg u32 abort;
+  oram = oram;
+  block_id = block_id;
+  vargs = vargs;
+  msf = #init_msf();
+  abort = _oram_function_access_put(oram, block_id, vargs, msf);
+  return abort;
+}
