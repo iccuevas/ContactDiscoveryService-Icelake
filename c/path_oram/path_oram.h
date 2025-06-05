@@ -141,6 +141,8 @@ size_t oram_max_stash_size(const oram* oram);
  */
 size_t oram_size_bytes(size_t num_levels, size_t num_blocks, size_t stash_overflow_size);
 
+extern error_t oram_put_jazz(oram *, u64 block_id, const u64 data[]);
+
 #ifdef IS_TEST
 
 /**
@@ -162,6 +164,8 @@ error_t oram_get(oram *, u64 block_id, u64 buf[]);
  * @return 0 if successful
  */
 error_t oram_get_partial(oram *oram, u64 block_id, size_t start, size_t len, u64 data[len]);
+
+extern error_t oram_get_jazz(oram *, u64 block_id, u64 buf[]);
 
 void print_oram(const oram *oram);
 void report_level_stats(oram *oram);
