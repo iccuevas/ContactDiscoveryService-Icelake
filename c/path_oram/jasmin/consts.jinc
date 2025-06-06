@@ -21,3 +21,7 @@ param int BASE_BLOCK_ID_ADDR = 2;
 param int EPB_CT_M_P_ADDR = 5;
 param int EPB_CT_SH1_ADDR = 6;
 param int EPB_CT_SH2_ADDR = 7;
+
+// error
+param int err_SUCCESS = 0;
+param int err_ORAM__STASH_EXHAUSTION = 806;

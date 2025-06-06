@@ -102,27 +102,6 @@ const block* stash_path_blocks(const stash* stash) {
     return stash->path_blocks;
 }
 
-static void stash_extend_overflow(stash* stash) {
-    TEST_LOG("extending overflow from %zu to %zu", stash->overflow_capacity, stash->overflow_capacity + STASH_GROWTH_INCREMENT);
-    size_t new_num_blocks = stash->num_blocks + STASH_GROWTH_INCREMENT;
-
-    // (re)allocate new space, free the old
-    CHECK(stash->blocks = realloc(stash->blocks, new_num_blocks * sizeof(*stash->blocks)));
-    free(stash->bucket_assignments);
-    CHECK(stash->bucket_assignments = calloc(new_num_blocks, sizeof(*stash->bucket_assignments)));
-
-    // update our alias pointers
-    stash->path_blocks = stash->blocks;
-    stash->overflow_blocks = stash->blocks + stash->path_length * BLOCKS_PER_BUCKET;
-
-    // initialize new memory
-    memset(stash->blocks + stash->num_blocks, 255,  sizeof(stash->blocks[0]) * STASH_GROWTH_INCREMENT);
-
-    // update counts
-    stash->num_blocks += STASH_GROWTH_INCREMENT;
-    stash->overflow_capacity += STASH_GROWTH_INCREMENT;
-}
-
 /** returns the index of the last nonempty blocks in overflow */
 static size_t stash_overflow_ub(const stash* stash) {
     // setting this value to be true will allow stash maintenance operations to
@@ -217,8 +196,7 @@ error_t stash_add_block(stash* stash, block* new_block) {
     // more direct ways (we even publish it in the statistics), and if we decide to stop leaking
     // stash size we will have to stop extending the stash and simply fail. 
     if(!inserted) {
-        stash_extend_overflow(stash);
-        return stash_add_block(stash, new_block);
+        return err_ORAM__STASH_EXHAUSTION;
     }
     return err_SUCCESS;
 }

@@ -167,7 +167,7 @@ fn _i_stash_add_block(
   inline int length
 ) -> #public reg u32, reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS], #msf reg u64
 {
-  reg u64 bid overflow_capacity overflow_blocks i;
+  reg u64 bid overflow_capacity overflow_blocks i r0 r1;
   reg u32 r;
   reg u8 c1 c2;
   reg bool b cond;
@@ -194,8 +194,11 @@ fn _i_stash_add_block(
     overflow_blocks = #LEA(overflow_blocks + 8 * DECRYPTED_BLOCK_SIZE_QWORDS);
   }
   msf = #update_msf(!cond, msf);
-  c1 ^= 1;
-  r = (32u)c1;
+  r0 = (64u)err_SUCCESS;
+  r1 = (64u)err_ORAM__STASH_EXHAUSTION;
+  b = c1 == 0; // not inserted
+  r0 = #CMOVcc(b, r1, r0);
+  r = (32u)r0;
   return r, new_block, msf;
 }
 
