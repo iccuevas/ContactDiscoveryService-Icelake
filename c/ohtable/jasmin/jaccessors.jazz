@@ -1,4 +1,4 @@
-require "accessors.jinc"
+require "../../path_oram/jasmin/accessors.jinc"
 
 export
 fn robinhood_accessor_jazz(

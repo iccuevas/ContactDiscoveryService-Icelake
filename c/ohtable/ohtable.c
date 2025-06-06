@@ -431,6 +431,9 @@ error_t ohtable_get(const ohtable *ohtable, u64 key, u64 record[])
 #include "util/util.h"
 #include "util/tests.h"
 
+extern void robinhood_accessor_jazz(u64* block_data, void* vargs);
+extern void get_record_accessor_jazz(u64* block_data, void* vargs);
+
 int test_hash_distance()
 {
     ohtable *table = ohtable_create((BLOCK_DATA_SIZE_QWORDS / 7) * 16, 7, TEST_STASH_SIZE, getentropy);
@@ -527,7 +530,7 @@ error_t test_rh_accessor_placement() {
             .capacity_ct_shift1 = capacity_ct_shift1,
             .capacity_ct_shift2 = capacity_ct_shift2};
 
-        RETURN_IF_ERROR(robinhood_accessor(block_data, &args));
+        robinhood_accessor_jazz(block_data, &args);
         TEST_ASSERT(args.insert_complete);
         TEST_ASSERT(args.inserted_new_item);
 
@@ -559,7 +562,7 @@ error_t test_rh_accessor_placement() {
             .capacity_ct_m_prime = capacity_ct_m_prime,
             .capacity_ct_shift1 = capacity_ct_shift1,
             .capacity_ct_shift2 = capacity_ct_shift2};
-        RETURN_IF_ERROR(robinhood_accessor(block_data, &args));
+        robinhood_accessor_jazz(block_data, &args);
 
         TEST_ASSERT(block_data[(records_per_block - 1) * record_size_qwords] == new_key);
         TEST_ASSERT(temp_record[0] == keys[records_per_block - 1]);
@@ -616,7 +619,7 @@ error_t test_multiswap() {
             .capacity_ct_shift1 = capacity_ct_shift1,
             .capacity_ct_shift2 = capacity_ct_shift2};
 
-        RETURN_IF_ERROR(robinhood_accessor(block_data, &args));
+        robinhood_accessor_jazz(block_data, &args);
         TEST_ASSERT(args.insert_complete);
         TEST_ASSERT(args.inserted_new_item);
 
@@ -651,7 +654,7 @@ error_t test_multiswap() {
             .capacity_ct_shift1 = capacity_ct_shift1,
             .capacity_ct_shift2 = capacity_ct_shift2};
 
-        RETURN_IF_ERROR(robinhood_accessor(block_data, &args));
+        robinhood_accessor_jazz(block_data, &args);
         TEST_ASSERT(args.insert_complete);
         TEST_ASSERT(args.inserted_new_item);
 

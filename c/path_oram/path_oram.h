@@ -141,7 +141,13 @@ size_t oram_max_stash_size(const oram* oram);
  */
 size_t oram_size_bytes(size_t num_levels, size_t num_blocks, size_t stash_overflow_size);
 
+/**
+ * @brief Jasmin function definitions for ORAM operations.
+ */
+
 extern error_t oram_put_jazz(oram *, u64 block_id, const u64 data[]);
+extern error_t oram_function_access_get_jazz(oram* oram, u64 block_id, void* accessor_args);
+extern error_t oram_function_access_put_jazz(oram* oram, u64 block_id, void* accessor_args);
 
 #ifdef IS_TEST
 
