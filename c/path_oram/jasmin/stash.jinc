@@ -163,8 +163,7 @@ inline
 fn _i_stash_add_block(
   reg u64 stash,
   reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS] new_block,
-  #msf reg u64 msf,
-  inline int length
+  #msf reg u64 msf
 ) -> #public reg u32, reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS], #msf reg u64
 {
   reg u64 bid overflow_capacity overflow_blocks i r0 r1;

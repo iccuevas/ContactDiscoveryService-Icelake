@@ -131,7 +131,7 @@ fn _oram_access_read(
 
     stash, msf = oram_stash(oram, msf);
     () = #spill(oram);
-    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH);
+    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
     b = abort == 0;
     () = #spill(abort);
@@ -221,7 +221,7 @@ fn _oram_access_write(
 
     stash, msf = oram_stash(oram, msf);
     () = #spill(oram);
-    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH);
+    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
     b = abort == 0;
     () = #spill(abort);
@@ -314,7 +314,7 @@ fn _oram_function_access_get(
     oram = #protect(oram, msf);
     stash, msf = oram_stash(oram, msf);
     () = #spill(oram);
-    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH);
+    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
     b = abort == 0;
     () = #spill(abort);
@@ -408,7 +408,7 @@ fn _oram_function_access_put(
     oram = #protect(oram, msf);
     stash, msf = oram_stash(oram, msf);
     () = #spill(oram);
-    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH);
+    abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
     b = abort == 0;
     () = #spill(abort);

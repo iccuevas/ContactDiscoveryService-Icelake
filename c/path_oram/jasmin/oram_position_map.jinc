@@ -132,7 +132,7 @@ fn __oram_get(
   () = #unspill(oram);
   stash, msf = oram_stash(oram, msf);
   () = #spill(oram);
-  abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH_0);
+  abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
   if (abort == 0) {
     () = #spill(stash);
@@ -203,7 +203,7 @@ fn __oram_put(
   () = #unspill(oram);
   stash, msf = oram_stash(oram, msf);
   () = #spill(oram);
-  abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH_0);
+  abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
   if (abort == 0) {
     () = #spill(stash);
@@ -278,7 +278,7 @@ fn __i_oram_put(
   oram = #protect(oram, msf);
   stash, msf = oram_stash(oram, msf);
   () = #spill(oram);
-  abort, target_block, msf = _i_stash_add_block(stash, target_block, msf, PATH_LENGTH_0);
+  abort, target_block, msf = _i_stash_add_block(stash, target_block, msf);
 
   b = abort == 0;
   if (b) {
