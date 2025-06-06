@@ -9,14 +9,6 @@
 #include "tree_path.h"
 #include "util/log.h"
 
-// We grow additively instead of doubling because the stash size process has a
-// significant negative drift that increases as the size of the stash increases.
-// One effect is that if the stash size is, e.g., 50, then it is very likely
-// to go all the way down to zero before it goes to 60. Growing by 20 we have a
-// vanishingly small probability of growing again before we clear the entire stash
-// and essentially start over.
-#define STASH_GROWTH_INCREMENT 20
-
 struct stash
 {
     /**
@@ -639,18 +631,9 @@ int test_fill_stash() {
     block b = {.id = stash->overflow_capacity, .position = 2*(100+stash->overflow_capacity)};
 
     // This will trigger an extension of the stash
-    RETURN_IF_ERROR(stash_add_block(stash, &b));
+    error_t err = stash_add_block(stash, &b);
 
-    // now remove a block and then confirm that we have room
-    block target = {.id = EMPTY_BLOCK_ID, .position = UINT64_MAX};
-
-    u64 search_block_id = 11;
-    stash_scan_overflow_for_target(stash, search_block_id, &target);
-    TEST_ASSERT(target.id == search_block_id);
-    for(size_t i = 0; i < stash->overflow_capacity; ++i) {
-        TEST_ASSERT(stash->blocks[i].id != search_block_id);
-    }
-    RETURN_IF_ERROR(stash_add_block(stash, &b));
+    TEST_ASSERT(err == err_ORAM__STASH_EXHAUSTION);
 
     stash_destroy(stash);
     return 0;
