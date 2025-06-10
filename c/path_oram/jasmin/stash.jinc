@@ -2,6 +2,19 @@ require "consts.jinc"
 require "util.jinc"
 require "bucket.jinc"
 
+// setting this value to be true will allow stash maintenance operations to
+// stop at a known upper bound for used stash entries. In practice this provides ~20%
+// increase in throughput.
+//
+// When this value is `true`, the length of the computation and the pattern of memory accesses will depend 
+// on the current number of items in the overflow stash and hence may allow an attacker to infer some 
+// information about the request flow such as likelihood that there were multiple repeated E164s requested
+// in a short window. If repeated accesses are well spaced, this will contain negligible information.
+//
+// We will want to know the current and maximum overflow size for health monitoring, and if we report that, 
+// there is no value in obfuscating it in the computation.
+param int ALLOW_OVERFLOW_SIZE_LEAK = 1;
+
 // returns the index of the last nonempty blocks in overflow
 fn _stash_overflow_ub(
   reg u64 stash,
@@ -14,25 +27,32 @@ fn _stash_overflow_ub(
   reg bool b cond;
 
   i, msf = stash_overflow_capacity(stash, msf);
-  overflow_blocks, msf = stash_overflow_blocks(stash, msf);
-  offset = i;
-  offset *= 8 * DECRYPTED_BLOCK_SIZE_QWORDS;
-  overflow_blocks += offset;
-  zero = #set0();
-  while { cond = i > 0; } (cond) {
-    msf = #update_msf(cond, msf);
-    overflow_blocks -= 8 * DECRYPTED_BLOCK_SIZE_QWORDS; // (i - 1)
-    #declassify bid = (64u)[overflow_blocks];
-    bid = #protect(bid, msf);
-    b = bid != EMPTY_BLOCK_ID;
-    c = #SETcc(b);
-    j = zero;
-    j = _ternary(c, i, j);
-    i -= 1;
-    i = _ternary(c, zero, i);
+  if (ALLOW_OVERFLOW_SIZE_LEAK != 0) {
+    msf = #update_msf(ALLOW_OVERFLOW_SIZE_LEAK != 0, msf);
+    overflow_blocks, msf = stash_overflow_blocks(stash, msf);
+    offset = i;
+    offset *= 8 * DECRYPTED_BLOCK_SIZE_QWORDS;
+    overflow_blocks += offset;
+    zero = #set0();
+    while { cond = i > 0; } (cond) {
+      msf = #update_msf(cond, msf);
+      overflow_blocks -= 8 * DECRYPTED_BLOCK_SIZE_QWORDS; // (i - 1)
+      #declassify bid = (64u)[overflow_blocks];
+      bid = #protect(bid, msf);
+      b = bid != EMPTY_BLOCK_ID;
+      c = #SETcc(b);
+      j = zero;
+      j = _ternary(c, i, j);
+      i -= 1;
+      i = _ternary(c, zero, i);
+    }
+    msf = #update_msf(!cond, msf);
+    #declassify i = j;
+    i = #protect(i, msf);
+  } else {
+    msf = #update_msf(!(ALLOW_OVERFLOW_SIZE_LEAK != 0), msf);
   }
-  msf = #update_msf(!cond, msf);
-  return j, msf;
+  return i, msf;
 }
 
 inline
