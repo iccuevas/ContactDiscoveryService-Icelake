@@ -1,4 +1,3 @@
-
 #include "jasmin_syscall.h"
 
 #if defined(__linux__) 

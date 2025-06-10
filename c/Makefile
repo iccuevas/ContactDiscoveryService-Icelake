@@ -120,6 +120,23 @@ TRUSTED_OE_LIBS=\
 /opt/openenclave/lib/openenclave/enclave/liboecore.a \
 ##TRUSTED_OE_LIBS
 
+JASMIN_COMMON_ASM_LIBS=\
+path_oram/jasmin/jpath_oram.s \
+ohtable/jasmin/jaccessors.s \
+##JASMIN_COMMON_ASM_LIBS
+
+TRUSTED_JASMIN_LIBS=$(JASMIN_COMMON_ASM_LIBS) path_oram/jasmin/syscall/jasmin_syscall_enclave.o
+##TRUSTED_JASMIN_LIBS
+
+UNTRUSTED_JASMIN_LIBS=$(JASMIN_COMMON_ASM_LIBS) path_oram/jasmin/syscall/jasmin_syscall_host.o
+##UNTRUSTED_JASMIN_LIBS
+
+path_oram/jasmin/syscall/jasmin_syscall_enclave.o: path_oram/jasmin/syscall/jasmin_syscall_enclave.c
+	$(TRUSTED_CC) $(TRUSTED_CFLAGS) -c $< -o $@
+
+path_oram/jasmin/syscall/jasmin_syscall_host.o: path_oram/jasmin/syscall/jasmin_syscall_host.c
+	$(UNTRUSTED_CC) $(UNTRUSTED_CFLAGS) -c $< -o $@
+
 TESTABLE_LIBRARY_DIRS= \
     proto \
     sharded_ohtable \
@@ -139,7 +156,7 @@ enclave.bin: \
     libnoise.a \
     libsip.a \
     ##
-	$(TRUSTED_CC) -o $@ $(TRUSTED_OE_LIBS) $^ $(TRUSTED_OE_LIBS) $(TRUSTED_LDFLAGS)
+	$(TRUSTED_CC) -o $@ $(TRUSTED_JASMIN_LIBS) $(TRUSTED_OE_LIBS) $^ $(TRUSTED_OE_LIBS) $(TRUSTED_LDFLAGS)
 
 enclave.testbin: \
     libtrust_test.a \
@@ -148,7 +165,7 @@ enclave.testbin: \
     libnoise.a \
     libsip.a \
     ##
-	$(TRUSTED_CC) -o $@ $(TRUSTED_OE_LIBS) $^ $(TRUSTED_OE_LIBS) $(TRUSTED_LDFLAGS)
+	$(TRUSTED_CC) -o $@ $(TRUSTED_JASMIN_LIBS) $(TRUSTED_OE_LIBS) $^ $(TRUSTED_OE_LIBS) $(TRUSTED_LDFLAGS)
 
 fuzz.bin: \
     fuzz.c \
@@ -158,7 +175,7 @@ fuzz.bin: \
     libnoise.a \
     libsip.a \
     ##
-	$(AFL_CC) -o $@ $(AFL_CFLAGS) $^ $(AFL_LDFLAGS)
+	$(AFL_CC) -o $@ $(TRUSTED_JASMIN_LIBS) $(AFL_CFLAGS) $^ $(AFL_LDFLAGS)
  
 .PHONY: fuzz
 fuzz: fuzz.bin
@@ -184,10 +201,10 @@ testhost.bin: \
     libnoiseutil_u.a \
     libutil_u.a \
     ##
-	$(UNTRUSTED_CC) -o $@ $^ $(UNTRUSTED_OE_LIBS) $(UNTRUSTED_LDFLAGS)
+	$(UNTRUSTED_CC) -o $@ $^ $(UNTRUSTED_JASMIN_LIBS) $(UNTRUSTED_OE_LIBS) $(UNTRUSTED_LDFLAGS)
 
 %.test: $(patsubst %,lib%_test.a,$(TESTABLE_LIBRARY_DIRS)) libsip.a libnoise.a
-	$(TEST_CC) -o $@ $(dir $*)/tests/$(notdir $*).c $^ $(TEST_CFLAGS) $(TEST_LDFLAGS) libsip.a $(WARNING_CFLAGS)
+	$(TEST_CC) -o $@ $(dir $*)/tests/$(notdir $*).c $^ $(UNTRUSTED_JASMIN_LIBS) $(TEST_CFLAGS) $(TEST_LDFLAGS) libsip.a $(WARNING_CFLAGS)
 
 %.test.out: %.test
 	@echo ======================================================================
@@ -211,10 +228,10 @@ enclave.test: \
     libproto_test.a \
     libuntrust_u.a \
     libnoiseutil_u.a \
-    libutil_u.a
+    libutil_u.a \
     ##
 	$(TEST_CC) -o $@ testhost/tests/testhost.c  $(TEST_CFLAGS) $(TEST_LDFLAGS) \
-    $^ $(UNTRUSTED_OE_LIBS) $(UNTRUSTED_LDFLAGS) $(WARNING_CFLAGS)
+    $^ $(UNTRUSTED_JASMIN_LIBS) $(UNTRUSTED_OE_LIBS) $(UNTRUSTED_LDFLAGS) $(WARNING_CFLAGS)
 
 enclave.test.out: enclave.test enclave.testsigned
 	@echo ======================================================================

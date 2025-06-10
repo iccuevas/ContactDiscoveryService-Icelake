@@ -91,22 +91,6 @@ static size_t ohtable_hash_from_location(const ohtable *ohtable, location loc)
     return loc.block_id * ohtable->items_per_block + loc.index;
 }
 
-/**
- * @brief measure the forward distance from a hash value to another hash. This is the size of
- * jump needed to get from the hash value starting point to get to the location
- *
- * @param ohtable_capacity Number of records the `ohtable` can hold
- * @param hash starting point for a linear proble search
- * @param loc location to measure
- * @return size_t
- */
-static size_t ohtable_distance_to_hash(size_t ohtable_capacity, size_t hash, size_t target_hash) {
-    return target_hash < hash
-               ? target_hash + ohtable_capacity - hash // The search wrapped around
-               : target_hash - hash;
-
-}
-
 static ohtable* _create(oram* oram, size_t record_size_qwords)
 {
     size_t items_per_block = BLOCK_DATA_SIZE_QWORDS / record_size_qwords;
@@ -215,30 +199,6 @@ double ohtable_mean_displacement(const ohtable *ohtable)
     return ((double)ohtable->total_displacement) / ohtable->num_items;
 }
 
-inline static bool record_empty(const u64 record[])
-{
-    return record[0] == UINT64_MAX;
-}
-
-inline static bool record_empty_or_matches(const u64 record[], u64 key)
-{
-    return record_empty(record) | (record[0] == key);
-}
-
-
-
-static void cond_copy_record(bool cond, u64* dest, const u64* src, size_t record_size_qwords) {
-    for(size_t i = 0; i < record_size_qwords; ++i) {
-        cond_obv_cpy_u64(cond, dest + i, src + i);
-    }
-}
-
-static void cond_swap_record(bool cond, u64* a, u64* b, size_t record_size_qwords) {
-    for(size_t i = 0; i < record_size_qwords; ++i) {
-        cond_obv_swap_u64(cond, a + i, b + i);
-    }
-}
-
 typedef struct {
     size_t record_size_qwords;
     size_t start_index;
@@ -270,52 +230,6 @@ typedef struct {
     size_t capacity_ct_shift1;
     size_t capacity_ct_shift2;
 } robinhood_accessor_args;
-
-static error_t robinhood_accessor(u64* block_data, void* vargs) {
-    robinhood_accessor_args* args = vargs;
-    size_t records_per_block = BLOCK_DATA_SIZE_QWORDS / args->record_size_qwords;
-    bool inserted = false;
-    
-    for(size_t i = 0; i < records_per_block; ++i) {
-        u64* record = args->in_record;
-        u64 key = record[0];
-        u64* candidate_record = block_data + i * args->record_size_qwords;
-
-        bool search_started = (i >= args->start_index);
-        bool should_store = search_started & record_empty_or_matches(candidate_record, key) & !args->insert_complete;
-
-        u64 candidate_hash = ct_mod(raw_hash(candidate_record[0]), args->ohtable_capacity, args->capacity_ct_m_prime, args->capacity_ct_shift1, args->capacity_ct_shift2);
-        size_t candidate_jump = ohtable_distance_to_hash(args->ohtable_capacity, candidate_hash, args->curr_slot_hash);
-
-        // to decide if we swap we see which has the smaller jump. If it's a tie, we break it by looking at
-        // the full hash. (Candidate_hash and curr_record_hash are taken modulo the table capacity)
-        bool jump_smaller = (candidate_jump < args->curr_jump)
-                | ((candidate_jump == args->curr_jump) 
-                    & (raw_hash(candidate_record[0]) < raw_hash(record[0])));
-        bool should_swap = search_started & !should_store & !args->insert_complete & jump_smaller;
-        
-        args->inserted_new_item = args->inserted_new_item 
-                | (!inserted & (should_swap | (should_store & record_empty(candidate_record))));
-
-        cond_copy_record(should_store, candidate_record, record, args->record_size_qwords);
-        cond_swap_record(should_swap, candidate_record, record, args->record_size_qwords);
-
-        
-        inserted = inserted | should_store | should_swap;
-        args->insert_complete = args->insert_complete | should_store;
-
-        args->max_offset = U64_TERNARY(should_swap | should_store & (args->curr_jump > args->max_offset), args->curr_jump, args->max_offset);
-        args->curr_record_hash = U64_TERNARY(should_swap, candidate_hash, args->curr_record_hash);
-        args->curr_jump = U64_TERNARY(should_swap, candidate_jump, args->curr_jump);
-
-        args->curr_slot_hash += U64_TERNARY(search_started, 1, 0);
-        u64 inc = U64_TERNARY(search_started & !args->insert_complete, 1, 0);
-        args->trace += inc;
-        args->curr_jump += inc;        
-    }
-
-    return err_SUCCESS;
-}
 
 // we will declare a table full at 98% capacity when performance is already badly degraded
 static inline bool is_full(const ohtable* ohtable) {
@@ -351,7 +265,7 @@ error_t ohtable_put(ohtable *ohtable, const u64 record[])
         .capacity_ct_shift2 = ohtable->capacity_ct_shift2};
 
     while(!args.insert_complete) {
-        RETURN_IF_ERROR(oram_function_access(ohtable->oram, block_id, robinhood_accessor, &args));
+        RETURN_IF_ERROR(oram_function_access_put_jazz(ohtable->oram, block_id, &args));
         block_id = U64_TERNARY(block_id + 1 == ohtable->num_blocks, 0, block_id+1);
         args.start_index = 0;
     }
@@ -373,7 +287,6 @@ error_t ohtable_put(ohtable *ohtable, const u64 record[])
 
 }
 
-
 typedef struct {
     size_t record_size_qwords;
     size_t start_index;
@@ -381,22 +294,6 @@ typedef struct {
     u64* out_record;
     u64 key;
 } get_record_accessor_args;
-
-static error_t get_record_accessor(u64* block_data, void* vargs) {
-    get_record_accessor_args* args = vargs;
-    size_t records_per_block = BLOCK_DATA_SIZE_QWORDS / args->record_size_qwords;
-    for(size_t i = 0; i < records_per_block; ++i) {
-        u64* candidate_record = block_data + i * args->record_size_qwords;
-        bool search_started = (i >= args->start_index);
-        bool should_copy = search_started & record_empty_or_matches(candidate_record, args->key) 
-            & !args->search_complete;
-        cond_copy_record(should_copy, args->out_record, candidate_record, args->record_size_qwords);
-        args->search_complete = args->search_complete | should_copy;
-    }
-
-    return err_SUCCESS;
-
-}
 
 error_t ohtable_get(const ohtable *ohtable, u64 key, u64 record[])
 {
@@ -416,7 +313,7 @@ error_t ohtable_get(const ohtable *ohtable, u64 key, u64 record[])
         .record_size_qwords = ohtable->record_size_qwords};
         
     while(blocks_to_scan > 0) {
-        RETURN_IF_ERROR(oram_function_access(ohtable->oram, block_id, get_record_accessor, &args));
+        RETURN_IF_ERROR(oram_function_access_get_jazz(ohtable->oram, block_id, &args));
         block_id = U64_TERNARY(block_id + 1 == ohtable->num_blocks, 0, block_id+1);
         args.start_index = 0;
         --blocks_to_scan;
@@ -433,26 +330,6 @@ error_t ohtable_get(const ohtable *ohtable, u64 key, u64 record[])
 
 extern void robinhood_accessor_jazz(u64* block_data, void* vargs);
 extern void get_record_accessor_jazz(u64* block_data, void* vargs);
-
-int test_hash_distance()
-{
-    ohtable *table = ohtable_create((BLOCK_DATA_SIZE_QWORDS / 7) * 16, 7, TEST_STASH_SIZE, getentropy);
-    TEST_ASSERT(table->capacity == 16 * table->items_per_block);
-
-    location loc1 = {.block_id = 0, .index = 5};
-    location loc2 = {.block_id = 5, .index = 0};
-    u64 h1 = ohtable_hash_from_location(table, loc1);
-    u64 h2 = ohtable_hash_from_location(table, loc2);
-
-    TEST_ASSERT(ohtable_distance_to_hash(table->capacity, 3, h1) == 2);
-    TEST_ASSERT(ohtable_distance_to_hash(table->capacity, table->capacity - 2, h1) == 7);
-
-    TEST_ASSERT(ohtable_distance_to_hash(table->capacity, table->capacity - 2, h2) == 5 * table->items_per_block + 2);
-    TEST_ASSERT(ohtable_distance_to_hash(table->capacity, 5 * table->items_per_block - 1, h2) == 1);
-    ohtable_destroy(table);
-    return 0;
-}
-
 
 u64 find_collision_for_hash(u64 h, size_t table_capacity, bool new_item_wins) {
     u64 candidate_key;
@@ -725,7 +602,6 @@ error_t test_create_for_available_memory() {
 
 void private_ohtable_tests()
 {
-    RUN_TEST(test_hash_distance());
     RUN_TEST(test_rh_accessor_placement());
     RUN_TEST(test_multiswap());
     RUN_TEST(test_wraparound());
