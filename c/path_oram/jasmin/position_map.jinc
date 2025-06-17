@@ -104,37 +104,6 @@ fn _i_write_accessor_partial_out(
 require "oram_position_map.jinc"
 
 inline
-fn position_map_get(
-  reg u64 position_map,
-  reg u64 block_id,
-  reg u64 position,
-  #msf reg u64 msf
-) -> reg u32, #msf reg u64
-{
-  reg u64 data;
-  reg u32 abort;
-  data = #LEA(position_map + 8 * 2);  // *data
-  abort, msf = oram_position_map_get(data, block_id, position, msf);
-  return abort, msf;
-}
-
-inline
-fn position_map_read_then_set(
-  reg u64 position_map,
-  reg u64 block_id,
-  reg u64 position,
-  reg u64 prev_position,
-  #msf reg u64 msf
-) -> reg u32, #msf reg u64
-{
-  reg u64 data;
-  reg u32 abort;
-  data = #LEA(position_map + 8 * 2);  // *data
-  abort, msf = oram_position_map_set(data, block_id, position, prev_position, msf);
-  return abort, msf;
-}
-
-inline
 fn _i_position_map_read_then_set(
   #public reg u64 position_map,
   #secret reg u64 block_id,

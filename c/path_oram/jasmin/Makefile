@@ -3,12 +3,16 @@ JCT ?= jasmin-ct
 MAKE ?= make
 
 JFLAGS = -nowarning
+JCTFLAGS = --infer
+JSCTFLAGS = --infer --sct
 
-.PHONY: clean run
+.PHONY: oram
 
 oram: jpath_oram.s
 
-%.s: %.jazz
+%.s: %.jazz *.jinc
+	$(JCT) $(JCTFLAGS) $<
+	$(JCT) $(JSCTFLAGS) $<
 	$(JC) $(JFLAGS) -o $@ $<
 
 clean:
