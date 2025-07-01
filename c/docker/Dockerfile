@@ -32,6 +32,10 @@ ENV PIPX_HOME=/opt/pipx
 ENV PIPX_BIN_DIR=/usr/local/bin
 RUN pipx install pbtools==0.47.0 && echo "done"
 
+RUN wget -qO- https://formosa-crypto.org/formosa-archive-keyring.pgp | gpg --dearmor -o /etc/apt/trusted.gpg.d/formosa-crypto.gpg
+RUN echo 'deb [signed-by=/etc/apt/trusted.gpg.d/formosa-crypto.gpg] https://repo.formosa-crypto.org/debian bookworm main' > /etc/apt/sources.list.d/formosa-crypto.list
+RUN apt update && apt install -y jasmin-compiler
+
 COPY sgx_runtime_libraries.sh /tmp/sgx_runtime_libraries.sh
 RUN /tmp/sgx_runtime_libraries.sh
 

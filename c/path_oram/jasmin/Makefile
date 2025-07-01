@@ -11,8 +11,6 @@ JSCTFLAGS = --infer --sct
 oram: jpath_oram.s
 
 %.s: %.jazz *.jinc
-	$(JCT) $(JCTFLAGS) $<
-	$(JCT) $(JSCTFLAGS) $<
 	$(JC) $(JFLAGS) -o $@ $<
 
 clean:
