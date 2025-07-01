@@ -131,12 +131,6 @@ TRUSTED_JASMIN_LIBS=$(JASMIN_COMMON_ASM_LIBS) path_oram/jasmin/syscall/jasmin_sy
 UNTRUSTED_JASMIN_LIBS=$(JASMIN_COMMON_ASM_LIBS) path_oram/jasmin/syscall/jasmin_syscall_host.o
 ##UNTRUSTED_JASMIN_LIBS
 
-path_oram/jasmin/syscall/jasmin_syscall_enclave.o: path_oram/jasmin/syscall/jasmin_syscall_enclave.c
-	$(TRUSTED_CC) $(TRUSTED_CFLAGS) -c $< -o $@
-
-path_oram/jasmin/syscall/jasmin_syscall_host.o: path_oram/jasmin/syscall/jasmin_syscall_host.c
-	$(UNTRUSTED_CC) $(UNTRUSTED_CFLAGS) -c $< -o $@
-
 TESTABLE_LIBRARY_DIRS= \
     proto \
     sharded_ohtable \
