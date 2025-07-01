@@ -12,11 +12,6 @@ param int BLOCK_DATA_SIZE = (BLOCK_DATA_SIZE_QWORDS * 8);
 // oram size definition
 param int STASH_OVERFLOW_SIZE = 100;
 
-// modify only if size definitions were modified
-param int CAPACITY_BLOCKS = 838861;
-param int PATH_LENGTH = 20;
-param int POSITION_MAP_SIZE = CAPACITY_BLOCKS;
-
-param int CAPACITY_BLOCKS_0 = 4994;
-param int PATH_LENGTH_0 = 13;
-param int POSITION_MAP_SIZE_0 = CAPACITY_BLOCKS_0;
+param int PATH_LENGTH = 20; // Tree height of main ORAM 
+param int PATH_LENGTH_0 = 13;  // Tree height of main ORAM position map
+param int POSITION_MAP_SIZE_0 = 4994;  // Number of entries in linear position map
