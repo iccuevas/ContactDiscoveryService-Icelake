@@ -224,7 +224,7 @@ enclave.test: \
     libnoiseutil_u.a \
     libutil_u.a \
     ##
-	$(TEST_CC) -o $@ testhost/tests/testhost.c  $(TEST_CFLAGS) $(TEST_LDFLAGS) \
+	$(TEST_CC) -o $@ testhost/host.c  $(TEST_CFLAGS) $(TEST_LDFLAGS) \
     $^ $(UNTRUSTED_JASMIN_LIBS) $(UNTRUSTED_OE_LIBS) $(UNTRUSTED_LDFLAGS) $(WARNING_CFLAGS)
 
 enclave.test.out: enclave.test enclave.testsigned
