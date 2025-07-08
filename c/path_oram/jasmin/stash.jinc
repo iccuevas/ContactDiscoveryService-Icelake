@@ -37,13 +37,13 @@ fn _stash_overflow_ub(
     while { cond = i > 0; } (cond) {
       msf = #update_msf(cond, msf);
       overflow_blocks -= 8 * DECRYPTED_BLOCK_SIZE_QWORDS; // (i - 1)
-      #declassify bid = (64u)[overflow_blocks];
-      bid = #protect(bid, msf);
+      bid = (64u)[overflow_blocks];
       b = bid != EMPTY_BLOCK_ID;
       c = #SETcc(b);
+      #declassify c = c;
+      c = #protect_8(c, msf);
       j = zero;
       j = _ternary(c, i, j);
-      i -= 1;
       i = _ternary(c, zero, i);
     }
     msf = #update_msf(!cond, msf);
