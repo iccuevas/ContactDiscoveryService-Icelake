@@ -29,7 +29,7 @@
 #include "testhost/ohtable_stats.h"
 
 #define NUM_SHARDS 3
-#define AVAILABLE_BYTES (30 << 20)
+#define AVAILABLE_BYTES (1 << 30)
 
 struct attest_thread_fn_args {
     oe_enclave_t* enclave;
