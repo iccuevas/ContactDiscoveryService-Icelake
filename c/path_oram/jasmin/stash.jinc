@@ -77,14 +77,14 @@ fn _i_cond_copy_block(
   reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS] src
 ) -> reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS]
 {
-  reg u256 tmp va;
+  reg u512 tmp va;
   reg u128 tmp128 va128;
   inline int i;
-  for i = 0 to DECRYPTED_BLOCK_SIZE_QWORDS / 4 {
-    va = (u256)[dst];
-    tmp = _ternary256(cond, src[u256 i], va);
-    (u256)[dst] = tmp;
-    dst = #LEA(dst + 32);
+  for i = 0 to DECRYPTED_BLOCK_SIZE_QWORDS / 8 {
+    va = (u512)[dst];
+    tmp = _ternary512(cond, src[u512 i], va);
+    (u512)[dst] = tmp;
+    dst = #LEA(dst + 64);
   }
   va128 = (u128)[dst];
   tmp128 = _ternary128(cond, src[u128 (DECRYPTED_BLOCK_SIZE_QWORDS / 4) * 2], va128);
@@ -99,15 +99,15 @@ fn _i_cond_swap_blocks(
   reg u64 b
 ) -> reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS]
 {
-  reg u256 tmp rb;
+  reg u512 tmp rb;
   reg u128 tmp128 rb128;
   inline int i;
-  for i = 0 to DECRYPTED_BLOCK_SIZE_QWORDS / 4 {
-    rb = (u256)[b];
-    tmp = _ternary256(cond, a[u256 i], rb);
-    (u256)[b] = tmp;
-    a[u256 i] = _ternary256(cond, rb, a[u256 i]);
-    b = #LEA(b + 32);
+  for i = 0 to DECRYPTED_BLOCK_SIZE_QWORDS / 8 {
+    rb = (u512)[b];
+    tmp = _ternary512(cond, a[u512 i], rb);
+    (u512)[b] = tmp;
+    a[u512 i] = _ternary512(cond, rb, a[u512 i]);
+    b = #LEA(b + 64);
   }
   rb128 = (u128)[b];
   tmp128 = _ternary128(cond, a[u128 (DECRYPTED_BLOCK_SIZE_QWORDS / 4) * 2], rb128);
@@ -524,7 +524,7 @@ fn _comp_and_swap(
   reg u64 bla0 bla1 b0 b1
 )
 {
-  reg u256 t0 t1 tmp256 mask2 mask3;
+  reg u512 t0 t1 tmp512 mask2 mask3;
   reg u128 r0 r1 tmp128 mask0 mask1;
   reg u64 a b tmp cond0 cond1;
   reg u32 edi;
@@ -555,22 +555,22 @@ fn _comp_and_swap(
 
   c0_s = cond0;
   c1_s = cond1;
-  mask2 = #VPBROADCAST_4u64(c0_s);
-  mask3 = #VPBROADCAST_4u64(c1_s);
+  mask2 = #VPBROADCAST_8u64(c0_s);
+  mask3 = #VPBROADCAST_8u64(c1_s);
   // cond_swap_blocks
-  for r = 0 to DECRYPTED_BLOCK_SIZE_QWORDS / 4 {
-    t0 = (u256)[b0 + r * 32];
-    t1 = (u256)[b1 + r * 32];
-    tmp256 = t0;
-    t1 = #VPAND_256(t1, mask3);
-    t0 = #VPAND_256(t0, mask3);
-    tmp256 = #VPAND_256(tmp256, mask2);
-    t1 = #VPOR_256(t1, tmp256);
-    (u256)[b0 + r * 32] = t1;
-    t1 = (u256)[b1 + r * 32];
-    t1 = #VPAND_256(t1, mask2);
-    t0 = #VPOR_256(t0, t1);
-    (u256)[b1 + r * 32] = t0;
+  for r = 0 to DECRYPTED_BLOCK_SIZE_QWORDS / 8 {
+    t0 = (u512)[b0 + r * 64];
+    t1 = (u512)[b1 + r * 64];
+    tmp512 = t0;
+    t1 = #VPAND_512(t1, mask3);
+    t0 = #VPAND_512(t0, mask3);
+    tmp512 = #VPAND_512(tmp512, mask2);
+    t1 = #VPOR_512(t1, tmp512);
+    (u512)[b0 + r * 64] = t1;
+    t1 = (u512)[b1 + r * 64];
+    t1 = #VPAND_512(t1, mask2);
+    t0 = #VPOR_512(t0, t1);
+    (u512)[b1 + r * 64] = t0;
   }
   mask0 = #VPBROADCAST_2u64(c0_s);
   mask1 = #VPBROADCAST_2u64(c1_s);

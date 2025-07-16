@@ -8,21 +8,25 @@ fn bucket_store_read_bucket_blocks(
   #msf reg u64 msf
 ) -> #msf reg u64
 {
+  reg u512 s;
   reg u256 t;
   reg u128 r;
   reg u64 offset encrypted_bucket data;
-  inline int i;
+  inline int i c;
 
   data, msf = bucket_store_data(bucket_store, msf);
   offset = bucket_id * ENCRYPTED_BUCKET_SIZE;
   encrypted_bucket = data + offset;
-  for i = 0 to (DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 4
+  c = (DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 8;
+  for i = 0 to c
   {
-    t = (u256)[encrypted_bucket + 32 * i];
-    (u256)[bucket_data + 32 * i] = t;
+    s = (u512)[encrypted_bucket + 64 * i];
+    (u512)[bucket_data + 64 * i] = s;
   }
-  r = (u128)[encrypted_bucket + 32 * ((DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 4)];
-  (u128)[bucket_data + 32 * ((DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 4)] = r;
+  t = (u256)[encrypted_bucket + 64 * c];
+  (u256)[bucket_data + 64 * c] = t;
+  r = (u128)[encrypted_bucket + 64 * c + 32];
+  (u128)[bucket_data + 64 * c + 32] = r;
   return msf;
 }
 
@@ -33,21 +37,25 @@ fn bucket_store_write_bucket_blocks(
   #msf reg u64 msf
 ) -> #msf reg u64
 {
+  reg u512 s;
   reg u256 t;
   reg u128 r;
   reg u64 offset encrypted_bucket data;
-  inline int i;
+  inline int i c;
 
   data, msf = bucket_store_data(bucket_store, msf);
   offset = bucket_id * ENCRYPTED_BUCKET_SIZE;
   encrypted_bucket = data + offset;
-  for i = 0 to (DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 4
+  c = (DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 8;
+  for i = 0 to c
   {
-    t = (u256)[bucket_data + 32 * i];
-    (u256)[encrypted_bucket + 32 * i] = t;
+    s = (u512)[bucket_data + 64 * i];
+    (u512)[encrypted_bucket + 64 * i] = s;
   }
-  r = (u128)[bucket_data + 32 * ((DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 4)];
-  (u128)[encrypted_bucket + 32 * ((DECRYPTED_BLOCK_SIZE_QWORDS * BLOCKS_PER_BUCKET) / 4)] = r;
+  t = (u256)[bucket_data + 64 * c];
+  (u256)[encrypted_bucket + 64 * c] = t;
+  r = (u128)[bucket_data + 64 * c + 32];
+  (u128)[encrypted_bucket + 64 * c + 32] = r;
 
   return msf;
 }
