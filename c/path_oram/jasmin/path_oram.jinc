@@ -136,14 +136,18 @@ fn _oram_access(
     () = #unspill(vargs);
     vargs = #protect(vargs, msf);
 
-    if (t == READ_ACCESSOR) {
+    #inline if (t == READ_ACCESSOR) {
       target_block[2:BLOCK_DATA_SIZE_QWORDS] = _i_read_accessor(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs);
-    } else if (t == WRITE_ACCESSOR) {
-      target_block[2:BLOCK_DATA_SIZE_QWORDS] = _i_write_accessor_full(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs);
-    } else if (t == ROBINHOOD_ACCESSOR) {
-      target_block[2:BLOCK_DATA_SIZE_QWORDS], msf = _i_robinhood_accessor(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs, msf);
     } else {
-      target_block[2:BLOCK_DATA_SIZE_QWORDS], msf = _i_get_record_accessor(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs, msf);
+      #inline if (t == WRITE_ACCESSOR) {
+        target_block[2:BLOCK_DATA_SIZE_QWORDS] = _i_write_accessor_full(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs);
+      } else {
+        #inline if (t == ROBINHOOD_ACCESSOR) {
+          target_block[2:BLOCK_DATA_SIZE_QWORDS], msf = _i_robinhood_accessor(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs, msf);
+        } else {
+          target_block[2:BLOCK_DATA_SIZE_QWORDS], msf = _i_get_record_accessor(target_block[2:BLOCK_DATA_SIZE_QWORDS], vargs, msf);
+        }
+      }
     }
 
     () = #unspill(oram);
