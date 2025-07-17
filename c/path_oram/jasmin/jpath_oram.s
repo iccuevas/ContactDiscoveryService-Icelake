@@ -51368,7 +51368,7 @@ Loram_function_access_put_jazz$31:
 	movq	%rdx, 2776(%rsp)
 	movq	%rbx, %rbp
 	leaq	(%r10,%r8), %r9
-	movq	%rax, 2872(%rsp)
+	movq	%rax, 2856(%rsp)
 	movq	%r10, 2808(%rsp)
 	movq	2800(%rsp), %rax
 	orq 	%r15, %rax
@@ -51387,10 +51387,10 @@ Loram_function_access_put_jazz$34:
 	divq	%r11
 	movq	%rax, %r12
 	leaq	(%rbp,%rcx), %rax
-	movq	%rbp, 2864(%rsp)
+	movq	%rbp, 2832(%rsp)
 	xorq	%rdx, %rdx
 	divq	%r11
-	movq	%r11, 2856(%rsp)
+	movq	%r11, 2872(%rsp)
 	cmpq	%rax, %r12
 	je  	Loram_function_access_put_jazz$35
 	movq	$-1, %rax
@@ -51415,9 +51415,9 @@ Loram_function_access_put_jazz$35:
 	addq	$-1, %rdx
 	movl	%eax, %eax
 	negq	%rax
-	movq	%rdx, 2832(%rsp)
+	movq	%rdx, 2864(%rsp)
 	movq	%rax, 2888(%rsp)
-	vpbroadcastq	2832(%rsp), %ymm0
+	vpbroadcastq	2864(%rsp), %ymm0
 	vpbroadcastq	2888(%rsp), %ymm1
 	vmovdqu	(%rdi), %ymm2
 	vmovdqu	(%r10), %ymm3
@@ -51923,7 +51923,7 @@ Loram_function_access_put_jazz$35:
 	vpand	%ymm0, %ymm2, %ymm0
 	vpor	%ymm0, %ymm1, %ymm0
 	vmovdqu	%ymm0, 1312(%r10)
-	vpbroadcastq	2832(%rsp), %xmm0
+	vpbroadcastq	2864(%rsp), %xmm0
 	vpbroadcastq	2888(%rsp), %xmm1
 	vmovdqu	1344(%rdi), %xmm2
 	vmovdqu	1344(%r10), %xmm3
@@ -51949,8 +51949,8 @@ Loram_function_access_put_jazz$35:
 	orq 	%rdx, %r11
 	movq	%r11, (%r8)
 Loram_function_access_put_jazz$36:
-	movq	2864(%rsp), %rax
-	movq	2856(%rsp), %r11
+	movq	2832(%rsp), %rax
+	movq	2872(%rsp), %r11
 	orq 	%r15, %rax
 	orq 	%r15, %r11
 	leaq	1(%rax), %rbp
@@ -51964,7 +51964,7 @@ Loram_function_access_put_jazz$33:
 	movq	$-1, %rax
 	cmovne	%rax, %r15
 	movq	2792(%rsp), %rdi
-	movq	2872(%rsp), %rax
+	movq	2856(%rsp), %rax
 	movq	2776(%rsp), %rdx
 	orq 	%r15, %rdi
 	orq 	%r15, %rax
@@ -107490,6 +107490,7 @@ Loram_put_jazz$47:
 	movq	%rbp, (%r12)
 	movq	%rax, 8(%r12)
 	movq	%r11, 2768(%rsp)
+	movq	%rbx, 2752(%rsp)
 	movq	2760(%rsp), %rax
 	orq 	%r15, %rax
 	leaq	16(%r12), %rcx
@@ -107577,9 +107578,11 @@ Loram_put_jazz$47:
 	vmovdqu	%ymm0, 1280(%rcx)
 	vmovdqu	1312(%rax), %ymm0
 	vmovdqu	%ymm0, 1312(%rcx)
-	movq	16(%rbx), %r14
+	movq	2752(%rsp), %rax
+	orq 	%r15, %rax
+	movq	16(%rax), %r14
 	orq 	%r15, %r14
-	movq	%rbx, 2760(%rsp)
+	movq	%rax, 2752(%rsp)
 	movq	16(%r14), %rax
 	orq 	%r15, %rax
 	movq	40(%r14), %rcx
@@ -107601,9 +107604,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r8
 	leaq	-1(%r8), %r9
 	negq	%r8
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	movq	%r8, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107616,9 +107619,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107629,9 +107632,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107644,9 +107647,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107657,9 +107660,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107672,9 +107675,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107685,9 +107688,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107700,9 +107703,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107713,9 +107716,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107728,9 +107731,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107741,9 +107744,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107756,9 +107759,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107769,9 +107772,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107784,9 +107787,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107797,9 +107800,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107812,9 +107815,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107825,9 +107828,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107840,9 +107843,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107853,9 +107856,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107868,9 +107871,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107881,9 +107884,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107896,9 +107899,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107909,9 +107912,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107924,9 +107927,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107937,9 +107940,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107952,9 +107955,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107965,9 +107968,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -107980,9 +107983,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -107993,9 +107996,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108008,9 +108011,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108021,9 +108024,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108036,9 +108039,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108049,9 +108052,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108064,9 +108067,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108077,9 +108080,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108092,9 +108095,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108105,9 +108108,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108120,9 +108123,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108133,9 +108136,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108148,9 +108151,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108161,9 +108164,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -108176,9 +108179,9 @@ Loram_put_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -108189,9 +108192,9 @@ Loram_put_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %xmm2
+	vpbroadcastq	2760(%rsp), %xmm2
 	vpbroadcastq	2744(%rsp), %xmm3
 	vpand	%xmm2, %xmm0, %xmm0
 	vpand	%xmm3, %xmm1, %xmm1
@@ -113794,19 +113797,19 @@ Loram_put_jazz$43:
 	movq	29928(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113818,7 +113821,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113837,8 +113840,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -113847,7 +113850,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -113858,12 +113861,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113875,7 +113878,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113894,8 +113897,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -113904,7 +113907,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -113915,12 +113918,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113932,7 +113935,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113951,8 +113954,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -113961,7 +113964,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -113972,12 +113975,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -113989,7 +113992,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114008,8 +114011,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -114018,7 +114021,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -114029,12 +114032,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114046,7 +114049,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114065,8 +114068,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -114075,7 +114078,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -114086,12 +114089,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114103,7 +114106,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114122,8 +114125,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -114132,7 +114135,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -114143,12 +114146,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114160,7 +114163,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114179,8 +114182,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -114189,7 +114192,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -114200,12 +114203,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 176(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -114217,44 +114220,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
-	movq	176(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 56(%rdx)
+	movq	176(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$7, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 176(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 176(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	31280(%rax), %rcx
@@ -115784,6 +115787,532 @@ Loram_put_jazz$43:
 	movq	35368(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
+	movq	48(%r14), %rax
+	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
+	movq	%rsi, %mm2
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	8(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, (%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$0, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	8(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	16(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 8(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$1, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	16(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	24(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 16(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$2, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	24(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	32(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 24(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$3, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	32(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	40(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 32(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$4, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	40(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	48(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 40(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$5, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	48(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	56(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 48(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$6, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	56(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	64(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 56(%rax)
+	movq	208(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$7, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 208(%rcx)
+	movq	64(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	72(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
+	movq	%mm1, %rcx
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
+	andq	%r8, %rdi
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 64(%rax)
+	movq	208(%rcx), %rax
+	orq 	%r15, %rax
+	movq	$8, %rdx
+	movzbq	%r9b, %rdi
+	leaq	-1(%rdi), %r8
+	negq	%rdi
+	andq	%r8, %rax
+	andq	%rdi, %rdx
+	orq 	%rdx, %rax
+	movq	%rax, 208(%rcx)
+	movq	8(%r14), %rax
+	orq 	%r15, %rax
+	movq	36720(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	%rcx, %mm0
+	movq	36728(%rax), %rax
+	orq 	%r15, %rax
+	movq	%rax, %mm1
 	movq	48(%r14), %rdx
 	orq 	%r15, %rdx
 	movq	56(%r14), %rax
@@ -115838,7 +116367,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, (%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
 	movzbq	%r9b, %r9
@@ -115847,7 +116376,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -115895,7 +116424,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 8(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
 	movzbq	%r9b, %r9
@@ -115904,7 +116433,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -115952,7 +116481,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 16(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
 	movzbq	%r9b, %r9
@@ -115961,7 +116490,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -116009,7 +116538,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 24(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
 	movzbq	%r9b, %r9
@@ -116018,7 +116547,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -116066,7 +116595,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 32(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
 	movzbq	%r9b, %r9
@@ -116075,7 +116604,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -116123,7 +116652,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 40(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
 	movzbq	%r9b, %r9
@@ -116132,7 +116661,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -116180,7 +116709,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 48(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
 	movzbq	%r9b, %r9
@@ -116189,7 +116718,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -116237,7 +116766,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 56(%rdx)
-	movq	208(%rcx), %rdi
+	movq	216(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
 	movzbq	%r9b, %r9
@@ -116246,11 +116775,68 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 208(%rcx)
+	movq	%rdi, 216(%rcx)
 	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 64(%rdx)
+	movq	216(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$8, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 216(%rcx)
+	movq	72(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	80(%rcx), %r8
 	orq 	%r15, %r8
 	notb	%al
 	movq	%r8, %rcx
@@ -116291,600 +116877,17 @@ Loram_put_jazz$43:
 	andq	%rcx, %rax
 	orq 	%rax, %rdi
 	movq	%mm3, %rax
-	movq	%rdi, 64(%rdx)
-	movq	208(%rax), %rcx
+	movq	%rdi, 72(%rdx)
+	movq	216(%rax), %rcx
 	orq 	%r15, %rcx
-	movq	$8, %rdx
+	movq	$9, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
 	andq	%r8, %rcx
 	andq	%rdi, %rdx
 	orq 	%rdx, %rcx
-	movq	%rcx, 208(%rax)
-	movq	8(%r14), %rax
-	orq 	%r15, %rax
-	movq	36720(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	%rcx, %mm0
-	movq	36728(%rax), %rax
-	orq 	%r15, %rax
-	movq	%rax, %mm1
-	movq	48(%r14), %rax
-	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
-	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	8(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$0, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	8(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	16(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$1, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	16(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	24(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$2, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	24(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	32(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$3, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	32(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	40(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$4, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	40(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	48(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$5, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	48(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	56(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$6, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	56(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	64(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$7, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	64(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	72(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
-	movq	216(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$8, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 216(%rcx)
-	movq	72(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	80(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
-	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
-	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
-	movq	216(%rcx), %rax
-	orq 	%r15, %rax
-	movq	$9, %rdx
-	movzbq	%r9b, %rdi
-	leaq	-1(%rdi), %r8
-	negq	%rdi
-	andq	%r8, %rax
-	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 216(%rcx)
+	movq	%rcx, 216(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	38080(%rax), %rcx
@@ -116893,19 +116896,19 @@ Loram_put_jazz$43:
 	movq	38088(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -116917,7 +116920,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -116936,8 +116939,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -116946,7 +116949,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -116957,12 +116960,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -116974,7 +116977,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -116993,8 +116996,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117003,7 +117006,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -117014,12 +117017,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117031,7 +117034,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117050,8 +117053,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117060,7 +117063,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -117071,12 +117074,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117088,7 +117091,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117107,8 +117110,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117117,7 +117120,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -117128,12 +117131,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117145,7 +117148,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117164,8 +117167,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117174,7 +117177,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -117185,12 +117188,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117202,7 +117205,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117221,8 +117224,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117231,7 +117234,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -117242,12 +117245,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117259,7 +117262,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117278,8 +117281,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117288,7 +117291,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -117299,12 +117302,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117316,7 +117319,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117335,8 +117338,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117345,7 +117348,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -117356,12 +117359,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117373,7 +117376,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117392,8 +117395,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117402,7 +117405,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
+	movq	%rdi, 64(%rdx)
 	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -117413,12 +117416,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 224(%rcx)
-	movq	72(%rax), %rdi
+	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117430,44 +117433,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
-	movq	224(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 72(%rdx)
+	movq	224(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$9, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 224(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 224(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	39440(%rax), %rcx
@@ -117476,19 +117479,19 @@ Loram_put_jazz$43:
 	movq	39448(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117500,7 +117503,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117519,8 +117522,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117529,7 +117532,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -117540,12 +117543,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117557,7 +117560,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117576,8 +117579,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117586,7 +117589,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -117597,12 +117600,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117614,7 +117617,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117633,8 +117636,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117643,7 +117646,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -117654,12 +117657,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117671,7 +117674,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117690,8 +117693,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117700,7 +117703,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -117711,12 +117714,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117728,7 +117731,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117747,8 +117750,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117757,7 +117760,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -117768,12 +117771,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117785,7 +117788,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117804,8 +117807,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117814,7 +117817,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -117825,12 +117828,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117842,7 +117845,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117861,8 +117864,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117871,7 +117874,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -117882,12 +117885,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117899,7 +117902,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117918,8 +117921,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117928,7 +117931,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -117939,12 +117942,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117956,7 +117959,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -117975,8 +117978,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -117985,7 +117988,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
+	movq	%rdi, 64(%rdx)
 	movq	232(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -117996,12 +117999,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 232(%rcx)
-	movq	72(%rax), %rdi
+	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118013,44 +118016,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
-	movq	232(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 72(%rdx)
+	movq	232(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$9, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 232(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 232(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	40800(%rax), %rcx
@@ -118699,19 +118702,19 @@ Loram_put_jazz$43:
 	movq	42168(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118723,7 +118726,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118742,8 +118745,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -118752,7 +118755,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -118763,12 +118766,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118780,7 +118783,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118799,8 +118802,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -118809,7 +118812,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -118820,12 +118823,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118837,7 +118840,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118856,8 +118859,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -118866,7 +118869,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -118877,12 +118880,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118894,7 +118897,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118913,8 +118916,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -118923,7 +118926,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -118934,12 +118937,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118951,7 +118954,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -118970,8 +118973,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -118980,7 +118983,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -118991,12 +118994,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119008,7 +119011,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119027,8 +119030,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119037,7 +119040,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -119048,12 +119051,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119065,7 +119068,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119084,8 +119087,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119094,7 +119097,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -119105,12 +119108,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119122,7 +119125,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119141,8 +119144,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119151,7 +119154,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -119162,12 +119165,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119179,7 +119182,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119198,8 +119201,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119208,7 +119211,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
+	movq	%rdi, 64(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -119219,12 +119222,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	72(%rax), %rdi
+	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119236,7 +119239,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119255,8 +119258,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119265,7 +119268,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
+	movq	%rdi, 72(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -119276,12 +119279,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	80(%rax), %rdi
+	movq	80(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119293,44 +119296,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 80(%rax)
-	movq	248(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 80(%rdx)
+	movq	248(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$10, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 248(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 248(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	43520(%rax), %rcx
@@ -119339,19 +119342,19 @@ Loram_put_jazz$43:
 	movq	43528(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119363,7 +119366,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119382,8 +119385,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119392,7 +119395,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -119403,12 +119406,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119420,7 +119423,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119439,8 +119442,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119449,7 +119452,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -119460,12 +119463,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119477,7 +119480,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119496,8 +119499,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119506,7 +119509,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -119517,12 +119520,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119534,7 +119537,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119553,8 +119556,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119563,7 +119566,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -119574,12 +119577,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119591,7 +119594,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119610,8 +119613,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119620,7 +119623,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -119631,12 +119634,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119648,7 +119651,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119667,8 +119670,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119677,7 +119680,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -119688,12 +119691,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119705,7 +119708,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119724,8 +119727,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119734,7 +119737,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -119745,12 +119748,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119762,7 +119765,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119781,8 +119784,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119791,7 +119794,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -119802,12 +119805,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119819,7 +119822,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119838,8 +119841,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119848,7 +119851,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
+	movq	%rdi, 64(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -119859,12 +119862,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	72(%rax), %rdi
+	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119876,7 +119879,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119895,8 +119898,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -119905,7 +119908,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
+	movq	%rdi, 72(%rdx)
 	movq	256(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -119916,12 +119919,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 256(%rcx)
-	movq	80(%rax), %rdi
+	movq	80(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -119933,44 +119936,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 80(%rax)
-	movq	256(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 80(%rdx)
+	movq	256(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$10, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 256(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 256(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	44880(%rax), %rcx
@@ -120676,19 +120679,19 @@ Loram_put_jazz$43:
 	movq	46248(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120700,7 +120703,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120719,8 +120722,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -120729,7 +120732,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -120740,12 +120743,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120757,7 +120760,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120776,8 +120779,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -120786,7 +120789,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -120797,12 +120800,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120814,7 +120817,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120833,8 +120836,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -120843,7 +120846,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -120854,12 +120857,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120871,7 +120874,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120890,8 +120893,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -120900,7 +120903,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -120911,12 +120914,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120928,7 +120931,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120947,8 +120950,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -120957,7 +120960,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -120968,12 +120971,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -120985,7 +120988,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121004,8 +121007,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -121014,7 +121017,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -121025,12 +121028,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121042,7 +121045,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121061,8 +121064,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -121071,7 +121074,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -121082,12 +121085,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121099,7 +121102,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121118,8 +121121,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -121128,7 +121131,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -121139,12 +121142,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121156,7 +121159,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121175,8 +121178,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -121185,7 +121188,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -121196,12 +121199,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121213,7 +121216,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121232,8 +121235,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -121242,7 +121245,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -121253,12 +121256,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121270,7 +121273,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121289,8 +121292,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -121299,7 +121302,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -121310,12 +121313,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -121327,747 +121330,50 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 88(%rdx)
-	movq	272(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 88(%rax)
+	movq	272(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$11, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 272(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 272(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	47600(%rax), %rcx
 	orq 	%r15, %rcx
 	movq	%rcx, %mm0
 	movq	47608(%rax), %rax
-	orq 	%r15, %rax
-	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
-	orq 	%r15, %rax
-	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	8(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$0, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	8(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	16(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$1, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	16(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	24(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$2, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	24(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	32(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$3, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	32(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	40(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$4, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	40(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	48(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$5, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	48(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	56(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$6, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	56(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	64(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$7, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	64(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	72(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$8, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	72(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	80(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$9, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	80(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	88(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
-	movq	280(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$10, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 280(%rcx)
-	movq	88(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	96(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
-	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
-	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
-	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 88(%rdx)
-	movq	280(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	$11, %rdx
-	movzbq	%r9b, %rdi
-	leaq	-1(%rdi), %r8
-	negq	%rdi
-	andq	%r8, %rcx
-	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 280(%rax)
-	movq	8(%r14), %rax
-	orq 	%r15, %rax
-	movq	48960(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	%rcx, %mm0
-	movq	48968(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
 	movq	48(%r14), %rax
@@ -122124,7 +121430,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, (%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
 	movzbq	%r9b, %r9
@@ -122133,7 +121439,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122181,7 +121487,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 8(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
 	movzbq	%r9b, %r9
@@ -122190,7 +121496,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122238,7 +121544,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 16(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
 	movzbq	%r9b, %r9
@@ -122247,7 +121553,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122295,7 +121601,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 24(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
 	movzbq	%r9b, %r9
@@ -122304,7 +121610,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122352,7 +121658,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 32(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
 	movzbq	%r9b, %r9
@@ -122361,7 +121667,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122409,7 +121715,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 40(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
 	movzbq	%r9b, %r9
@@ -122418,7 +121724,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122466,7 +121772,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 48(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
 	movzbq	%r9b, %r9
@@ -122475,7 +121781,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122523,7 +121829,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 56(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
 	movzbq	%r9b, %r9
@@ -122532,7 +121838,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122580,7 +121886,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 64(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
 	movzbq	%r9b, %r9
@@ -122589,7 +121895,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122637,7 +121943,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 72(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
 	movzbq	%r9b, %r9
@@ -122646,7 +121952,7 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -122694,7 +122000,7 @@ Loram_put_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 80(%rax)
-	movq	288(%rcx), %rdi
+	movq	280(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
 	movzbq	%r9b, %r9
@@ -122703,68 +122009,11 @@ Loram_put_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
+	movq	%rdi, 280(%rcx)
 	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 88(%rax)
-	movq	288(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$11, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 288(%rcx)
-	movq	96(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	104(%rcx), %r8
 	orq 	%r15, %r8
 	notb	%dl
 	movq	%r8, %rcx
@@ -122805,17 +122054,771 @@ Loram_put_jazz$43:
 	andq	%rdx, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 96(%rax)
-	movq	288(%rcx), %rax
+	movq	%rdi, 88(%rax)
+	movq	280(%rcx), %rax
 	orq 	%r15, %rax
-	movq	$12, %rdx
+	movq	$11, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
 	andq	%r8, %rax
 	andq	%rdi, %rdx
 	orq 	%rdx, %rax
-	movq	%rax, 288(%rcx)
+	movq	%rax, 280(%rcx)
+	movq	8(%r14), %rax
+	orq 	%r15, %rax
+	movq	48960(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	%rcx, %mm0
+	movq	48968(%rax), %rax
+	orq 	%r15, %rax
+	movq	%rax, %mm1
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
+	orq 	%r15, %rax
+	movq	%rsi, %mm2
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	8(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, (%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$0, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	8(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	16(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 8(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$1, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	16(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	24(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 16(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$2, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	24(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	32(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 24(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$3, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	32(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	40(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 32(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$4, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	40(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	48(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 40(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$5, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	48(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	56(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 48(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$6, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	56(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	64(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 56(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$7, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	64(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	72(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 64(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$8, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	72(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	80(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 72(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$9, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	80(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	88(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 80(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$10, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	88(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	96(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 88(%rdx)
+	movq	288(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$11, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 288(%rcx)
+	movq	96(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	104(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
+	movq	%mm1, %rcx
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
+	cmpq	$3, %rdi
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
+	andq	%r8, %rdi
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 96(%rdx)
+	movq	288(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	$12, %rdx
+	movzbq	%r9b, %rdi
+	leaq	-1(%rdi), %r8
+	negq	%rdi
+	andq	%r8, %rcx
+	andq	%rdi, %rdx
+	orq 	%rdx, %rcx
+	movq	%rcx, 288(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	50320(%rax), %rcx
@@ -124332,19 +124335,19 @@ Loram_put_jazz$43:
 	movq	53048(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124356,7 +124359,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124375,8 +124378,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124385,7 +124388,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -124396,12 +124399,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124413,7 +124416,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124432,8 +124435,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124442,7 +124445,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -124453,12 +124456,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124470,7 +124473,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124489,8 +124492,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124499,7 +124502,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -124510,12 +124513,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124527,7 +124530,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124546,8 +124549,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124556,7 +124559,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -124567,12 +124570,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124584,7 +124587,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124603,8 +124606,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124613,7 +124616,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -124624,12 +124627,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124641,7 +124644,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124660,8 +124663,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124670,7 +124673,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -124681,12 +124684,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124698,7 +124701,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124717,8 +124720,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124727,7 +124730,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -124738,12 +124741,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124755,7 +124758,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124774,8 +124777,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124784,7 +124787,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -124795,12 +124798,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124812,7 +124815,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124831,8 +124834,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124841,7 +124844,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -124852,12 +124855,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124869,7 +124872,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124888,8 +124891,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124898,7 +124901,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -124909,12 +124912,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124926,7 +124929,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124945,8 +124948,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -124955,7 +124958,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -124966,12 +124969,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -124983,7 +124986,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -125002,8 +125005,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -125012,7 +125015,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 88(%rdx)
+	movq	%rdi, 88(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
@@ -125023,12 +125026,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	96(%rdx), %rdi
+	movq	96(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -125040,7 +125043,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -125059,8 +125062,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -125069,7 +125072,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 96(%rdx)
+	movq	%rdi, 96(%rax)
 	movq	312(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$12, %r8
@@ -125080,12 +125083,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 312(%rcx)
-	movq	104(%rdx), %rdi
+	movq	104(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	112(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -125097,44 +125100,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 104(%rdx)
-	movq	312(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 104(%rax)
+	movq	312(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$13, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 312(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 312(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	54400(%rax), %rcx
@@ -126765,19 +126768,19 @@ Loram_put_jazz$43:
 	movq	57128(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126789,7 +126792,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126808,8 +126811,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -126818,7 +126821,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -126829,12 +126832,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126846,7 +126849,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126865,8 +126868,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -126875,7 +126878,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -126886,12 +126889,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126903,7 +126906,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126922,8 +126925,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -126932,7 +126935,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -126943,12 +126946,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126960,7 +126963,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -126979,8 +126982,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -126989,7 +126992,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -127000,12 +127003,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127017,7 +127020,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127036,8 +127039,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127046,7 +127049,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -127057,12 +127060,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127074,7 +127077,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127093,8 +127096,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127103,7 +127106,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -127114,12 +127117,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127131,7 +127134,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127150,8 +127153,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127160,7 +127163,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -127171,12 +127174,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127188,7 +127191,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127207,8 +127210,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127217,7 +127220,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -127228,12 +127231,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127245,7 +127248,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127264,8 +127267,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127274,7 +127277,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -127285,12 +127288,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127302,7 +127305,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127321,8 +127324,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127331,7 +127334,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -127342,12 +127345,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127359,7 +127362,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127378,8 +127381,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127388,7 +127391,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -127399,12 +127402,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127416,7 +127419,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127435,8 +127438,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127445,7 +127448,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 88(%rdx)
+	movq	%rdi, 88(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
@@ -127456,12 +127459,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	96(%rdx), %rdi
+	movq	96(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127473,7 +127476,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127492,8 +127495,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127502,7 +127505,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 96(%rdx)
+	movq	%rdi, 96(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$12, %r8
@@ -127513,12 +127516,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	104(%rdx), %rdi
+	movq	104(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	112(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127530,7 +127533,7 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127549,8 +127552,8 @@ Loram_put_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -127559,7 +127562,7 @@ Loram_put_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 104(%rdx)
+	movq	%rdi, 104(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$13, %r8
@@ -127570,12 +127573,12 @@ Loram_put_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	112(%rdx), %rdi
+	movq	112(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	120(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -127587,44 +127590,44 @@ Loram_put_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 112(%rdx)
-	movq	336(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 112(%rax)
+	movq	336(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$14, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 336(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 336(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	58480(%rax), %rcx
@@ -132139,39 +132142,39 @@ Loram_put_jazz$43:
 	movq	%rsi, %mm0
 	call	L_stash_overflow_ub$1
 Loram_put_jazz$42:
-	movq	%r14, %rax
-	orq 	%r15, %rax
-	movq	%mm0, %rdx
-	movq	$0, %r8
+	movq	%r14, %rdx
+	orq 	%r15, %rdx
+	movq	%mm0, %rax
+	movq	$0, %rdi
 	jmp 	Loram_put_jazz$40
 Loram_put_jazz$41:
 	movq	$-1, %rcx
 	cmovnb	%rcx, %r15
-	leaq	48(%r8), %rcx
-	movq	8(%rax), %rsi
+	leaq	48(%rdi), %rcx
+	movq	8(%rdx), %rsi
 	orq 	%r15, %rsi
-	movq	%rcx, %rdi
-	imulq	$1360, %rdi, %rdi
-	movq	(%rsi,%rdi), %r10
+	movq	%rcx, %r8
+	imulq	$1360, %r8, %r8
+	movq	(%rsi,%r8), %r10
 	orq 	%r15, %r10
 	movq	%r10, %mm0
-	movq	8(%rsi,%rdi), %rsi
+	movq	8(%rsi,%r8), %rsi
 	orq 	%r15, %rsi
 	movq	%rsi, %mm1
-	movq	48(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	56(%rax), %rsi
+	movq	48(%rdx), %rsi
 	orq 	%r15, %rsi
-	movq	%rdx, %mm2
+	movq	56(%rdx), %r8
+	orq 	%r15, %r8
+	movq	%rax, %mm2
 	movq	%rcx, %mm3
-	movq	%rsi, %mm4
-	xorb	%sil, %sil
-	movq	(%rdi), %r10
+	movq	%r8, %mm4
+	xorb	%r8b, %r8b
+	movq	(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132183,7 +132186,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132202,8 +132205,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132214,7 +132217,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, (%rdi)
+	movq	%r11, (%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$0, %r11
@@ -132225,12 +132228,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	8(%rdi), %r10
+	movq	8(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132242,7 +132245,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132261,8 +132264,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132273,7 +132276,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 8(%rdi)
+	movq	%r11, 8(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$1, %r11
@@ -132284,12 +132287,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	16(%rdi), %r10
+	movq	16(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132301,7 +132304,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132320,8 +132323,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132332,7 +132335,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 16(%rdi)
+	movq	%r11, 16(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$2, %r11
@@ -132343,12 +132346,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	24(%rdi), %r10
+	movq	24(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132360,7 +132363,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132379,8 +132382,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132391,7 +132394,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 24(%rdi)
+	movq	%r11, 24(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$3, %r11
@@ -132402,12 +132405,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	32(%rdi), %r10
+	movq	32(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132419,7 +132422,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132438,8 +132441,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132450,7 +132453,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 32(%rdi)
+	movq	%r11, 32(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$4, %r11
@@ -132461,12 +132464,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	40(%rdi), %r10
+	movq	40(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132478,7 +132481,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132497,8 +132500,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132509,7 +132512,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 40(%rdi)
+	movq	%r11, 40(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$5, %r11
@@ -132520,12 +132523,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	48(%rdi), %r10
+	movq	48(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132537,7 +132540,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132556,8 +132559,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132568,7 +132571,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 48(%rdi)
+	movq	%r11, 48(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$6, %r11
@@ -132579,12 +132582,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	56(%rdi), %r10
+	movq	56(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132596,7 +132599,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132615,8 +132618,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132627,7 +132630,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 56(%rdi)
+	movq	%r11, 56(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$7, %r11
@@ -132638,12 +132641,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	64(%rdi), %r10
+	movq	64(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132655,7 +132658,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132674,8 +132677,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132686,7 +132689,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 64(%rdi)
+	movq	%r11, 64(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$8, %r11
@@ -132697,12 +132700,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	72(%rdi), %r10
+	movq	72(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132714,7 +132717,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132733,8 +132736,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132745,7 +132748,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 72(%rdi)
+	movq	%r11, 72(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$9, %r11
@@ -132756,12 +132759,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	80(%rdi), %r10
+	movq	80(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132773,7 +132776,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132792,8 +132795,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132804,7 +132807,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 80(%rdi)
+	movq	%r11, 80(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$10, %r11
@@ -132815,12 +132818,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	88(%rdi), %r10
+	movq	88(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132832,7 +132835,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132851,8 +132854,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132863,7 +132866,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 88(%rdi)
+	movq	%r11, 88(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$11, %r11
@@ -132874,12 +132877,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	96(%rdi), %r10
+	movq	96(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132891,7 +132894,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132910,8 +132913,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132922,7 +132925,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 96(%rdi)
+	movq	%r11, 96(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$12, %r11
@@ -132933,12 +132936,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	104(%rdi), %r10
+	movq	104(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	112(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132950,7 +132953,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -132969,8 +132972,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -132981,7 +132984,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 104(%rdi)
+	movq	%r11, 104(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$13, %r11
@@ -132992,12 +132995,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	112(%rdi), %r10
+	movq	112(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	120(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -133009,7 +133012,7 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -133028,8 +133031,8 @@ Loram_put_jazz$41:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %bl
-	notb	%sil
-	orb 	%bl, %sil
+	notb	%r8b
+	orb 	%bl, %r8b
 	leaq	1(%r10), %rcx
 	movq	%r10, %r11
 	movzbq	%bl, %r10
@@ -133040,7 +133043,7 @@ Loram_put_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 112(%rdi)
+	movq	%r11, 112(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$14, %r11
@@ -133051,12 +133054,12 @@ Loram_put_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	120(%rdi), %r10
+	movq	120(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	128(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%sil
+	notb	%r8b
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -133068,16 +133071,16 @@ Loram_put_jazz$41:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%sil, %bl
+	andb	%r8b, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
-	movq	$1, %rsi
-	shlq	%cl, %rsi
-	addq	$-1, %rsi
-	addq	%r11, %rsi
+	movq	$1, %r8
+	shlq	%cl, %r8
+	addq	$-1, %r8
+	addq	%r11, %r8
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rsi
+	cmpq	%rcx, %r8
 	setnb	%cl
 	andb	%cl, %bl
 	cmpq	$3, %r10
@@ -133088,39 +133091,39 @@ Loram_put_jazz$41:
 	setne	%cl
 	andb	%cl, %bl
 	leaq	1(%r10), %rcx
-	movzbq	%bl, %rsi
-	leaq	-1(%rsi), %r11
-	negq	%rsi
+	movzbq	%bl, %r8
+	leaq	-1(%r8), %r11
+	negq	%r8
 	andq	%r11, %r10
-	andq	%rsi, %rcx
+	andq	%r8, %rcx
 	orq 	%rcx, %r10
 	movq	%mm3, %rcx
-	movq	%mm4, %rsi
-	movq	%r10, 120(%rdi)
-	movq	(%rsi,%rcx,8), %rdi
-	orq 	%r15, %rdi
+	movq	%mm4, %r8
+	movq	%r10, 120(%rsi)
+	movq	(%r8,%rcx,8), %rsi
+	orq 	%r15, %rsi
 	movq	$15, %r10
 	movzbq	%bl, %r11
 	leaq	-1(%r11), %rbx
 	negq	%r11
-	andq	%rbx, %rdi
+	andq	%rbx, %rsi
 	andq	%r11, %r10
-	orq 	%r10, %rdi
-	movq	%rdi, (%rsi,%rcx,8)
-	leaq	1(%r8), %r8
+	orq 	%r10, %rsi
+	movq	%rsi, (%r8,%rcx,8)
+	leaq	1(%rdi), %rdi
 Loram_put_jazz$40:
-	cmpq	%r9, %r8
+	cmpq	%r9, %rdi
 	jb  	Loram_put_jazz$41
-	movq	$-1, %rcx
-	cmovb	%rcx, %r15
-	movq	(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	48(%rax), %rdx
-	orq 	%r15, %rdx
-	movq	56(%rax), %rsi
-	orq 	%r15, %rsi
-	movq	24(%rax), %rax
+	movq	$-1, %rax
+	cmovb	%rax, %r15
+	movq	(%rdx), %rax
 	orq 	%r15, %rax
+	movq	48(%rdx), %rcx
+	orq 	%r15, %rcx
+	movq	56(%rdx), %rsi
+	orq 	%r15, %rsi
+	movq	24(%rdx), %rdx
+	orq 	%r15, %rdx
 	xorq	%r9, %r9
 	movq	$0, %rdi
 	jmp 	Loram_put_jazz$38
@@ -133129,7 +133132,7 @@ Loram_put_jazz$39:
 	cmovnb	%r8, %r15
 	movb	$0, %r8b
 	notb	%r8b
-	movq	(%rdx), %r10
+	movq	(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133144,7 +133147,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	8(%rdx), %r10
+	movq	8(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133159,7 +133162,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	16(%rdx), %r10
+	movq	16(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133174,7 +133177,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	24(%rdx), %r10
+	movq	24(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133189,7 +133192,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	32(%rdx), %r10
+	movq	32(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133204,7 +133207,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	40(%rdx), %r10
+	movq	40(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133219,7 +133222,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	48(%rdx), %r10
+	movq	48(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133234,7 +133237,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	56(%rdx), %r10
+	movq	56(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133249,7 +133252,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	64(%rdx), %r10
+	movq	64(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133264,7 +133267,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	72(%rdx), %r10
+	movq	72(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133279,7 +133282,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	80(%rdx), %r10
+	movq	80(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133294,7 +133297,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	88(%rdx), %r10
+	movq	88(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133309,7 +133312,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	96(%rdx), %r10
+	movq	96(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133324,7 +133327,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	104(%rdx), %r10
+	movq	104(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133339,7 +133342,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	112(%rdx), %r10
+	movq	112(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133354,7 +133357,7 @@ Loram_put_jazz$39:
 	notb	%r8b
 	orb 	%r10b, %r8b
 	notb	%r8b
-	movq	120(%rdx), %r10
+	movq	120(%rcx), %r10
 	orq 	%r15, %r10
 	cmpq	$3, %r10
 	setne	%r10b
@@ -133366,9 +133369,9 @@ Loram_put_jazz$39:
 	andq	%r11, %r9
 	andq	%r10, %r8
 	orq 	%r8, %r9
-	movq	(%rdx,%r9,8), %r10
+	movq	(%rcx,%r9,8), %r10
 	imulq	$1360, %rdi, %r8
-	movq	(%rcx,%r8), %r8
+	movq	(%rax,%r8), %r8
 	cmpq	$-1, %r8
 	sete	%r11b
 	cmpq	$3, %r10
@@ -133381,7 +133384,7 @@ Loram_put_jazz$39:
 	andq	%rbp, %r10
 	andq	%rbx, %r11
 	orq 	%r11, %r10
-	movq	%r10, (%rdx,%r9,8)
+	movq	%r10, (%rcx,%r9,8)
 	movq	(%rsi,%rdi,8), %r10
 	movq	%r9, %r11
 	movzbq	%r8b, %r8
@@ -133393,7 +133396,7 @@ Loram_put_jazz$39:
 	movq	%r10, (%rsi,%rdi,8)
 	incq	%rdi
 Loram_put_jazz$38:
-	cmpq	%rax, %rdi
+	cmpq	%rdx, %rdi
 	jb  	Loram_put_jazz$39
 	movq	$-1, %rax
 	cmovb	%rax, %r15
@@ -133444,7 +133447,7 @@ Loram_put_jazz$27:
 	movq	$-1, %r8
 	cmovnb	%r8, %r15
 	imulq	$2720, %rcx, %rbp
-	movq	%rax, 2752(%rsp)
+	movq	%rax, 2760(%rsp)
 	movq	%rdx, %rax
 	leaq	(%rcx,%rcx), %r8
 	movq	%rdi, 2736(%rsp)
@@ -134102,7 +134105,7 @@ Loram_put_jazz$32:
 	jb  	Loram_put_jazz$30
 	movq	$-1, %rax
 	cmovb	%rax, %r15
-	movq	2752(%rsp), %rax
+	movq	2760(%rsp), %rax
 	movq	2736(%rsp), %rdi
 	movq	2784(%rsp), %r9
 	movq	2816(%rsp), %rbx
@@ -134123,7 +134126,7 @@ Loram_put_jazz$24:
 	jb  	Loram_put_jazz$22
 	movq	$-1, %rax
 	cmovb	%rax, %r15
-	movq	2760(%rsp), %rax
+	movq	2752(%rsp), %rax
 	orq 	%r15, %rax
 	movq	(%rax), %rcx
 	orq 	%r15, %rcx
@@ -134282,8 +134285,8 @@ oram_get_jazz:
 	movq	%r14, 2976(%rsp)
 	movq	%r15, 2984(%rsp)
 	movq	%rax, 2992(%rsp)
-	movq	%rdi, %rbp
-	movq	%rsi, %rbx
+	movq	%rdi, %rbx
+	movq	%rsi, %rbp
 	movq	%rdx, %r13
 	lfence
 	movq	$0, %rax
@@ -134465,10 +134468,10 @@ oram_get_jazz:
 	andq	$32767, %rax
 	lfence
 	movq	$0, %rsi
-	movq	8(%rbp), %rcx
+	movq	8(%rbx), %rcx
 	orq 	%rsi, %rcx
-	movq	%rbp, 2736(%rsp)
-	movq	%rbx, 2744(%rsp)
+	movq	%rbx, 2736(%rsp)
+	movq	%rbp, 2744(%rsp)
 	movq	%rax, 2752(%rsp)
 	movq	%r13, 2760(%rsp)
 	movq	%r12, 2768(%rsp)
@@ -134477,25 +134480,25 @@ oram_get_jazz:
 	movq	48(%rdi), %rcx
 	movq	56(%rdi), %r8
 	movq	$168, %r9
-	movq	%rbx, %r10
+	movq	%rbp, %r10
 	mulxq	%r10, %rdx, %rdx
-	movq	%rbx, %r10
+	movq	%rbp, %r10
 	subq	%rdx, %r10
 	shrq	%cl, %r10
 	addq	%r10, %rdx
 	movq	%r8, %rcx
 	shrq	%cl, %rdx
 	imulq	%r9, %rdx
-	movq	%rbx, %r8
+	movq	%rbp, %r8
 	subq	%rdx, %r8
 	movq	40(%rdi), %rdx
 	movq	48(%rdi), %rcx
 	movq	56(%rdi), %r9
-	movq	%rbx, %r10
+	movq	%rbp, %r10
 	mulxq	%r10, %rdx, %rdx
-	subq	%rdx, %rbx
-	shrq	%cl, %rbx
-	addq	%rbx, %rdx
+	subq	%rdx, %rbp
+	shrq	%cl, %rbp
+	addq	%rbp, %rdx
 	movq	%r9, %rcx
 	shrq	%cl, %rdx
 	movq	16(%rdi), %rcx
@@ -145101,19 +145104,19 @@ Loram_get_jazz$97:
 	movq	32648(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145125,7 +145128,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145144,8 +145147,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145154,7 +145157,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -145165,12 +145168,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145182,7 +145185,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145201,8 +145204,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145211,7 +145214,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -145222,12 +145225,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145239,7 +145242,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145258,8 +145261,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145268,7 +145271,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -145279,12 +145282,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145296,7 +145299,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145315,8 +145318,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145325,7 +145328,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -145336,12 +145339,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145353,7 +145356,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145372,8 +145375,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145382,7 +145385,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -145393,12 +145396,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145410,7 +145413,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145429,8 +145432,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145439,7 +145442,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -145450,12 +145453,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145467,7 +145470,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145486,8 +145489,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145496,7 +145499,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -145507,12 +145510,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145524,7 +145527,7 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145543,8 +145546,8 @@ Loram_get_jazz$97:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -145553,7 +145556,7 @@ Loram_get_jazz$97:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	192(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -145564,12 +145567,12 @@ Loram_get_jazz$97:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 192(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -145581,44 +145584,44 @@ Loram_get_jazz$97:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
-	movq	192(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 64(%rdx)
+	movq	192(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$8, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 192(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 192(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	34000(%rax), %rcx
@@ -146674,39 +146677,39 @@ Loram_get_jazz$97:
 	movq	%rsi, %mm0
 	call	L_stash_overflow_ub$1
 Loram_get_jazz$96:
-	movq	%r14, %rax
-	orq 	%r15, %rax
-	movq	%mm0, %rsi
-	movq	$0, %rdi
+	movq	%r14, %rsi
+	orq 	%r15, %rsi
+	movq	%mm0, %rdx
+	movq	$0, %rax
 	jmp 	Loram_get_jazz$94
 Loram_get_jazz$95:
 	movq	$-1, %rcx
 	cmovnb	%rcx, %r15
-	leaq	27(%rdi), %rcx
-	movq	8(%rax), %rdx
-	orq 	%r15, %rdx
+	leaq	27(%rax), %rcx
+	movq	8(%rsi), %rdi
+	orq 	%r15, %rdi
 	movq	%rcx, %r8
 	imulq	$1360, %r8, %r8
-	movq	(%rdx,%r8), %r10
+	movq	(%rdi,%r8), %r10
 	orq 	%r15, %r10
 	movq	%r10, %mm0
-	movq	8(%rdx,%r8), %rdx
-	orq 	%r15, %rdx
-	movq	%rdx, %mm1
-	movq	48(%rax), %rdx
-	orq 	%r15, %rdx
-	movq	56(%rax), %r8
+	movq	8(%rdi,%r8), %rdi
+	orq 	%r15, %rdi
+	movq	%rdi, %mm1
+	movq	48(%rsi), %r8
 	orq 	%r15, %r8
-	movq	%rsi, %mm2
+	movq	56(%rsi), %rdi
+	orq 	%r15, %rdi
+	movq	%rdx, %mm2
 	movq	%rcx, %mm3
-	movq	%r8, %mm4
-	xorb	%r8b, %r8b
-	movq	(%rdx), %r11
+	movq	%rdi, %mm4
+	xorb	%dil, %dil
+	movq	(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	8(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146718,7 +146721,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146737,8 +146740,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -146748,7 +146751,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, (%rdx)
+	movq	%r11, (%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$0, %r11
@@ -146759,12 +146762,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	8(%rdx), %r11
+	movq	8(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	16(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146776,7 +146779,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146795,8 +146798,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -146806,7 +146809,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 8(%rdx)
+	movq	%r11, 8(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$1, %r11
@@ -146817,12 +146820,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	16(%rdx), %r11
+	movq	16(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	24(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146834,7 +146837,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146853,8 +146856,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -146864,7 +146867,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 16(%rdx)
+	movq	%r11, 16(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$2, %r11
@@ -146875,12 +146878,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	24(%rdx), %r11
+	movq	24(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	32(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146892,7 +146895,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146911,8 +146914,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -146922,7 +146925,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 24(%rdx)
+	movq	%r11, 24(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$3, %r11
@@ -146933,12 +146936,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	32(%rdx), %r11
+	movq	32(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	40(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146950,7 +146953,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -146969,8 +146972,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -146980,7 +146983,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 32(%rdx)
+	movq	%r11, 32(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$4, %r11
@@ -146991,12 +146994,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	40(%rdx), %r11
+	movq	40(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	48(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147008,7 +147011,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147027,8 +147030,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -147038,7 +147041,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 40(%rdx)
+	movq	%r11, 40(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$5, %r11
@@ -147049,12 +147052,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	48(%rdx), %r11
+	movq	48(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	56(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147066,7 +147069,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147085,8 +147088,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -147096,7 +147099,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 48(%rdx)
+	movq	%r11, 48(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$6, %r11
@@ -147107,12 +147110,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	56(%rdx), %r11
+	movq	56(%r8), %r11
 	orq 	%r15, %r11
 	movq	%mm2, %rcx
 	movq	64(%rcx), %rbx
 	orq 	%r15, %rbx
-	notb	%r8b
+	notb	%dil
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147124,7 +147127,7 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r10
 	setbe	%r10b
-	andb	%r8b, %r10b
+	andb	%dil, %r10b
 	movq	%rbx, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147143,8 +147146,8 @@ Loram_get_jazz$95:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r10b
-	notb	%r8b
-	orb 	%r10b, %r8b
+	notb	%dil
+	orb 	%r10b, %dil
 	leaq	1(%r11), %rcx
 	movzbq	%r10b, %rbx
 	leaq	-1(%rbx), %r12
@@ -147154,7 +147157,7 @@ Loram_get_jazz$95:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %rbx
-	movq	%r11, 56(%rdx)
+	movq	%r11, 56(%r8)
 	movq	(%rbx,%rcx,8), %r12
 	orq 	%r15, %r12
 	movq	$7, %r11
@@ -147165,12 +147168,12 @@ Loram_get_jazz$95:
 	andq	%r10, %r11
 	orq 	%r11, %r12
 	movq	%r12, (%rbx,%rcx,8)
-	movq	64(%rdx), %r10
+	movq	64(%r8), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r11
 	orq 	%r15, %r11
-	notb	%r8b
+	notb	%dil
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -147182,16 +147185,16 @@ Loram_get_jazz$95:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %rbx
 	setbe	%bl
-	andb	%r8b, %bl
+	andb	%dil, %bl
 	movq	%r11, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
-	movq	$1, %r8
-	shlq	%cl, %r8
-	addq	$-1, %r8
-	addq	%r11, %r8
+	movq	$1, %rdi
+	shlq	%cl, %rdi
+	addq	$-1, %rdi
+	addq	%r11, %rdi
 	movq	%mm1, %rcx
-	cmpq	%rcx, %r8
+	cmpq	%rcx, %rdi
 	setnb	%cl
 	andb	%cl, %bl
 	cmpq	$3, %r10
@@ -147202,39 +147205,39 @@ Loram_get_jazz$95:
 	setne	%cl
 	andb	%cl, %bl
 	leaq	1(%r10), %rcx
-	movzbq	%bl, %r8
-	leaq	-1(%r8), %r11
-	negq	%r8
+	movzbq	%bl, %rdi
+	leaq	-1(%rdi), %r11
+	negq	%rdi
 	andq	%r11, %r10
-	andq	%r8, %rcx
+	andq	%rdi, %rcx
 	orq 	%rcx, %r10
 	movq	%mm3, %rcx
-	movq	%mm4, %r8
-	movq	%r10, 64(%rdx)
-	movq	(%r8,%rcx,8), %rdx
-	orq 	%r15, %rdx
+	movq	%mm4, %rdi
+	movq	%r10, 64(%r8)
+	movq	(%rdi,%rcx,8), %r8
+	orq 	%r15, %r8
 	movq	$8, %r10
 	movzbq	%bl, %r11
 	leaq	-1(%r11), %rbx
 	negq	%r11
-	andq	%rbx, %rdx
+	andq	%rbx, %r8
 	andq	%r11, %r10
-	orq 	%r10, %rdx
-	movq	%rdx, (%r8,%rcx,8)
-	leaq	1(%rdi), %rdi
+	orq 	%r10, %r8
+	movq	%r8, (%rdi,%rcx,8)
+	leaq	1(%rax), %rax
 Loram_get_jazz$94:
-	cmpq	%r9, %rdi
+	cmpq	%r9, %rax
 	jb  	Loram_get_jazz$95
-	movq	$-1, %rcx
-	cmovb	%rcx, %r15
-	movq	(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	48(%rax), %rdx
-	orq 	%r15, %rdx
-	movq	56(%rax), %rsi
-	orq 	%r15, %rsi
-	movq	24(%rax), %rax
+	movq	$-1, %rax
+	cmovb	%rax, %r15
+	movq	(%rsi), %rax
 	orq 	%r15, %rax
+	movq	48(%rsi), %rcx
+	orq 	%r15, %rcx
+	movq	56(%rsi), %rdx
+	orq 	%r15, %rdx
+	movq	24(%rsi), %rsi
+	orq 	%r15, %rsi
 	xorq	%r10, %r10
 	movq	$0, %rdi
 	jmp 	Loram_get_jazz$92
@@ -147243,7 +147246,7 @@ Loram_get_jazz$93:
 	cmovnb	%r8, %r15
 	movb	$0, %r8b
 	notb	%r8b
-	movq	(%rdx), %r9
+	movq	(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147258,7 +147261,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	8(%rdx), %r9
+	movq	8(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147273,7 +147276,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	16(%rdx), %r9
+	movq	16(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147288,7 +147291,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	24(%rdx), %r9
+	movq	24(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147303,7 +147306,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	32(%rdx), %r9
+	movq	32(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147318,7 +147321,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	40(%rdx), %r9
+	movq	40(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147333,7 +147336,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	48(%rdx), %r9
+	movq	48(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147348,7 +147351,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	56(%rdx), %r9
+	movq	56(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147363,7 +147366,7 @@ Loram_get_jazz$93:
 	notb	%r8b
 	orb 	%r9b, %r8b
 	notb	%r8b
-	movq	64(%rdx), %r9
+	movq	64(%rcx), %r9
 	orq 	%r15, %r9
 	cmpq	$3, %r9
 	setne	%r9b
@@ -147375,9 +147378,9 @@ Loram_get_jazz$93:
 	andq	%r11, %r10
 	andq	%r9, %r8
 	orq 	%r8, %r10
-	movq	(%rdx,%r10,8), %r8
+	movq	(%rcx,%r10,8), %r8
 	imulq	$1360, %rdi, %r9
-	movq	(%rcx,%r9), %r9
+	movq	(%rax,%r9), %r9
 	cmpq	$-1, %r9
 	sete	%r11b
 	cmpq	$3, %r8
@@ -147390,8 +147393,8 @@ Loram_get_jazz$93:
 	andq	%r12, %r8
 	andq	%rbx, %r11
 	orq 	%r11, %r8
-	movq	%r8, (%rdx,%r10,8)
-	movq	(%rsi,%rdi,8), %r8
+	movq	%r8, (%rcx,%r10,8)
+	movq	(%rdx,%rdi,8), %r8
 	movq	%r10, %r11
 	movzbq	%r9b, %r9
 	leaq	-1(%r9), %rbx
@@ -147399,10 +147402,10 @@ Loram_get_jazz$93:
 	andq	%rbx, %r8
 	andq	%r9, %r11
 	orq 	%r11, %r8
-	movq	%r8, (%rsi,%rdi,8)
+	movq	%r8, (%rdx,%rdi,8)
 	incq	%rdi
 Loram_get_jazz$92:
-	cmpq	%rax, %rdi
+	cmpq	%rsi, %rdi
 	jb  	Loram_get_jazz$93
 	movq	$-1, %rax
 	cmovb	%rax, %r15
@@ -147413,11 +147416,11 @@ Loram_get_jazz$91:
 	leaq	27(%r9), %rax
 	movq	(%rcx), %r9
 	orq 	%r15, %r9
-	movq	56(%rcx), %r11
-	orq 	%r15, %r11
+	movq	56(%rcx), %rbx
+	orq 	%r15, %rbx
 	movq	$0, %r10
 	subq	%r10, %rax
-	leaq	(%r11,%r10,8), %rdx
+	leaq	(%rbx,%r10,8), %rdx
 	movq	$1, %rcx
 	movq	%rdx, 2800(%rsp)
 	jmp 	Loram_get_jazz$75
@@ -147425,8 +147428,8 @@ Loram_get_jazz$76:
 	movq	$-1, %rdx
 	cmovnb	%rdx, %r15
 Loram_get_jazz$75:
-	leaq	(%rcx,%rcx), %rbx
-	leaq	-1(%rcx), %rdi
+	leaq	(%rcx,%rcx), %r11
+	leaq	-1(%rcx), %r8
 	cmpq	$0, %rcx
 	jne 	Loram_get_jazz$77
 	movq	$-1, %rcx
@@ -147440,7 +147443,7 @@ Loram_get_jazz$80:
 	movq	$-1, %rdx
 	cmove	%rdx, %r15
 Loram_get_jazz$79:
-	movq	%rdi, %rsi
+	movq	%r8, %rsi
 	andq	%rcx, %rsi
 	movq	%rax, %rdx
 	subq	%rcx, %rdx
@@ -147450,61 +147453,61 @@ Loram_get_jazz$79:
 	cmovb	%rdx, %r15
 	jmp 	Loram_get_jazz$82
 Loram_get_jazz$81:
-	movq	$-1, %r8
-	cmovnb	%r8, %r15
+	movq	$-1, %rdi
+	cmovnb	%rdi, %r15
 	imulq	$2720, %rcx, %r12
 	movq	%rax, 2776(%rsp)
 	movq	%rdx, %rax
-	leaq	(%rcx,%rcx), %r8
-	movq	%rdi, 2792(%rsp)
+	leaq	(%rcx,%rcx), %rdi
+	movq	%r8, 2792(%rsp)
 	subq	%rsi, %rax
 	movq	%r9, 2824(%rsp)
 	movq	%r12, 2832(%rsp)
-	leaq	(%r10,%rsi), %rdi
-	imulq	$1360, %rdi, %rdi
-	movq	%r11, 2840(%rsp)
+	leaq	(%r10,%rsi), %r8
+	imulq	$1360, %r8, %r8
+	movq	%rbx, 2840(%rsp)
 	movq	%r10, 2848(%rsp)
 	movq	%rdx, 2856(%rsp)
-	leaq	(%rdi,%r9), %rdx
-	leaq	(%rcx,%r10), %rdi
-	leaq	(%r11,%rdi,8), %rdi
-	movq	%rdi, 2864(%rsp)
-	imulq	$1360, %rcx, %rdi
-	movq	%rdi, 2872(%rsp)
+	leaq	(%r8,%r9), %rdx
+	leaq	(%rcx,%r10), %r8
+	leaq	(%rbx,%r8,8), %r8
+	movq	%r8, 2864(%rsp)
+	imulq	$1360, %rcx, %r8
+	movq	%r8, 2872(%rsp)
 	jmp 	Loram_get_jazz$83
 Loram_get_jazz$84:
-	movq	$-1, %rdi
-	cmovnb	%rdi, %r15
+	movq	$-1, %r8
+	cmovnb	%r8, %r15
 Loram_get_jazz$83:
-	movq	%rax, %rdi
+	movq	%rax, %rbx
 	cmpq	%rax, %rcx
-	cmovb	%rcx, %rdi
-	cmpq	$0, %rdi
+	cmovb	%rcx, %rbx
+	cmpq	$0, %rbx
 	jne 	Loram_get_jazz$85
-	movq	$-1, %rdi
-	cmovne	%rdi, %r15
+	movq	$-1, %r8
+	cmovne	%r8, %r15
 	jmp 	Loram_get_jazz$86
 Loram_get_jazz$85:
-	movq	$-1, %r9
-	cmove	%r9, %r15
-	movq	%r8, 2880(%rsp)
-	movq	2800(%rsp), %r11
-	orq 	%r15, %r11
-	addq	%rsi, %rdi
-	movq	%rdx, %r8
-	leaq	(,%rsi,8), %r9
+	movq	$-1, %r8
+	cmove	%r8, %r15
+	movq	%rdi, 2880(%rsp)
+	movq	2800(%rsp), %r10
+	orq 	%r15, %r10
+	addq	%rsi, %rbx
+	movq	%rdx, %rdi
+	leaq	(,%rsi,8), %r8
 	movq	%rdx, 2888(%rsp)
 	movq	%rsi, %r12
-	leaq	(%r11,%r9), %r10
+	leaq	(%r10,%r8), %r9
 	movq	%rax, 2896(%rsp)
-	movq	%r11, 2800(%rsp)
+	movq	%r10, 2800(%rsp)
 	movq	2864(%rsp), %rax
 	orq 	%r15, %rax
-	addq	%rax, %r9
+	addq	%rax, %r8
 	movq	%rax, 2864(%rsp)
 	movq	2872(%rsp), %rax
 	orq 	%r15, %rax
-	leaq	(%rax,%rdx), %r11
+	leaq	(%rax,%rdx), %r10
 	movq	%rax, 2872(%rsp)
 	jmp 	Loram_get_jazz$87
 Loram_get_jazz$88:
@@ -147512,13 +147515,13 @@ Loram_get_jazz$88:
 	cmove	%rax, %r15
 	movq	%r12, %rax
 	xorq	%rdx, %rdx
-	divq	%rbx
+	divq	%r11
 	movq	%rax, %r13
 	leaq	(%r12,%rcx), %rax
 	movq	%r12, 2904(%rsp)
 	xorq	%rdx, %rdx
-	divq	%rbx
-	movq	%rbx, 2912(%rsp)
+	divq	%r11
+	movq	%r11, 2912(%rsp)
 	cmpq	%rax, %r13
 	je  	Loram_get_jazz$89
 	movq	$-1, %rax
@@ -147527,14 +147530,14 @@ Loram_get_jazz$88:
 Loram_get_jazz$89:
 	movq	$-1, %rax
 	cmovne	%rax, %r15
-	movq	(%r10), %rax
-	movq	(%r9), %rdx
-	movq	8(%r8), %rbx
-	cmpq	%rbx, 8(%r11)
-	setb	%bl
+	movq	(%r9), %rax
+	movq	(%r8), %rdx
+	movq	8(%rdi), %r11
+	cmpq	%r11, 8(%r10)
+	setb	%r11b
 	cmpq	%rdx, %rax
 	sete	%r12b
-	andb	%bl, %r12b
+	andb	%r11b, %r12b
 	cmpq	%rdx, %rax
 	setnbe	%al
 	orb 	%al, %r12b
@@ -147547,577 +147550,577 @@ Loram_get_jazz$89:
 	movq	%rdx, 2928(%rsp)
 	vpbroadcastq	2920(%rsp), %ymm0
 	vpbroadcastq	2928(%rsp), %ymm1
-	vmovdqu	(%r8), %ymm2
-	vmovdqu	(%r11), %ymm3
+	vmovdqu	(%rdi), %ymm2
+	vmovdqu	(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, (%r8)
-	vmovdqu	(%r11), %ymm3
+	vmovdqu	%ymm3, (%rdi)
+	vmovdqu	(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, (%r11)
-	vmovdqu	32(%r8), %ymm2
-	vmovdqu	32(%r11), %ymm3
+	vmovdqu	%ymm2, (%r10)
+	vmovdqu	32(%rdi), %ymm2
+	vmovdqu	32(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 32(%r8)
-	vmovdqu	32(%r11), %ymm3
+	vmovdqu	%ymm3, 32(%rdi)
+	vmovdqu	32(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 32(%r11)
-	vmovdqu	64(%r8), %ymm2
-	vmovdqu	64(%r11), %ymm3
+	vmovdqu	%ymm2, 32(%r10)
+	vmovdqu	64(%rdi), %ymm2
+	vmovdqu	64(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 64(%r8)
-	vmovdqu	64(%r11), %ymm3
+	vmovdqu	%ymm3, 64(%rdi)
+	vmovdqu	64(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 64(%r11)
-	vmovdqu	96(%r8), %ymm2
-	vmovdqu	96(%r11), %ymm3
+	vmovdqu	%ymm2, 64(%r10)
+	vmovdqu	96(%rdi), %ymm2
+	vmovdqu	96(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 96(%r8)
-	vmovdqu	96(%r11), %ymm3
+	vmovdqu	%ymm3, 96(%rdi)
+	vmovdqu	96(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 96(%r11)
-	vmovdqu	128(%r8), %ymm2
-	vmovdqu	128(%r11), %ymm3
+	vmovdqu	%ymm2, 96(%r10)
+	vmovdqu	128(%rdi), %ymm2
+	vmovdqu	128(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 128(%r8)
-	vmovdqu	128(%r11), %ymm3
+	vmovdqu	%ymm3, 128(%rdi)
+	vmovdqu	128(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 128(%r11)
-	vmovdqu	160(%r8), %ymm2
-	vmovdqu	160(%r11), %ymm3
+	vmovdqu	%ymm2, 128(%r10)
+	vmovdqu	160(%rdi), %ymm2
+	vmovdqu	160(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 160(%r8)
-	vmovdqu	160(%r11), %ymm3
+	vmovdqu	%ymm3, 160(%rdi)
+	vmovdqu	160(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 160(%r11)
-	vmovdqu	192(%r8), %ymm2
-	vmovdqu	192(%r11), %ymm3
+	vmovdqu	%ymm2, 160(%r10)
+	vmovdqu	192(%rdi), %ymm2
+	vmovdqu	192(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 192(%r8)
-	vmovdqu	192(%r11), %ymm3
+	vmovdqu	%ymm3, 192(%rdi)
+	vmovdqu	192(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 192(%r11)
-	vmovdqu	224(%r8), %ymm2
-	vmovdqu	224(%r11), %ymm3
+	vmovdqu	%ymm2, 192(%r10)
+	vmovdqu	224(%rdi), %ymm2
+	vmovdqu	224(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 224(%r8)
-	vmovdqu	224(%r11), %ymm3
+	vmovdqu	%ymm3, 224(%rdi)
+	vmovdqu	224(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 224(%r11)
-	vmovdqu	256(%r8), %ymm2
-	vmovdqu	256(%r11), %ymm3
+	vmovdqu	%ymm2, 224(%r10)
+	vmovdqu	256(%rdi), %ymm2
+	vmovdqu	256(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 256(%r8)
-	vmovdqu	256(%r11), %ymm3
+	vmovdqu	%ymm3, 256(%rdi)
+	vmovdqu	256(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 256(%r11)
-	vmovdqu	288(%r8), %ymm2
-	vmovdqu	288(%r11), %ymm3
+	vmovdqu	%ymm2, 256(%r10)
+	vmovdqu	288(%rdi), %ymm2
+	vmovdqu	288(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 288(%r8)
-	vmovdqu	288(%r11), %ymm3
+	vmovdqu	%ymm3, 288(%rdi)
+	vmovdqu	288(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 288(%r11)
-	vmovdqu	320(%r8), %ymm2
-	vmovdqu	320(%r11), %ymm3
+	vmovdqu	%ymm2, 288(%r10)
+	vmovdqu	320(%rdi), %ymm2
+	vmovdqu	320(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 320(%r8)
-	vmovdqu	320(%r11), %ymm3
+	vmovdqu	%ymm3, 320(%rdi)
+	vmovdqu	320(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 320(%r11)
-	vmovdqu	352(%r8), %ymm2
-	vmovdqu	352(%r11), %ymm3
+	vmovdqu	%ymm2, 320(%r10)
+	vmovdqu	352(%rdi), %ymm2
+	vmovdqu	352(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 352(%r8)
-	vmovdqu	352(%r11), %ymm3
+	vmovdqu	%ymm3, 352(%rdi)
+	vmovdqu	352(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 352(%r11)
-	vmovdqu	384(%r8), %ymm2
-	vmovdqu	384(%r11), %ymm3
+	vmovdqu	%ymm2, 352(%r10)
+	vmovdqu	384(%rdi), %ymm2
+	vmovdqu	384(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 384(%r8)
-	vmovdqu	384(%r11), %ymm3
+	vmovdqu	%ymm3, 384(%rdi)
+	vmovdqu	384(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 384(%r11)
-	vmovdqu	416(%r8), %ymm2
-	vmovdqu	416(%r11), %ymm3
+	vmovdqu	%ymm2, 384(%r10)
+	vmovdqu	416(%rdi), %ymm2
+	vmovdqu	416(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 416(%r8)
-	vmovdqu	416(%r11), %ymm3
+	vmovdqu	%ymm3, 416(%rdi)
+	vmovdqu	416(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 416(%r11)
-	vmovdqu	448(%r8), %ymm2
-	vmovdqu	448(%r11), %ymm3
+	vmovdqu	%ymm2, 416(%r10)
+	vmovdqu	448(%rdi), %ymm2
+	vmovdqu	448(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 448(%r8)
-	vmovdqu	448(%r11), %ymm3
+	vmovdqu	%ymm3, 448(%rdi)
+	vmovdqu	448(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 448(%r11)
-	vmovdqu	480(%r8), %ymm2
-	vmovdqu	480(%r11), %ymm3
+	vmovdqu	%ymm2, 448(%r10)
+	vmovdqu	480(%rdi), %ymm2
+	vmovdqu	480(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 480(%r8)
-	vmovdqu	480(%r11), %ymm3
+	vmovdqu	%ymm3, 480(%rdi)
+	vmovdqu	480(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 480(%r11)
-	vmovdqu	512(%r8), %ymm2
-	vmovdqu	512(%r11), %ymm3
+	vmovdqu	%ymm2, 480(%r10)
+	vmovdqu	512(%rdi), %ymm2
+	vmovdqu	512(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 512(%r8)
-	vmovdqu	512(%r11), %ymm3
+	vmovdqu	%ymm3, 512(%rdi)
+	vmovdqu	512(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 512(%r11)
-	vmovdqu	544(%r8), %ymm2
-	vmovdqu	544(%r11), %ymm3
+	vmovdqu	%ymm2, 512(%r10)
+	vmovdqu	544(%rdi), %ymm2
+	vmovdqu	544(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 544(%r8)
-	vmovdqu	544(%r11), %ymm3
+	vmovdqu	%ymm3, 544(%rdi)
+	vmovdqu	544(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 544(%r11)
-	vmovdqu	576(%r8), %ymm2
-	vmovdqu	576(%r11), %ymm3
+	vmovdqu	%ymm2, 544(%r10)
+	vmovdqu	576(%rdi), %ymm2
+	vmovdqu	576(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 576(%r8)
-	vmovdqu	576(%r11), %ymm3
+	vmovdqu	%ymm3, 576(%rdi)
+	vmovdqu	576(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 576(%r11)
-	vmovdqu	608(%r8), %ymm2
-	vmovdqu	608(%r11), %ymm3
+	vmovdqu	%ymm2, 576(%r10)
+	vmovdqu	608(%rdi), %ymm2
+	vmovdqu	608(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 608(%r8)
-	vmovdqu	608(%r11), %ymm3
+	vmovdqu	%ymm3, 608(%rdi)
+	vmovdqu	608(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 608(%r11)
-	vmovdqu	640(%r8), %ymm2
-	vmovdqu	640(%r11), %ymm3
+	vmovdqu	%ymm2, 608(%r10)
+	vmovdqu	640(%rdi), %ymm2
+	vmovdqu	640(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 640(%r8)
-	vmovdqu	640(%r11), %ymm3
+	vmovdqu	%ymm3, 640(%rdi)
+	vmovdqu	640(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 640(%r11)
-	vmovdqu	672(%r8), %ymm2
-	vmovdqu	672(%r11), %ymm3
+	vmovdqu	%ymm2, 640(%r10)
+	vmovdqu	672(%rdi), %ymm2
+	vmovdqu	672(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 672(%r8)
-	vmovdqu	672(%r11), %ymm3
+	vmovdqu	%ymm3, 672(%rdi)
+	vmovdqu	672(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 672(%r11)
-	vmovdqu	704(%r8), %ymm2
-	vmovdqu	704(%r11), %ymm3
+	vmovdqu	%ymm2, 672(%r10)
+	vmovdqu	704(%rdi), %ymm2
+	vmovdqu	704(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 704(%r8)
-	vmovdqu	704(%r11), %ymm3
+	vmovdqu	%ymm3, 704(%rdi)
+	vmovdqu	704(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 704(%r11)
-	vmovdqu	736(%r8), %ymm2
-	vmovdqu	736(%r11), %ymm3
+	vmovdqu	%ymm2, 704(%r10)
+	vmovdqu	736(%rdi), %ymm2
+	vmovdqu	736(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 736(%r8)
-	vmovdqu	736(%r11), %ymm3
+	vmovdqu	%ymm3, 736(%rdi)
+	vmovdqu	736(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 736(%r11)
-	vmovdqu	768(%r8), %ymm2
-	vmovdqu	768(%r11), %ymm3
+	vmovdqu	%ymm2, 736(%r10)
+	vmovdqu	768(%rdi), %ymm2
+	vmovdqu	768(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 768(%r8)
-	vmovdqu	768(%r11), %ymm3
+	vmovdqu	%ymm3, 768(%rdi)
+	vmovdqu	768(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 768(%r11)
-	vmovdqu	800(%r8), %ymm2
-	vmovdqu	800(%r11), %ymm3
+	vmovdqu	%ymm2, 768(%r10)
+	vmovdqu	800(%rdi), %ymm2
+	vmovdqu	800(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 800(%r8)
-	vmovdqu	800(%r11), %ymm3
+	vmovdqu	%ymm3, 800(%rdi)
+	vmovdqu	800(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 800(%r11)
-	vmovdqu	832(%r8), %ymm2
-	vmovdqu	832(%r11), %ymm3
+	vmovdqu	%ymm2, 800(%r10)
+	vmovdqu	832(%rdi), %ymm2
+	vmovdqu	832(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 832(%r8)
-	vmovdqu	832(%r11), %ymm3
+	vmovdqu	%ymm3, 832(%rdi)
+	vmovdqu	832(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 832(%r11)
-	vmovdqu	864(%r8), %ymm2
-	vmovdqu	864(%r11), %ymm3
+	vmovdqu	%ymm2, 832(%r10)
+	vmovdqu	864(%rdi), %ymm2
+	vmovdqu	864(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 864(%r8)
-	vmovdqu	864(%r11), %ymm3
+	vmovdqu	%ymm3, 864(%rdi)
+	vmovdqu	864(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 864(%r11)
-	vmovdqu	896(%r8), %ymm2
-	vmovdqu	896(%r11), %ymm3
+	vmovdqu	%ymm2, 864(%r10)
+	vmovdqu	896(%rdi), %ymm2
+	vmovdqu	896(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 896(%r8)
-	vmovdqu	896(%r11), %ymm3
+	vmovdqu	%ymm3, 896(%rdi)
+	vmovdqu	896(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 896(%r11)
-	vmovdqu	928(%r8), %ymm2
-	vmovdqu	928(%r11), %ymm3
+	vmovdqu	%ymm2, 896(%r10)
+	vmovdqu	928(%rdi), %ymm2
+	vmovdqu	928(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 928(%r8)
-	vmovdqu	928(%r11), %ymm3
+	vmovdqu	%ymm3, 928(%rdi)
+	vmovdqu	928(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 928(%r11)
-	vmovdqu	960(%r8), %ymm2
-	vmovdqu	960(%r11), %ymm3
+	vmovdqu	%ymm2, 928(%r10)
+	vmovdqu	960(%rdi), %ymm2
+	vmovdqu	960(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 960(%r8)
-	vmovdqu	960(%r11), %ymm3
+	vmovdqu	%ymm3, 960(%rdi)
+	vmovdqu	960(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 960(%r11)
-	vmovdqu	992(%r8), %ymm2
-	vmovdqu	992(%r11), %ymm3
+	vmovdqu	%ymm2, 960(%r10)
+	vmovdqu	992(%rdi), %ymm2
+	vmovdqu	992(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 992(%r8)
-	vmovdqu	992(%r11), %ymm3
+	vmovdqu	%ymm3, 992(%rdi)
+	vmovdqu	992(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 992(%r11)
-	vmovdqu	1024(%r8), %ymm2
-	vmovdqu	1024(%r11), %ymm3
+	vmovdqu	%ymm2, 992(%r10)
+	vmovdqu	1024(%rdi), %ymm2
+	vmovdqu	1024(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1024(%r8)
-	vmovdqu	1024(%r11), %ymm3
+	vmovdqu	%ymm3, 1024(%rdi)
+	vmovdqu	1024(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1024(%r11)
-	vmovdqu	1056(%r8), %ymm2
-	vmovdqu	1056(%r11), %ymm3
+	vmovdqu	%ymm2, 1024(%r10)
+	vmovdqu	1056(%rdi), %ymm2
+	vmovdqu	1056(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1056(%r8)
-	vmovdqu	1056(%r11), %ymm3
+	vmovdqu	%ymm3, 1056(%rdi)
+	vmovdqu	1056(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1056(%r11)
-	vmovdqu	1088(%r8), %ymm2
-	vmovdqu	1088(%r11), %ymm3
+	vmovdqu	%ymm2, 1056(%r10)
+	vmovdqu	1088(%rdi), %ymm2
+	vmovdqu	1088(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1088(%r8)
-	vmovdqu	1088(%r11), %ymm3
+	vmovdqu	%ymm3, 1088(%rdi)
+	vmovdqu	1088(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1088(%r11)
-	vmovdqu	1120(%r8), %ymm2
-	vmovdqu	1120(%r11), %ymm3
+	vmovdqu	%ymm2, 1088(%r10)
+	vmovdqu	1120(%rdi), %ymm2
+	vmovdqu	1120(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1120(%r8)
-	vmovdqu	1120(%r11), %ymm3
+	vmovdqu	%ymm3, 1120(%rdi)
+	vmovdqu	1120(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1120(%r11)
-	vmovdqu	1152(%r8), %ymm2
-	vmovdqu	1152(%r11), %ymm3
+	vmovdqu	%ymm2, 1120(%r10)
+	vmovdqu	1152(%rdi), %ymm2
+	vmovdqu	1152(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1152(%r8)
-	vmovdqu	1152(%r11), %ymm3
+	vmovdqu	%ymm3, 1152(%rdi)
+	vmovdqu	1152(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1152(%r11)
-	vmovdqu	1184(%r8), %ymm2
-	vmovdqu	1184(%r11), %ymm3
+	vmovdqu	%ymm2, 1152(%r10)
+	vmovdqu	1184(%rdi), %ymm2
+	vmovdqu	1184(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1184(%r8)
-	vmovdqu	1184(%r11), %ymm3
+	vmovdqu	%ymm3, 1184(%rdi)
+	vmovdqu	1184(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1184(%r11)
-	vmovdqu	1216(%r8), %ymm2
-	vmovdqu	1216(%r11), %ymm3
+	vmovdqu	%ymm2, 1184(%r10)
+	vmovdqu	1216(%rdi), %ymm2
+	vmovdqu	1216(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1216(%r8)
-	vmovdqu	1216(%r11), %ymm3
+	vmovdqu	%ymm3, 1216(%rdi)
+	vmovdqu	1216(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1216(%r11)
-	vmovdqu	1248(%r8), %ymm2
-	vmovdqu	1248(%r11), %ymm3
+	vmovdqu	%ymm2, 1216(%r10)
+	vmovdqu	1248(%rdi), %ymm2
+	vmovdqu	1248(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1248(%r8)
-	vmovdqu	1248(%r11), %ymm3
+	vmovdqu	%ymm3, 1248(%rdi)
+	vmovdqu	1248(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1248(%r11)
-	vmovdqu	1280(%r8), %ymm2
-	vmovdqu	1280(%r11), %ymm3
+	vmovdqu	%ymm2, 1248(%r10)
+	vmovdqu	1280(%rdi), %ymm2
+	vmovdqu	1280(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm2
 	vpand	%ymm0, %ymm4, %ymm4
 	vpor	%ymm4, %ymm3, %ymm3
-	vmovdqu	%ymm3, 1280(%r8)
-	vmovdqu	1280(%r11), %ymm3
+	vmovdqu	%ymm3, 1280(%rdi)
+	vmovdqu	1280(%r10), %ymm3
 	vpand	%ymm0, %ymm3, %ymm3
 	vpor	%ymm3, %ymm2, %ymm2
-	vmovdqu	%ymm2, 1280(%r11)
-	vmovdqu	1312(%r8), %ymm2
-	vmovdqu	1312(%r11), %ymm3
+	vmovdqu	%ymm2, 1280(%r10)
+	vmovdqu	1312(%rdi), %ymm2
+	vmovdqu	1312(%r10), %ymm3
 	vmovdqu	%ymm2, %ymm4
 	vpand	%ymm1, %ymm3, %ymm3
 	vpand	%ymm1, %ymm2, %ymm1
 	vpand	%ymm0, %ymm4, %ymm2
 	vpor	%ymm2, %ymm3, %ymm2
-	vmovdqu	%ymm2, 1312(%r8)
-	vmovdqu	1312(%r11), %ymm2
+	vmovdqu	%ymm2, 1312(%rdi)
+	vmovdqu	1312(%r10), %ymm2
 	vpand	%ymm0, %ymm2, %ymm0
 	vpor	%ymm0, %ymm1, %ymm0
-	vmovdqu	%ymm0, 1312(%r11)
+	vmovdqu	%ymm0, 1312(%r10)
 	vpbroadcastq	2920(%rsp), %xmm0
 	vpbroadcastq	2928(%rsp), %xmm1
-	vmovdqu	1344(%r8), %xmm2
-	vmovdqu	1344(%r11), %xmm3
+	vmovdqu	1344(%rdi), %xmm2
+	vmovdqu	1344(%r10), %xmm3
 	vmovdqu	%xmm2, %xmm4
 	vpand	%xmm1, %xmm3, %xmm3
 	vpand	%xmm1, %xmm2, %xmm1
 	vpand	%xmm0, %xmm4, %xmm2
 	vpor	%xmm2, %xmm3, %xmm2
-	vmovdqu	%xmm2, 1344(%r8)
-	vmovdqu	1344(%r11), %xmm2
+	vmovdqu	%xmm2, 1344(%rdi)
+	vmovdqu	1344(%r10), %xmm2
 	vpand	%xmm0, %xmm2, %xmm0
 	vpor	%xmm0, %xmm1, %xmm0
-	vmovdqu	%xmm0, 1344(%r11)
-	movq	(%r10), %rbx
-	movq	(%r9), %r12
-	movq	%rbx, %r13
+	vmovdqu	%xmm0, 1344(%r10)
+	movq	(%r9), %r11
+	movq	(%r8), %r12
+	movq	%r11, %r13
 	andq	%rdx, %r12
-	andq	%rdx, %rbx
+	andq	%rdx, %r11
 	andq	%rax, %r13
 	orq 	%r13, %r12
-	movq	%r12, (%r10)
-	andq	(%r9), %rax
-	orq 	%rax, %rbx
-	movq	%rbx, (%r9)
+	movq	%r12, (%r9)
+	andq	(%r8), %rax
+	orq 	%rax, %r11
+	movq	%r11, (%r8)
 Loram_get_jazz$90:
 	movq	2904(%rsp), %rax
-	movq	2912(%rsp), %rbx
+	movq	2912(%rsp), %r11
 	orq 	%r15, %rax
-	orq 	%r15, %rbx
+	orq 	%r15, %r11
 	leaq	1(%rax), %r12
-	leaq	8(%r10), %r10
 	leaq	8(%r9), %r9
-	leaq	1360(%r11), %r11
-	leaq	1360(%r8), %r8
+	leaq	8(%r8), %r8
+	leaq	1360(%r10), %r10
+	leaq	1360(%rdi), %rdi
 Loram_get_jazz$87:
-	cmpq	%rdi, %r12
+	cmpq	%rbx, %r12
 	jne 	Loram_get_jazz$88
 	movq	$-1, %rax
 	cmovne	%rax, %r15
-	movq	2880(%rsp), %r8
+	movq	2880(%rsp), %rdi
 	movq	2896(%rsp), %rax
 	movq	2888(%rsp), %rdx
-	orq 	%r15, %r8
+	orq 	%r15, %rdi
 	orq 	%r15, %rax
 	orq 	%r15, %rdx
 Loram_get_jazz$86:
-	movq	2832(%rsp), %rdi
-	orq 	%r15, %rdi
-	leaq	(%rsi,%r8), %rsi
-	subq	%r8, %rax
-	leaq	(%rdx,%rdi), %rdx
-	movq	%rdi, 2832(%rsp)
-	movq	2856(%rsp), %rdi
-	orq 	%r15, %rdi
-	cmpq	%rdi, %rsi
-	movq	%rdi, 2856(%rsp)
+	movq	2832(%rsp), %r8
+	orq 	%r15, %r8
+	leaq	(%rsi,%rdi), %rsi
+	subq	%rdi, %rax
+	leaq	(%rdx,%r8), %rdx
+	movq	%r8, 2832(%rsp)
+	movq	2856(%rsp), %r8
+	orq 	%r15, %r8
+	cmpq	%r8, %rsi
+	movq	%r8, 2856(%rsp)
 	jb  	Loram_get_jazz$84
 	movq	$-1, %rax
 	cmovb	%rax, %r15
 	movq	2776(%rsp), %rax
-	movq	2792(%rsp), %rdi
+	movq	2792(%rsp), %r8
 	movq	2824(%rsp), %r9
-	movq	2840(%rsp), %r11
+	movq	2840(%rsp), %rbx
 	movq	2848(%rsp), %r10
 	orq 	%r15, %rax
-	orq 	%r15, %rdi
+	orq 	%r15, %r8
 	orq 	%r15, %r9
 	orq 	%r15, %r10
 Loram_get_jazz$82:
@@ -148127,8 +148130,8 @@ Loram_get_jazz$82:
 	movq	$-1, %rcx
 	cmovne	%rcx, %r15
 Loram_get_jazz$78:
-	movq	%rbx, %rcx
-	cmpq	%rax, %rbx
+	movq	%r11, %rcx
+	cmpq	%rax, %r11
 	jb  	Loram_get_jazz$76
 	movq	$-1, %rax
 	cmovb	%rax, %r15
@@ -148556,6 +148559,7 @@ Loram_get_jazz$47:
 	movq	%rbp, (%r12)
 	movq	%rax, 8(%r12)
 	movq	%rbx, 2768(%rsp)
+	movq	%r11, 2752(%rsp)
 	movq	2760(%rsp), %rax
 	orq 	%r15, %rax
 	leaq	16(%r12), %rcx
@@ -148643,9 +148647,11 @@ Loram_get_jazz$47:
 	vmovdqu	%ymm0, 1280(%rax)
 	vmovdqu	1312(%rcx), %ymm0
 	vmovdqu	%ymm0, 1312(%rax)
-	movq	16(%r11), %r14
+	movq	2752(%rsp), %rax
+	orq 	%r15, %rax
+	movq	16(%rax), %r14
 	orq 	%r15, %r14
-	movq	%r11, 2760(%rsp)
+	movq	%rax, 2752(%rsp)
 	movq	16(%r14), %rax
 	orq 	%r15, %rax
 	movq	40(%r14), %rcx
@@ -148667,9 +148673,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r8
 	leaq	-1(%r8), %r9
 	negq	%r8
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	movq	%r8, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148682,9 +148688,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148695,9 +148701,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148710,9 +148716,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148723,9 +148729,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148738,9 +148744,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148751,9 +148757,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148766,9 +148772,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148779,9 +148785,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148794,9 +148800,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148807,9 +148813,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148822,9 +148828,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148835,9 +148841,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148850,9 +148856,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148863,9 +148869,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148878,9 +148884,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148891,9 +148897,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148906,9 +148912,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148919,9 +148925,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148934,9 +148940,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148947,9 +148953,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148962,9 +148968,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -148975,9 +148981,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -148990,9 +148996,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149003,9 +149009,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149018,9 +149024,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149031,9 +149037,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149046,9 +149052,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149059,9 +149065,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149074,9 +149080,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149087,9 +149093,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149102,9 +149108,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149115,9 +149121,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149130,9 +149136,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149143,9 +149149,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149158,9 +149164,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149171,9 +149177,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149186,9 +149192,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149199,9 +149205,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149214,9 +149220,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149227,9 +149233,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %ymm2
+	vpbroadcastq	2760(%rsp), %ymm2
 	vpbroadcastq	2744(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
@@ -149242,9 +149248,9 @@ Loram_get_jazz$46:
 	leaq	-1(%r9), %r10
 	negq	%r9
 	movq	%r10, 2744(%rsp)
-	movq	%r9, 2752(%rsp)
+	movq	%r9, 2760(%rsp)
 	vpbroadcastq	2744(%rsp), %ymm2
-	vpbroadcastq	2752(%rsp), %ymm3
+	vpbroadcastq	2760(%rsp), %ymm3
 	vpand	%ymm2, %ymm0, %ymm0
 	vpand	%ymm3, %ymm1, %ymm1
 	vpor	%ymm0, %ymm1, %ymm0
@@ -149255,9 +149261,9 @@ Loram_get_jazz$46:
 	movzbq	%dil, %r9
 	leaq	-1(%r9), %r10
 	negq	%r9
-	movq	%r10, 2752(%rsp)
+	movq	%r10, 2760(%rsp)
 	movq	%r9, 2744(%rsp)
-	vpbroadcastq	2752(%rsp), %xmm2
+	vpbroadcastq	2760(%rsp), %xmm2
 	vpbroadcastq	2744(%rsp), %xmm3
 	vpand	%xmm2, %xmm0, %xmm0
 	vpand	%xmm3, %xmm1, %xmm1
@@ -154860,475 +154866,6 @@ Loram_get_jazz$43:
 	movq	29928(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
-	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
-	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	8(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$0, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	8(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	16(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$1, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	16(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	24(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$2, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	24(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	32(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$3, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	32(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	40(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$4, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	40(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	48(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$5, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	48(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	56(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
-	movq	176(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$6, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 176(%rcx)
-	movq	56(%rax), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	64(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%dl
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
-	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
-	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
-	movq	176(%rcx), %rax
-	orq 	%r15, %rax
-	movq	$7, %rdx
-	movzbq	%r9b, %rdi
-	leaq	-1(%rdi), %r8
-	negq	%rdi
-	andq	%r8, %rax
-	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 176(%rcx)
-	movq	8(%r14), %rax
-	orq 	%r15, %rax
-	movq	31280(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	%rcx, %mm0
-	movq	31288(%rax), %rax
-	orq 	%r15, %rax
-	movq	%rax, %mm1
 	movq	48(%r14), %rdx
 	orq 	%r15, %rdx
 	movq	56(%r14), %rax
@@ -155383,7 +154920,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, (%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
 	movzbq	%r9b, %r9
@@ -155392,7 +154929,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155440,7 +154977,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 8(%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
 	movzbq	%r9b, %r9
@@ -155449,7 +154986,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155497,7 +155034,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 16(%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
 	movzbq	%r9b, %r9
@@ -155506,7 +155043,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155554,7 +155091,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 24(%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
 	movzbq	%r9b, %r9
@@ -155563,7 +155100,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155611,7 +155148,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 32(%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
 	movzbq	%r9b, %r9
@@ -155620,7 +155157,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155668,7 +155205,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 40(%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
 	movzbq	%r9b, %r9
@@ -155677,7 +155214,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155725,7 +155262,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 48(%rdx)
-	movq	184(%rcx), %rdi
+	movq	176(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
 	movzbq	%r9b, %r9
@@ -155734,7 +155271,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 184(%rcx)
+	movq	%rdi, 176(%rcx)
 	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -155780,7 +155317,7 @@ Loram_get_jazz$43:
 	orq 	%rax, %rdi
 	movq	%mm3, %rax
 	movq	%rdi, 56(%rdx)
-	movq	184(%rax), %rcx
+	movq	176(%rax), %rcx
 	orq 	%r15, %rcx
 	movq	$7, %rdx
 	movzbq	%r9b, %rdi
@@ -155789,7 +155326,476 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	andq	%rdi, %rdx
 	orq 	%rdx, %rcx
-	movq	%rcx, 184(%rax)
+	movq	%rcx, 176(%rax)
+	movq	8(%r14), %rax
+	orq 	%r15, %rax
+	movq	31280(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	%rcx, %mm0
+	movq	31288(%rax), %rax
+	orq 	%r15, %rax
+	movq	%rax, %mm1
+	movq	48(%r14), %rax
+	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
+	movq	%rsi, %mm2
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	8(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, (%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$0, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	8(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	16(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 8(%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$1, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	16(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	24(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 16(%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$2, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	24(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	32(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 24(%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$3, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	32(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	40(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 32(%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$4, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	40(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	48(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 40(%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$5, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	48(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	56(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 48(%rax)
+	movq	184(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$6, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 184(%rcx)
+	movq	56(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	64(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
+	movq	%mm1, %rcx
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
+	andq	%r8, %rdi
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 56(%rax)
+	movq	184(%rcx), %rax
+	orq 	%r15, %rax
+	movq	$7, %rdx
+	movzbq	%r9b, %rdi
+	leaq	-1(%rdi), %r8
+	negq	%rdi
+	andq	%r8, %rax
+	andq	%rdi, %rdx
+	orq 	%rdx, %rax
+	movq	%rax, 184(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	32640(%rax), %rcx
@@ -156850,19 +156856,19 @@ Loram_get_jazz$43:
 	movq	35368(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -156874,7 +156880,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -156893,8 +156899,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -156903,7 +156909,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -156914,12 +156920,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -156931,7 +156937,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -156950,8 +156956,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -156960,7 +156966,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -156971,12 +156977,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -156988,7 +156994,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157007,8 +157013,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -157017,7 +157023,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -157028,12 +157034,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157045,7 +157051,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157064,8 +157070,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -157074,7 +157080,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -157085,12 +157091,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157102,7 +157108,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157121,8 +157127,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -157131,7 +157137,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -157142,12 +157148,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157159,7 +157165,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157178,8 +157184,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -157188,7 +157194,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -157199,12 +157205,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157216,7 +157222,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157235,8 +157241,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -157245,7 +157251,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -157256,12 +157262,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157273,7 +157279,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157292,8 +157298,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -157302,7 +157308,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	208(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -157313,12 +157319,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 208(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -157330,44 +157336,44 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 64(%rdx)
-	movq	208(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 64(%rax)
+	movq	208(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$8, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 208(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 208(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	36720(%rax), %rcx
@@ -157959,589 +157965,6 @@ Loram_get_jazz$43:
 	movq	38088(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
-	orq 	%r15, %rax
-	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	8(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$0, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	8(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	16(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$1, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	16(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	24(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$2, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	24(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	32(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$3, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	32(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	40(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$4, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	40(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	48(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$5, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	48(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	56(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$6, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	56(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	64(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$7, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	64(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	72(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
-	movq	224(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$8, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 224(%rcx)
-	movq	72(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	80(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
-	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
-	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
-	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 72(%rdx)
-	movq	224(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	$9, %rdx
-	movzbq	%r9b, %rdi
-	leaq	-1(%rdi), %r8
-	negq	%rdi
-	andq	%r8, %rcx
-	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 224(%rax)
-	movq	8(%r14), %rax
-	orq 	%r15, %rax
-	movq	39440(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	%rcx, %mm0
-	movq	39448(%rax), %rax
-	orq 	%r15, %rax
-	movq	%rax, %mm1
 	movq	48(%r14), %rax
 	orq 	%r15, %rax
 	movq	56(%r14), %rcx
@@ -158596,7 +158019,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, (%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
 	movzbq	%r9b, %r9
@@ -158605,7 +158028,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158653,7 +158076,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 8(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
 	movzbq	%r9b, %r9
@@ -158662,7 +158085,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158710,7 +158133,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 16(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
 	movzbq	%r9b, %r9
@@ -158719,7 +158142,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158767,7 +158190,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 24(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
 	movzbq	%r9b, %r9
@@ -158776,7 +158199,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158824,7 +158247,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 32(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
 	movzbq	%r9b, %r9
@@ -158833,7 +158256,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158881,7 +158304,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 40(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
 	movzbq	%r9b, %r9
@@ -158890,7 +158313,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158938,7 +158361,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 48(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
 	movzbq	%r9b, %r9
@@ -158947,7 +158370,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -158995,7 +158418,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 56(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
 	movzbq	%r9b, %r9
@@ -159004,7 +158427,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -159052,7 +158475,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 64(%rax)
-	movq	232(%rcx), %rdi
+	movq	224(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
 	movzbq	%r9b, %r9
@@ -159061,7 +158484,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 232(%rcx)
+	movq	%rdi, 224(%rcx)
 	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -159107,7 +158530,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 72(%rax)
-	movq	232(%rcx), %rax
+	movq	224(%rcx), %rax
 	orq 	%r15, %rax
 	movq	$9, %rdx
 	movzbq	%r9b, %rdi
@@ -159116,7 +158539,590 @@ Loram_get_jazz$43:
 	andq	%r8, %rax
 	andq	%rdi, %rdx
 	orq 	%rdx, %rax
-	movq	%rax, 232(%rcx)
+	movq	%rax, 224(%rcx)
+	movq	8(%r14), %rax
+	orq 	%r15, %rax
+	movq	39440(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	%rcx, %mm0
+	movq	39448(%rax), %rax
+	orq 	%r15, %rax
+	movq	%rax, %mm1
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
+	orq 	%r15, %rax
+	movq	%rsi, %mm2
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	8(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, (%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$0, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	8(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	16(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 8(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$1, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	16(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	24(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 16(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$2, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	24(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	32(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 24(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$3, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	32(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	40(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 32(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$4, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	40(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	48(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 40(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$5, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	48(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	56(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 48(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$6, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	56(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	64(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 56(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$7, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	64(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	72(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%al
+	orb 	%r9b, %al
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 64(%rdx)
+	movq	232(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$8, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 232(%rcx)
+	movq	72(%rdx), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	80(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%al
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
+	movq	%mm1, %rcx
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
+	cmpq	$3, %rdi
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
+	andq	%r8, %rdi
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 72(%rdx)
+	movq	232(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	$9, %rdx
+	movzbq	%r9b, %rdi
+	leaq	-1(%rdi), %r8
+	negq	%rdi
+	andq	%r8, %rcx
+	andq	%rdi, %rdx
+	orq 	%rdx, %rcx
+	movq	%rcx, 232(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	40800(%rax), %rcx
@@ -159765,19 +159771,19 @@ Loram_get_jazz$43:
 	movq	42168(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159789,7 +159795,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159808,8 +159814,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -159818,7 +159824,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -159829,12 +159835,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159846,7 +159852,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159865,8 +159871,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -159875,7 +159881,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -159886,12 +159892,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159903,7 +159909,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159922,8 +159928,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -159932,7 +159938,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -159943,12 +159949,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159960,7 +159966,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -159979,8 +159985,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -159989,7 +159995,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -160000,12 +160006,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160017,7 +160023,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160036,8 +160042,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -160046,7 +160052,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -160057,12 +160063,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160074,7 +160080,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160093,8 +160099,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -160103,7 +160109,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -160114,12 +160120,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160131,7 +160137,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160150,8 +160156,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -160160,7 +160166,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -160171,12 +160177,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160188,7 +160194,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160207,8 +160213,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -160217,7 +160223,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -160228,12 +160234,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160245,7 +160251,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160264,8 +160270,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -160274,7 +160280,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
+	movq	%rdi, 64(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -160285,12 +160291,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	72(%rax), %rdi
+	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160302,7 +160308,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160321,8 +160327,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -160331,7 +160337,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
+	movq	%rdi, 72(%rdx)
 	movq	248(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -160342,12 +160348,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 248(%rcx)
-	movq	80(%rax), %rdi
+	movq	80(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -160359,44 +160365,44 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 80(%rax)
-	movq	248(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 80(%rdx)
+	movq	248(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$10, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 248(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 248(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	43520(%rax), %rcx
@@ -161045,19 +161051,19 @@ Loram_get_jazz$43:
 	movq	44888(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161069,7 +161075,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161088,8 +161094,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161098,7 +161104,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -161109,12 +161115,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161126,7 +161132,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161145,8 +161151,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161155,7 +161161,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -161166,12 +161172,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161183,7 +161189,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161202,8 +161208,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161212,7 +161218,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -161223,12 +161229,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161240,7 +161246,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161259,8 +161265,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161269,7 +161275,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -161280,12 +161286,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161297,7 +161303,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161316,8 +161322,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161326,7 +161332,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -161337,12 +161343,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161354,7 +161360,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161373,8 +161379,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161383,7 +161389,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -161394,12 +161400,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161411,7 +161417,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161430,8 +161436,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161440,7 +161446,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -161451,12 +161457,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161468,7 +161474,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161487,8 +161493,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161497,7 +161503,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -161508,12 +161514,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161525,7 +161531,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161544,8 +161550,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161554,7 +161560,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -161565,12 +161571,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161582,7 +161588,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161601,8 +161607,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161611,7 +161617,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -161622,12 +161628,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161639,7 +161645,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161658,8 +161664,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161668,7 +161674,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	264(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -161679,12 +161685,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 264(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161696,44 +161702,44 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 88(%rdx)
-	movq	264(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 88(%rax)
+	movq	264(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$11, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 264(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 264(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	46240(%rax), %rcx
@@ -161742,19 +161748,19 @@ Loram_get_jazz$43:
 	movq	46248(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161766,7 +161772,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161785,8 +161791,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161795,7 +161801,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -161806,12 +161812,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161823,7 +161829,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161842,8 +161848,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161852,7 +161858,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -161863,12 +161869,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161880,7 +161886,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161899,8 +161905,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161909,7 +161915,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -161920,12 +161926,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161937,7 +161943,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161956,8 +161962,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -161966,7 +161972,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -161977,12 +161983,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -161994,7 +162000,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162013,8 +162019,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162023,7 +162029,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -162034,12 +162040,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162051,7 +162057,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162070,8 +162076,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162080,7 +162086,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -162091,12 +162097,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162108,7 +162114,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162127,8 +162133,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162137,7 +162143,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -162148,12 +162154,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162165,7 +162171,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162184,8 +162190,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162194,7 +162200,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -162205,12 +162211,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162222,7 +162228,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162241,8 +162247,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162251,7 +162257,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -162262,12 +162268,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162279,7 +162285,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162298,8 +162304,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162308,7 +162314,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -162319,12 +162325,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162336,7 +162342,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162355,8 +162361,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -162365,7 +162371,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	272(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -162376,12 +162382,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 272(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -162393,44 +162399,44 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 88(%rdx)
-	movq	272(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 88(%rax)
+	movq	272(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$11, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 272(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 272(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	47600(%rax), %rcx
@@ -163136,19 +163142,19 @@ Loram_get_jazz$43:
 	movq	48968(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rax
+	movq	48(%r14), %rdx
+	orq 	%r15, %rdx
+	movq	56(%r14), %rax
 	orq 	%r15, %rax
-	movq	56(%r14), %rcx
-	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rcx, %mm3
-	xorb	%dl, %dl
-	movq	(%rax), %rdi
+	movq	%rax, %mm3
+	xorb	%al, %al
+	movq	(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163160,7 +163166,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163179,8 +163185,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163189,7 +163195,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rax)
+	movq	%rdi, (%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -163200,12 +163206,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	8(%rax), %rdi
+	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163217,7 +163223,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163236,8 +163242,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163246,7 +163252,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rax)
+	movq	%rdi, 8(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -163257,12 +163263,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	16(%rax), %rdi
+	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163274,7 +163280,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163293,8 +163299,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163303,7 +163309,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rax)
+	movq	%rdi, 16(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -163314,12 +163320,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	24(%rax), %rdi
+	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163331,7 +163337,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163350,8 +163356,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163360,7 +163366,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rax)
+	movq	%rdi, 24(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -163371,12 +163377,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	32(%rax), %rdi
+	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163388,7 +163394,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163407,8 +163413,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163417,7 +163423,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rax)
+	movq	%rdi, 32(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -163428,12 +163434,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	40(%rax), %rdi
+	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163445,7 +163451,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163464,8 +163470,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163474,7 +163480,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rax)
+	movq	%rdi, 40(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -163485,12 +163491,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	48(%rax), %rdi
+	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163502,7 +163508,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163521,8 +163527,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163531,7 +163537,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rax)
+	movq	%rdi, 48(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -163542,12 +163548,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	56(%rax), %rdi
+	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163559,7 +163565,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163578,8 +163584,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163588,7 +163594,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rax)
+	movq	%rdi, 56(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -163599,12 +163605,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	64(%rax), %rdi
+	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163616,7 +163622,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163635,8 +163641,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163645,7 +163651,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rax)
+	movq	%rdi, 64(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -163656,12 +163662,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	72(%rax), %rdi
+	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163673,7 +163679,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163692,8 +163698,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163702,7 +163708,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rax)
+	movq	%rdi, 72(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -163713,12 +163719,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	80(%rax), %rdi
+	movq	80(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163730,7 +163736,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163749,8 +163755,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163759,7 +163765,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rax)
+	movq	%rdi, 80(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -163770,12 +163776,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	88(%rax), %rdi
+	movq	88(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163787,7 +163793,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
+	andb	%al, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163806,8 +163812,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%dl
-	orb 	%r9b, %dl
+	notb	%al
+	orb 	%r9b, %al
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -163816,7 +163822,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 88(%rax)
+	movq	%rdi, 88(%rdx)
 	movq	288(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
@@ -163827,12 +163833,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 288(%rcx)
-	movq	96(%rax), %rdi
+	movq	96(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%dl
+	notb	%al
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -163844,44 +163850,44 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%dl, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %rdx
-	shlq	%cl, %rdx
-	addq	$-1, %rdx
-	addq	%r8, %rdx
+	andb	%al, %r9b
+	movq	%r8, %rax
+	notq	%rax
+	tzcntq	%rax, %rcx
+	movq	$1, %rax
+	shlq	%cl, %rax
+	addq	$-1, %rax
+	addq	%r8, %rax
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rdx
-	setnb	%cl
-	andb	%cl, %r9b
+	cmpq	%rcx, %rax
+	setnb	%al
+	andb	%al, %r9b
 	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %rdx
-	leaq	-1(%rdx), %r8
-	negq	%rdx
+	setb	%al
+	andb	%al, %r9b
+	movq	%mm0, %rax
+	cmpq	$-1, %rax
+	setne	%al
+	andb	%al, %r9b
+	leaq	1(%rdi), %rax
+	movzbq	%r9b, %rcx
+	leaq	-1(%rcx), %r8
+	negq	%rcx
 	andq	%r8, %rdi
-	andq	%rdx, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 96(%rax)
-	movq	288(%rcx), %rax
-	orq 	%r15, %rax
+	andq	%rcx, %rax
+	orq 	%rax, %rdi
+	movq	%mm3, %rax
+	movq	%rdi, 96(%rdx)
+	movq	288(%rax), %rcx
+	orq 	%r15, %rcx
 	movq	$12, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rax
+	andq	%r8, %rcx
 	andq	%rdi, %rdx
-	orq 	%rdx, %rax
-	movq	%rax, 288(%rcx)
+	orq 	%rdx, %rcx
+	movq	%rcx, 288(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	50320(%rax), %rcx
@@ -165398,6 +165404,817 @@ Loram_get_jazz$43:
 	movq	53048(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
+	movq	48(%r14), %rax
+	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
+	movq	%rsi, %mm2
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	8(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, (%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$0, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	8(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	16(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 8(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$1, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	16(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	24(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 16(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$2, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	24(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	32(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 24(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$3, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	32(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	40(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 32(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$4, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	40(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	48(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 40(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$5, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	48(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	56(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 48(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$6, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	56(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	64(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 56(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$7, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	64(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	72(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 64(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$8, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	72(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	80(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 72(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$9, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	80(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	88(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 80(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$10, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	88(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	96(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 88(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$11, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	96(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	104(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	addq	%r8, %r10
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r10
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	notb	%dl
+	orb 	%r9b, %dl
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %r8
+	leaq	-1(%r8), %r10
+	negq	%r8
+	andq	%r10, %rdi
+	andq	%r8, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 96(%rax)
+	movq	312(%rcx), %rdi
+	orq 	%r15, %rdi
+	movq	$12, %r8
+	movzbq	%r9b, %r9
+	leaq	-1(%r9), %r10
+	negq	%r9
+	andq	%r10, %rdi
+	andq	%r9, %r8
+	orq 	%r8, %rdi
+	movq	%rdi, 312(%rcx)
+	movq	104(%rax), %rdi
+	orq 	%r15, %rdi
+	movq	%mm2, %rcx
+	movq	112(%rcx), %r8
+	orq 	%r15, %r8
+	notb	%dl
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	%r8, %r9
+	movq	$1, %r10
+	shlq	%cl, %r10
+	addq	$-1, %r10
+	subq	%r10, %r9
+	movq	%mm1, %rcx
+	cmpq	%rcx, %r9
+	setbe	%r9b
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
+	movq	%mm1, %rcx
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
+	cmpq	$3, %rdi
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
+	andq	%r8, %rdi
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 104(%rax)
+	movq	312(%rcx), %rax
+	orq 	%r15, %rax
+	movq	$13, %rdx
+	movzbq	%r9b, %rdi
+	leaq	-1(%rdi), %r8
+	negq	%rdi
+	andq	%r8, %rax
+	andq	%rdi, %rdx
+	orq 	%rdx, %rax
+	movq	%rax, 312(%rcx)
+	movq	8(%r14), %rax
+	orq 	%r15, %rax
+	movq	54400(%rax), %rcx
+	orq 	%r15, %rcx
+	movq	%rcx, %mm0
+	movq	54408(%rax), %rax
+	orq 	%r15, %rax
+	movq	%rax, %mm1
 	movq	48(%r14), %rdx
 	orq 	%r15, %rdx
 	movq	56(%r14), %rax
@@ -165452,7 +166269,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, (%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
 	movzbq	%r9b, %r9
@@ -165461,7 +166278,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	8(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165509,7 +166326,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 8(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
 	movzbq	%r9b, %r9
@@ -165518,7 +166335,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	16(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165566,7 +166383,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 16(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
 	movzbq	%r9b, %r9
@@ -165575,7 +166392,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	24(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165623,7 +166440,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 24(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
 	movzbq	%r9b, %r9
@@ -165632,7 +166449,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	32(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165680,7 +166497,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 32(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
 	movzbq	%r9b, %r9
@@ -165689,7 +166506,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	40(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165737,7 +166554,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 40(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
 	movzbq	%r9b, %r9
@@ -165746,7 +166563,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	48(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165794,7 +166611,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 48(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
 	movzbq	%r9b, %r9
@@ -165803,7 +166620,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	56(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165851,7 +166668,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 56(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
 	movzbq	%r9b, %r9
@@ -165860,7 +166677,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	64(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165908,7 +166725,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 64(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
 	movzbq	%r9b, %r9
@@ -165917,7 +166734,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	72(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -165965,7 +166782,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 72(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
 	movzbq	%r9b, %r9
@@ -165974,7 +166791,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	80(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166022,7 +166839,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 80(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
 	movzbq	%r9b, %r9
@@ -166031,7 +166848,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	88(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166079,7 +166896,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 88(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
 	movzbq	%r9b, %r9
@@ -166088,7 +166905,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	96(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166136,7 +166953,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 96(%rdx)
-	movq	312(%rcx), %rdi
+	movq	320(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$12, %r8
 	movzbq	%r9b, %r9
@@ -166145,7 +166962,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 312(%rcx)
+	movq	%rdi, 320(%rcx)
 	movq	104(%rdx), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166191,7 +167008,7 @@ Loram_get_jazz$43:
 	orq 	%rax, %rdi
 	movq	%mm3, %rax
 	movq	%rdi, 104(%rdx)
-	movq	312(%rax), %rcx
+	movq	320(%rax), %rcx
 	orq 	%r15, %rcx
 	movq	$13, %rdx
 	movzbq	%r9b, %rdi
@@ -166200,13 +167017,13 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	andq	%rdi, %rdx
 	orq 	%rdx, %rcx
-	movq	%rcx, 312(%rax)
+	movq	%rcx, 320(%rax)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
-	movq	54400(%rax), %rcx
+	movq	55760(%rax), %rcx
 	orq 	%r15, %rcx
 	movq	%rcx, %mm0
-	movq	54408(%rax), %rax
+	movq	55768(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
 	movq	48(%r14), %rax
@@ -166263,7 +167080,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, (%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
 	movzbq	%r9b, %r9
@@ -166272,7 +167089,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166320,7 +167137,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 8(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
 	movzbq	%r9b, %r9
@@ -166329,7 +167146,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166377,7 +167194,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 16(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
 	movzbq	%r9b, %r9
@@ -166386,7 +167203,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166434,7 +167251,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 24(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
 	movzbq	%r9b, %r9
@@ -166443,7 +167260,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166491,7 +167308,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 32(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
 	movzbq	%r9b, %r9
@@ -166500,7 +167317,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166548,7 +167365,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 40(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
 	movzbq	%r9b, %r9
@@ -166557,7 +167374,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166605,7 +167422,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 48(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
 	movzbq	%r9b, %r9
@@ -166614,7 +167431,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166662,7 +167479,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 56(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
 	movzbq	%r9b, %r9
@@ -166671,7 +167488,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166719,7 +167536,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 64(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
 	movzbq	%r9b, %r9
@@ -166728,7 +167545,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166776,7 +167593,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 72(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
 	movzbq	%r9b, %r9
@@ -166785,7 +167602,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166833,7 +167650,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 80(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
 	movzbq	%r9b, %r9
@@ -166842,7 +167659,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166890,7 +167707,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 88(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
 	movzbq	%r9b, %r9
@@ -166899,7 +167716,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	96(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -166947,7 +167764,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 96(%rax)
-	movq	320(%rcx), %rdi
+	movq	328(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$12, %r8
 	movzbq	%r9b, %r9
@@ -166956,7 +167773,7 @@ Loram_get_jazz$43:
 	andq	%r10, %rdi
 	andq	%r9, %r8
 	orq 	%r8, %rdi
-	movq	%rdi, 320(%rcx)
+	movq	%rdi, 328(%rcx)
 	movq	104(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
@@ -167002,7 +167819,7 @@ Loram_get_jazz$43:
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
 	movq	%rdi, 104(%rax)
-	movq	320(%rcx), %rax
+	movq	328(%rcx), %rax
 	orq 	%r15, %rax
 	movq	$13, %rdx
 	movzbq	%r9b, %rdi
@@ -167011,818 +167828,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rax
 	andq	%rdi, %rdx
 	orq 	%rdx, %rax
-	movq	%rax, 320(%rcx)
-	movq	8(%r14), %rax
-	orq 	%r15, %rax
-	movq	55760(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	%rcx, %mm0
-	movq	55768(%rax), %rax
-	orq 	%r15, %rax
-	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
-	orq 	%r15, %rax
-	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	8(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$0, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	8(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	16(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$1, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	16(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	24(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$2, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	24(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	32(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$3, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	32(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	40(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$4, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	40(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	48(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$5, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	48(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	56(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$6, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	56(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	64(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$7, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	64(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	72(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$8, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	72(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	80(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$9, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	80(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	88(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$10, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	88(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	96(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 88(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$11, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	96(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	104(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	addq	%r8, %r10
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r10
-	setnb	%cl
-	andb	%cl, %r9b
-	cmpq	$3, %rdi
-	setb	%cl
-	andb	%cl, %r9b
-	movq	%mm0, %rcx
-	cmpq	$-1, %rcx
-	setne	%cl
-	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
-	leaq	1(%rdi), %rcx
-	movzbq	%r9b, %r8
-	leaq	-1(%r8), %r10
-	negq	%r8
-	andq	%r10, %rdi
-	andq	%r8, %rcx
-	orq 	%rcx, %rdi
-	movq	%mm3, %rcx
-	movq	%rdi, 96(%rdx)
-	movq	328(%rcx), %rdi
-	orq 	%r15, %rdi
-	movq	$12, %r8
-	movzbq	%r9b, %r9
-	leaq	-1(%r9), %r10
-	negq	%r9
-	andq	%r10, %rdi
-	andq	%r9, %r8
-	orq 	%r8, %rdi
-	movq	%rdi, 328(%rcx)
-	movq	104(%rdx), %rdi
-	orq 	%r15, %rdi
-	movq	%mm2, %rcx
-	movq	112(%rcx), %r8
-	orq 	%r15, %r8
-	notb	%al
-	movq	%r8, %rcx
-	notq	%rcx
-	tzcntq	%rcx, %rcx
-	movq	%r8, %r9
-	movq	$1, %r10
-	shlq	%cl, %r10
-	addq	$-1, %r10
-	subq	%r10, %r9
-	movq	%mm1, %rcx
-	cmpq	%rcx, %r9
-	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
-	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
-	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
-	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 104(%rdx)
-	movq	328(%rax), %rcx
-	orq 	%r15, %rcx
-	movq	$13, %rdx
-	movzbq	%r9b, %rdi
-	leaq	-1(%rdi), %r8
-	negq	%rdi
-	andq	%r8, %rcx
-	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 328(%rax)
+	movq	%rax, 328(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	57120(%rax), %rcx
@@ -167831,19 +167837,19 @@ Loram_get_jazz$43:
 	movq	57128(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -167855,7 +167861,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -167874,8 +167880,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -167884,7 +167890,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -167895,12 +167901,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -167912,7 +167918,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -167931,8 +167937,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -167941,7 +167947,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -167952,12 +167958,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -167969,7 +167975,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -167988,8 +167994,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -167998,7 +168004,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -168009,12 +168015,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168026,7 +168032,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168045,8 +168051,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168055,7 +168061,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -168066,12 +168072,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168083,7 +168089,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168102,8 +168108,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168112,7 +168118,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -168123,12 +168129,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168140,7 +168146,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168159,8 +168165,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168169,7 +168175,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -168180,12 +168186,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168197,7 +168203,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168216,8 +168222,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168226,7 +168232,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -168237,12 +168243,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168254,7 +168260,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168273,8 +168279,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168283,7 +168289,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -168294,12 +168300,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168311,7 +168317,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168330,8 +168336,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168340,7 +168346,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -168351,12 +168357,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168368,7 +168374,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168387,8 +168393,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168397,7 +168403,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -168408,12 +168414,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168425,7 +168431,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168444,8 +168450,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168454,7 +168460,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -168465,12 +168471,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168482,7 +168488,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168501,8 +168507,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168511,7 +168517,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 88(%rdx)
+	movq	%rdi, 88(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
@@ -168522,12 +168528,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	96(%rdx), %rdi
+	movq	96(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168539,7 +168545,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168558,8 +168564,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168568,7 +168574,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 96(%rdx)
+	movq	%rdi, 96(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$12, %r8
@@ -168579,12 +168585,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	104(%rdx), %rdi
+	movq	104(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	112(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168596,7 +168602,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168615,8 +168621,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -168625,7 +168631,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 104(%rdx)
+	movq	%rdi, 104(%rax)
 	movq	336(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$13, %r8
@@ -168636,12 +168642,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 336(%rcx)
-	movq	112(%rdx), %rdi
+	movq	112(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	120(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -168653,44 +168659,44 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 112(%rdx)
-	movq	336(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 112(%rax)
+	movq	336(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$14, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 336(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 336(%rcx)
 	movq	8(%r14), %rax
 	orq 	%r15, %rax
 	movq	58480(%rax), %rcx
@@ -172285,19 +172291,19 @@ Loram_get_jazz$43:
 	movq	63928(%rax), %rax
 	orq 	%r15, %rax
 	movq	%rax, %mm1
-	movq	48(%r14), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r14), %rax
+	movq	48(%r14), %rax
 	orq 	%r15, %rax
+	movq	56(%r14), %rcx
+	orq 	%r15, %rcx
 	movq	%rsi, %mm2
-	movq	%rax, %mm3
-	xorb	%al, %al
-	movq	(%rdx), %rdi
+	movq	%rcx, %mm3
+	xorb	%dl, %dl
+	movq	(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172309,7 +172315,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172328,8 +172334,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172338,7 +172344,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, (%rdx)
+	movq	%rdi, (%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$0, %r8
@@ -172349,12 +172355,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	8(%rdx), %rdi
+	movq	8(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172366,7 +172372,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172385,8 +172391,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172395,7 +172401,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 8(%rdx)
+	movq	%rdi, 8(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$1, %r8
@@ -172406,12 +172412,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	16(%rdx), %rdi
+	movq	16(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172423,7 +172429,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172442,8 +172448,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172452,7 +172458,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 16(%rdx)
+	movq	%rdi, 16(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$2, %r8
@@ -172463,12 +172469,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	24(%rdx), %rdi
+	movq	24(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172480,7 +172486,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172499,8 +172505,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172509,7 +172515,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 24(%rdx)
+	movq	%rdi, 24(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$3, %r8
@@ -172520,12 +172526,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	32(%rdx), %rdi
+	movq	32(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172537,7 +172543,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172556,8 +172562,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172566,7 +172572,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 32(%rdx)
+	movq	%rdi, 32(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$4, %r8
@@ -172577,12 +172583,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	40(%rdx), %rdi
+	movq	40(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172594,7 +172600,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172613,8 +172619,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172623,7 +172629,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 40(%rdx)
+	movq	%rdi, 40(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$5, %r8
@@ -172634,12 +172640,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	48(%rdx), %rdi
+	movq	48(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172651,7 +172657,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172670,8 +172676,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172680,7 +172686,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 48(%rdx)
+	movq	%rdi, 48(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$6, %r8
@@ -172691,12 +172697,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	56(%rdx), %rdi
+	movq	56(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172708,7 +172714,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172727,8 +172733,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172737,7 +172743,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 56(%rdx)
+	movq	%rdi, 56(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$7, %r8
@@ -172748,12 +172754,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	64(%rdx), %rdi
+	movq	64(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172765,7 +172771,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172784,8 +172790,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172794,7 +172800,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 64(%rdx)
+	movq	%rdi, 64(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$8, %r8
@@ -172805,12 +172811,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	72(%rdx), %rdi
+	movq	72(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172822,7 +172828,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172841,8 +172847,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172851,7 +172857,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 72(%rdx)
+	movq	%rdi, 72(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$9, %r8
@@ -172862,12 +172868,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	80(%rdx), %rdi
+	movq	80(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172879,7 +172885,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172898,8 +172904,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172908,7 +172914,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 80(%rdx)
+	movq	%rdi, 80(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$10, %r8
@@ -172919,12 +172925,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	88(%rdx), %rdi
+	movq	88(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172936,7 +172942,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172955,8 +172961,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -172965,7 +172971,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 88(%rdx)
+	movq	%rdi, 88(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$11, %r8
@@ -172976,12 +172982,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	96(%rdx), %rdi
+	movq	96(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -172993,7 +172999,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -173012,8 +173018,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -173022,7 +173028,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 96(%rdx)
+	movq	%rdi, 96(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$12, %r8
@@ -173033,12 +173039,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	104(%rdx), %rdi
+	movq	104(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	112(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -173050,7 +173056,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -173069,8 +173075,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -173079,7 +173085,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 104(%rdx)
+	movq	%rdi, 104(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$13, %r8
@@ -173090,12 +173096,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	112(%rdx), %rdi
+	movq	112(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	120(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -173107,7 +173113,7 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
+	andb	%dl, %r9b
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -173126,8 +173132,8 @@ Loram_get_jazz$43:
 	cmpq	$-1, %rcx
 	setne	%cl
 	andb	%cl, %r9b
-	notb	%al
-	orb 	%r9b, %al
+	notb	%dl
+	orb 	%r9b, %dl
 	leaq	1(%rdi), %rcx
 	movzbq	%r9b, %r8
 	leaq	-1(%r8), %r10
@@ -173136,7 +173142,7 @@ Loram_get_jazz$43:
 	andq	%r8, %rcx
 	orq 	%rcx, %rdi
 	movq	%mm3, %rcx
-	movq	%rdi, 112(%rdx)
+	movq	%rdi, 112(%rax)
 	movq	376(%rcx), %rdi
 	orq 	%r15, %rdi
 	movq	$14, %r8
@@ -173147,12 +173153,12 @@ Loram_get_jazz$43:
 	andq	%r9, %r8
 	orq 	%r8, %rdi
 	movq	%rdi, 376(%rcx)
-	movq	120(%rdx), %rdi
+	movq	120(%rax), %rdi
 	orq 	%r15, %rdi
 	movq	%mm2, %rcx
 	movq	128(%rcx), %r8
 	orq 	%r15, %r8
-	notb	%al
+	notb	%dl
 	movq	%r8, %rcx
 	notq	%rcx
 	tzcntq	%rcx, %rcx
@@ -173164,75 +173170,75 @@ Loram_get_jazz$43:
 	movq	%mm1, %rcx
 	cmpq	%rcx, %r9
 	setbe	%r9b
-	andb	%al, %r9b
-	movq	%r8, %rax
-	notq	%rax
-	tzcntq	%rax, %rcx
-	movq	$1, %rax
-	shlq	%cl, %rax
-	addq	$-1, %rax
-	addq	%r8, %rax
+	andb	%dl, %r9b
+	movq	%r8, %rcx
+	notq	%rcx
+	tzcntq	%rcx, %rcx
+	movq	$1, %rdx
+	shlq	%cl, %rdx
+	addq	$-1, %rdx
+	addq	%r8, %rdx
 	movq	%mm1, %rcx
-	cmpq	%rcx, %rax
-	setnb	%al
-	andb	%al, %r9b
+	cmpq	%rcx, %rdx
+	setnb	%cl
+	andb	%cl, %r9b
 	cmpq	$3, %rdi
-	setb	%al
-	andb	%al, %r9b
-	movq	%mm0, %rax
-	cmpq	$-1, %rax
-	setne	%al
-	andb	%al, %r9b
-	leaq	1(%rdi), %rax
-	movzbq	%r9b, %rcx
-	leaq	-1(%rcx), %r8
-	negq	%rcx
+	setb	%cl
+	andb	%cl, %r9b
+	movq	%mm0, %rcx
+	cmpq	$-1, %rcx
+	setne	%cl
+	andb	%cl, %r9b
+	leaq	1(%rdi), %rcx
+	movzbq	%r9b, %rdx
+	leaq	-1(%rdx), %r8
+	negq	%rdx
 	andq	%r8, %rdi
-	andq	%rcx, %rax
-	orq 	%rax, %rdi
-	movq	%mm3, %rax
-	movq	%rdi, 120(%rdx)
-	movq	376(%rax), %rcx
-	orq 	%r15, %rcx
+	andq	%rdx, %rcx
+	orq 	%rcx, %rdi
+	movq	%mm3, %rcx
+	movq	%rdi, 120(%rax)
+	movq	376(%rcx), %rax
+	orq 	%r15, %rax
 	movq	$15, %rdx
 	movzbq	%r9b, %rdi
 	leaq	-1(%rdi), %r8
 	negq	%rdi
-	andq	%r8, %rcx
+	andq	%r8, %rax
 	andq	%rdi, %rdx
-	orq 	%rdx, %rcx
-	movq	%rcx, 376(%rax)
+	orq 	%rdx, %rax
+	movq	%rax, 376(%rcx)
 	movq	%rsi, %mm0
 	call	L_stash_overflow_ub$1
 Loram_get_jazz$42:
-	movq	%r14, %r8
-	orq 	%r15, %r8
-	movq	%mm0, %rsi
+	movq	%r14, %rdx
+	orq 	%r15, %rdx
+	movq	%mm0, %r8
 	movq	$0, %rdi
 	jmp 	Loram_get_jazz$40
 Loram_get_jazz$41:
 	movq	$-1, %rax
 	cmovnb	%rax, %r15
 	leaq	48(%rdi), %rax
-	movq	8(%r8), %rcx
+	movq	8(%rdx), %rcx
 	orq 	%r15, %rcx
-	movq	%rax, %rdx
-	imulq	$1360, %rdx, %rdx
-	movq	(%rcx,%rdx), %r10
+	movq	%rax, %rsi
+	imulq	$1360, %rsi, %rsi
+	movq	(%rcx,%rsi), %r10
 	orq 	%r15, %r10
 	movq	%r10, %mm0
-	movq	8(%rcx,%rdx), %rcx
+	movq	8(%rcx,%rsi), %rcx
 	orq 	%r15, %rcx
 	movq	%rcx, %mm1
-	movq	48(%r8), %rdx
-	orq 	%r15, %rdx
-	movq	56(%r8), %rcx
+	movq	48(%rdx), %rsi
+	orq 	%r15, %rsi
+	movq	56(%rdx), %rcx
 	orq 	%r15, %rcx
-	movq	%rsi, %mm2
+	movq	%r8, %mm2
 	movq	%rax, %mm3
 	movq	%rcx, %mm4
 	xorb	%al, %al
-	movq	(%rdx), %r10
+	movq	(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	8(%rcx), %r11
@@ -173280,7 +173286,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, (%rdx)
+	movq	%r11, (%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$0, %r11
@@ -173291,7 +173297,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	8(%rdx), %r10
+	movq	8(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	16(%rcx), %r11
@@ -173339,7 +173345,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 8(%rdx)
+	movq	%r11, 8(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$1, %r11
@@ -173350,7 +173356,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	16(%rdx), %r10
+	movq	16(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	24(%rcx), %r11
@@ -173398,7 +173404,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 16(%rdx)
+	movq	%r11, 16(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$2, %r11
@@ -173409,7 +173415,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	24(%rdx), %r10
+	movq	24(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	32(%rcx), %r11
@@ -173457,7 +173463,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 24(%rdx)
+	movq	%r11, 24(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$3, %r11
@@ -173468,7 +173474,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	32(%rdx), %r10
+	movq	32(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	40(%rcx), %r11
@@ -173516,7 +173522,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 32(%rdx)
+	movq	%r11, 32(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$4, %r11
@@ -173527,7 +173533,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	40(%rdx), %r10
+	movq	40(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	48(%rcx), %r11
@@ -173575,7 +173581,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 40(%rdx)
+	movq	%r11, 40(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$5, %r11
@@ -173586,7 +173592,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	48(%rdx), %r10
+	movq	48(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	56(%rcx), %r11
@@ -173634,7 +173640,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 48(%rdx)
+	movq	%r11, 48(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$6, %r11
@@ -173645,7 +173651,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	56(%rdx), %r10
+	movq	56(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	64(%rcx), %r11
@@ -173693,7 +173699,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 56(%rdx)
+	movq	%r11, 56(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$7, %r11
@@ -173704,7 +173710,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	64(%rdx), %r10
+	movq	64(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	72(%rcx), %r11
@@ -173752,7 +173758,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 64(%rdx)
+	movq	%r11, 64(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$8, %r11
@@ -173763,7 +173769,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	72(%rdx), %r10
+	movq	72(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	80(%rcx), %r11
@@ -173811,7 +173817,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 72(%rdx)
+	movq	%r11, 72(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$9, %r11
@@ -173822,7 +173828,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	80(%rdx), %r10
+	movq	80(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	88(%rcx), %r11
@@ -173870,7 +173876,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 80(%rdx)
+	movq	%r11, 80(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$10, %r11
@@ -173881,7 +173887,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	88(%rdx), %r10
+	movq	88(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	96(%rcx), %r11
@@ -173929,7 +173935,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 88(%rdx)
+	movq	%r11, 88(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$11, %r11
@@ -173940,7 +173946,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	96(%rdx), %r10
+	movq	96(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	104(%rcx), %r11
@@ -173988,7 +173994,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 96(%rdx)
+	movq	%r11, 96(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$12, %r11
@@ -173999,7 +174005,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	104(%rdx), %r10
+	movq	104(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	112(%rcx), %r11
@@ -174047,7 +174053,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 104(%rdx)
+	movq	%r11, 104(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$13, %r11
@@ -174058,7 +174064,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	112(%rdx), %r10
+	movq	112(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	120(%rcx), %r11
@@ -174106,7 +174112,7 @@ Loram_get_jazz$41:
 	orq 	%rcx, %r11
 	movq	%mm3, %rcx
 	movq	%mm4, %r10
-	movq	%r11, 112(%rdx)
+	movq	%r11, 112(%rsi)
 	movq	(%r10,%rcx,8), %rbp
 	orq 	%r15, %rbp
 	movq	$14, %r11
@@ -174117,7 +174123,7 @@ Loram_get_jazz$41:
 	andq	%rbx, %r11
 	orq 	%r11, %rbp
 	movq	%rbp, (%r10,%rcx,8)
-	movq	120(%rdx), %r10
+	movq	120(%rsi), %r10
 	orq 	%r15, %r10
 	movq	%mm2, %rcx
 	movq	128(%rcx), %r11
@@ -174162,31 +174168,31 @@ Loram_get_jazz$41:
 	orq 	%rax, %r10
 	movq	%mm3, %rax
 	movq	%mm4, %rcx
-	movq	%r10, 120(%rdx)
-	movq	(%rcx,%rax,8), %rdx
-	orq 	%r15, %rdx
+	movq	%r10, 120(%rsi)
+	movq	(%rcx,%rax,8), %rsi
+	orq 	%r15, %rsi
 	movq	$15, %r10
 	movzbq	%bl, %r11
 	leaq	-1(%r11), %rbx
 	negq	%r11
-	andq	%rbx, %rdx
+	andq	%rbx, %rsi
 	andq	%r11, %r10
-	orq 	%r10, %rdx
-	movq	%rdx, (%rcx,%rax,8)
+	orq 	%r10, %rsi
+	movq	%rsi, (%rcx,%rax,8)
 	leaq	1(%rdi), %rdi
 Loram_get_jazz$40:
 	cmpq	%r9, %rdi
 	jb  	Loram_get_jazz$41
 	movq	$-1, %rax
 	cmovb	%rax, %r15
-	movq	(%r8), %rax
+	movq	(%rdx), %rax
 	orq 	%r15, %rax
-	movq	48(%r8), %rcx
+	movq	48(%rdx), %rcx
 	orq 	%r15, %rcx
-	movq	56(%r8), %rdx
-	orq 	%r15, %rdx
-	movq	24(%r8), %rsi
+	movq	56(%rdx), %rsi
 	orq 	%r15, %rsi
+	movq	24(%rdx), %rdx
+	orq 	%r15, %rdx
 	xorq	%r9, %r9
 	movq	$0, %rdi
 	jmp 	Loram_get_jazz$38
@@ -174448,7 +174454,7 @@ Loram_get_jazz$39:
 	andq	%rbx, %r11
 	orq 	%r11, %r10
 	movq	%r10, (%rcx,%r9,8)
-	movq	(%rdx,%rdi,8), %r10
+	movq	(%rsi,%rdi,8), %r10
 	movq	%r9, %r11
 	movzbq	%r8b, %r8
 	leaq	-1(%r8), %rbx
@@ -174456,10 +174462,10 @@ Loram_get_jazz$39:
 	andq	%rbx, %r10
 	andq	%r8, %r11
 	orq 	%r11, %r10
-	movq	%r10, (%rdx,%rdi,8)
+	movq	%r10, (%rsi,%rdi,8)
 	incq	%rdi
 Loram_get_jazz$38:
-	cmpq	%rsi, %rdi
+	cmpq	%rdx, %rdi
 	jb  	Loram_get_jazz$39
 	movq	$-1, %rax
 	cmovb	%rax, %r15
@@ -174510,7 +174516,7 @@ Loram_get_jazz$27:
 	movq	$-1, %r8
 	cmovnb	%r8, %r15
 	imulq	$2720, %rcx, %rbp
-	movq	%rax, 2752(%rsp)
+	movq	%rax, 2760(%rsp)
 	movq	%rdx, %rax
 	leaq	(%rcx,%rcx), %r8
 	movq	%rdi, 2736(%rsp)
@@ -175168,7 +175174,7 @@ Loram_get_jazz$32:
 	jb  	Loram_get_jazz$30
 	movq	$-1, %rax
 	cmovb	%rax, %r15
-	movq	2752(%rsp), %rax
+	movq	2760(%rsp), %rax
 	movq	2736(%rsp), %rdi
 	movq	2784(%rsp), %r9
 	movq	2816(%rsp), %r11
@@ -175189,7 +175195,7 @@ Loram_get_jazz$24:
 	jb  	Loram_get_jazz$22
 	movq	$-1, %rax
 	cmovb	%rax, %r15
-	movq	2760(%rsp), %rax
+	movq	2752(%rsp), %rax
 	orq 	%r15, %rax
 	movq	(%rax), %rcx
 	orq 	%r15, %rcx

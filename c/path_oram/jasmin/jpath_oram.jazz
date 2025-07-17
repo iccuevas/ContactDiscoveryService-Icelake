@@ -13,7 +13,7 @@ fn oram_get_jazz(
   block_id = block_id;
   out_data = out_data;
   msf = #init_msf();
-  abort = _oram_access_read(oram, block_id, out_data, msf);
+  abort = _oram_access(oram, block_id, out_data, msf, READ_ACCESSOR);
   return abort;
 }
 
@@ -30,7 +30,7 @@ fn oram_put_jazz(
   block_id = block_id;
   in_data = in_data;
   msf = #init_msf();
-  abort = _oram_access_write(oram, block_id, in_data, msf);
+  abort = _oram_access(oram, block_id, in_data, msf, WRITE_ACCESSOR);
   return abort;
 }
 
@@ -47,7 +47,7 @@ fn oram_function_access_get_jazz(
   block_id = block_id;
   vargs = vargs;
   msf = #init_msf();
-  abort = _oram_function_access_get(oram, block_id, vargs, msf);
+  abort = _oram_access(oram, block_id, vargs, msf, RECORD_ACCESSOR);
   return abort;
 }
 
@@ -64,7 +64,7 @@ fn oram_function_access_put_jazz(
   block_id = block_id;
   vargs = vargs;
   msf = #init_msf();
-  abort = _oram_function_access_put(oram, block_id, vargs, msf);
+  abort = _oram_access(oram, block_id, vargs, msf, ROBINHOOD_ACCESSOR);
   return abort;
 }
 

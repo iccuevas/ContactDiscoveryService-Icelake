@@ -25,3 +25,9 @@ param int EPB_CT_SH2_ADDR = 7;
 // error
 param int err_SUCCESS = 0;
 param int err_ORAM__STASH_EXHAUSTION = 806;
+
+// accessor indices
+param int READ_ACCESSOR = 0;
+param int WRITE_ACCESSOR = 1;
+param int ROBINHOOD_ACCESSOR = 2;
+param int RECORD_ACCESSOR = 3;

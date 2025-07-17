@@ -563,3 +563,36 @@ fn _i_get_record_accessor(
 
   return block_data, msf;
 }
+
+inline
+fn _i_read_accessor(
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
+  reg u64 out_data
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  reg u256 r;
+  inline int i;
+  for i = 0 to BLOCK_DATA_SIZE_QWORDS / 4
+  {
+    r = block_data.[u256 32*i];
+    (u256)[out_data + 32 * i] = r;
+  }
+  return block_data;
+}
+
+inline
+fn _i_write_accessor_full(
+  reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
+  reg u64 in_data
+) -> reg ptr u64[BLOCK_DATA_SIZE_QWORDS]
+{
+  reg u256 r;
+  inline int i;
+
+  for i = 0 to BLOCK_DATA_SIZE_QWORDS / 4
+  {
+    r = (u256)[in_data + 32 * i];
+    block_data.[u256 32*i] = r;
+  }
+  return block_data;
+}
