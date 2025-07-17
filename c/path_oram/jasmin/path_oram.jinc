@@ -2,52 +2,6 @@ require "stash.jinc"
 require "position_map.jinc"
 require "accessors.jinc"
 
-/**
- * @brief read the path from the bucket store, performing the same sequence of instructions independent of the input.
- * Post-condition: the block with `id == target_block_id` will *not* be in the stash - neither the overflow or the path stash.
- * It will be in the block `*target` and the new position will be set.
- * 
- * @param oram 
- * @param path Path for block with ID `target_block_id`.
- * @param target_block_id ID of block to read
- * @param target On output, block with ID `target_block_id` will be available here
- * @param new_position Position for the target block after this access
- */
-inline
-fn _i_oram_read_path_for_block(
-  reg u64 oram path,
-  #secret reg u64 target_block_id,
-  reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS] target,
-  #secret reg u64 new_position,
-  #msf reg u64 msf
-) -> reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS], #msf reg u64
-{
-  reg u64 stash bucket_store value;
-  inline int i;
-
-  () = #spill(new_position, path);
-  stash, msf = oram_stash(oram, msf);
-  bucket_store, msf = oram_bucket_store(oram, msf);
-  for i = 0 to PATH_LENGTH
-  {
-    () = #unspill(path);
-    path = #protect(path, msf);
-    #declassify value = (64u)[path + 8 + 8 * i];
-    () = #spill(path);
-    value = #protect(value, msf);
-    #update_after_call target, msf = _i_stash_add_path_bucket(stash, bucket_store, value, target_block_id, target, msf);
-    stash = #protect(stash, msf);
-    bucket_store = #protect(bucket_store, msf);
-  }
-  #update_after_call target, msf = _i_stash_scan_overflow_for_target(stash, target_block_id, target, msf);
-
-  () = #unspill(new_position);
-  target[u64 0] = target_block_id;
-  target[u64 1] = new_position;
-
-  return target, msf;
-}
-
 inline
 fn _i_read_accessor(
   reg ptr u64[BLOCK_DATA_SIZE_QWORDS] block_data,
@@ -123,7 +77,7 @@ fn _oram_access_read(
     tree_path_update(path, x, PATH_LENGTH);
 
     new_position *= 2;
-    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf);
+    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf, PATH_LENGTH);
     () = #spill(path);
     () = #unspill(out_data);
     out_data = #protect(out_data, msf);
@@ -213,7 +167,7 @@ fn _oram_access_write(
     tree_path_update(path, x, PATH_LENGTH);
 
     new_position *= 2;
-    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf);
+    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf, PATH_LENGTH);
     () = #spill(path);
     () = #unspill(in_data);
     in_data = #protect(in_data, msf);
@@ -300,7 +254,7 @@ fn _oram_position_map_put(
   tree_path_update(path, x, PATH_LENGTH_0);
 
   new_position *= 2;
-  target_block, msf = __i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf);
+  target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf, PATH_LENGTH_0);
   () = #spill(path);
   () = #unspill(in_data);
   in_data = #protect(in_data, msf);
@@ -388,7 +342,7 @@ fn _oram_function_access_get(
     tree_path_update(path, x, PATH_LENGTH);
 
     new_position *= 2;
-    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf);
+    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf, PATH_LENGTH);
     () = #spill(path, oram);
     () = #unspill(vargs);
     vargs = #protect(vargs, msf);
@@ -482,7 +436,7 @@ fn _oram_function_access_put(
     tree_path_update(path, x, PATH_LENGTH);
 
     new_position *= 2;
-    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf);
+    target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf, PATH_LENGTH);
     () = #spill(path, oram);
     () = #unspill(vargs);
     vargs = #protect(vargs, msf);

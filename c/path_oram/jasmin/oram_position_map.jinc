@@ -52,14 +52,25 @@ fn __position_map_read_then_set_linear(
   return x, msf;
 }
 
-// oram
+/**
+ * @brief read the path from the bucket store, performing the same sequence of instructions independent of the input.
+ * Post-condition: the block with `id == target_block_id` will *not* be in the stash - neither the overflow or the path stash.
+ * It will be in the block `*target` and the new position will be set.
+ * 
+ * @param oram 
+ * @param path Path for block with ID `target_block_id`.
+ * @param target_block_id ID of block to read
+ * @param target On output, block with ID `target_block_id` will be available here
+ * @param new_position Position for the target block after this access
+ */
 inline
-fn __i_oram_read_path_for_block(
+fn _i_oram_read_path_for_block(
   reg u64 oram path,
   reg u64 target_block_id,
   reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS] target,
   reg u64 new_position,
-  #msf reg u64 msf
+  #msf reg u64 msf,
+  inline int path_length
 ) -> reg ptr u64[DECRYPTED_BLOCK_SIZE_QWORDS], #msf reg u64
 {
   reg u64 stash bucket_store value;
@@ -68,7 +79,7 @@ fn __i_oram_read_path_for_block(
   () = #spill(new_position, path);
   stash, msf = oram_stash(oram, msf);
   bucket_store, msf = oram_bucket_store(oram, msf);
-  for i = 0 to PATH_LENGTH_0
+  for i = 0 to path_length
   {
     () = #unspill(path);
     path = #protect(path, msf);
@@ -128,7 +139,7 @@ fn __i_oram_put(
 
   new_position *= 2;
   () = #spill(oram);
-  target_block, msf = __i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf);
+  target_block, msf = _i_oram_read_path_for_block(oram, path, block_id, target_block, new_position, msf, PATH_LENGTH_0);
   () = #spill(path);
   () = #unspill(start, data);
   target_block[2:BLOCK_DATA_SIZE_QWORDS], prev_data =
