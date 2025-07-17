@@ -67,3 +67,20 @@ fn oram_function_access_put_jazz(
   abort = _oram_function_access_put(oram, block_id, vargs, msf);
   return abort;
 }
+
+export
+fn oram_position_map_put_jazz(
+  reg u64 oram,
+  #secret reg u64 block_id,
+  reg u64 in_data
+) -> reg u32
+{
+  #msf reg u64 msf;
+  reg u32 abort;
+  oram = oram;
+  block_id = block_id;
+  in_data = in_data;
+  msf = #init_msf();
+  abort = _oram_position_map_put(oram, block_id, in_data, msf);
+  return abort;
+}

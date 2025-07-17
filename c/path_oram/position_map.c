@@ -72,7 +72,7 @@ static oram_position_map oram_position_map_create(size_t num_blocks, size_t num_
             getentropy(buf + j, sizeof(*buf));
             buf[j] = buf[j] % num_positions;
         }
-        oram_put(oram, base_block_id + i, buf);
+        oram_position_map_put_jazz(oram, base_block_id + i, buf);
     }
 
     size_t entries_per_block = block_size;
